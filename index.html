@@ -175,6 +175,29 @@ body { font-family: 'Inter', sans-serif; }
 
   </div>
 </nav>
+<!-- MOBILE MENU -->
+<div id="mobileMenu"
+  class="fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg
+         hidden flex-col items-center justify-center gap-8
+         text-white text-xl uppercase tracking-widest z-40">
+
+  <a href="index.html" class="mobile-link flex items-center gap-3">
+    <i class="fa-solid fa-house"></i> Home
+  </a>
+
+  <a href="services.html" class="mobile-link flex items-center gap-3">
+    <i class="fa-solid fa-layer-group"></i> Services
+  </a>
+
+  <a href="projects.html" class="mobile-link flex items-center gap-3">
+    <i class="fa-solid fa-diagram-project"></i> Projects
+  </a>
+
+  <a href="contact.html" class="mobile-link flex items-center gap-3">
+    <i class="fa-solid fa-envelope"></i> Contact
+  </a>
+
+</div>
 
 <main class="pt-28">
 
@@ -787,12 +810,20 @@ document.addEventListener('mousemove', (e) => {
 
 </body>
 <script>
-  const btn = document.getElementById("mobileMenuBtn");
-  const menu = document.getElementById("mobileMenu");
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Close menu when clicking a link
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
   });
 </script>
+
 
 </html>
