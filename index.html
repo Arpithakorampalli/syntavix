@@ -121,65 +121,52 @@ body { font-family: 'Inter', sans-serif; }
 <nav class="fixed top-0 w-full z-50 nav-glass">
   <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
 
+    <!-- LOGO -->
     <a href="index.html"
       class="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] bg-clip-text text-transparent">
       Syntavix
     </a>
 
-  <!-- MOBILE MENU BUTTON -->
-<button id="mobileMenuBtn"
-  class="md:hidden text-white text-2xl focus:outline-none hover:text-[#d7a8ff] transition"
-  aria-label="Open menu">
-  <i class="fa-solid fa-bars"></i>
-</button>
+    <!-- MOBILE MENU BUTTON -->
+    <button id="mobileMenuBtn"
+      class="md:hidden text-white text-2xl focus:outline-none hover:text-[#d7a8ff] transition"
+      aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-<!-- DESKTOP NAVIGATION -->
-<ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
-  <li>
-    <a href="index.html" class="nav-item inline-flex items-center gap-2">
-      <i class="fa-solid fa-house"></i>
-      <span>Home</span>
+    <!-- DESKTOP NAVIGATION -->
+    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+      <li><a href="index.html" class="nav-item inline-flex items-center gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="services.html" class="nav-item inline-flex items-center gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+      <li><a href="projects.html" class="nav-item inline-flex items-center gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="contact.html" class="nav-item inline-flex items-center gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+
+    <!-- DESKTOP CTA -->
+    <a href="contact.html"
+      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
+      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+      text-white text-sm shadow-lg hover:scale-105 transition">
+      <i class="fa-solid fa-paper-plane"></i> Get in Touch
     </a>
-  </li>
-  <li>
-    <a href="services.html" class="nav-item inline-flex items-center gap-2">
-      <i class="fa-solid fa-layer-group"></i>
-      <span>Services</span>
-    </a>
-  </li>
-  <li>
-    <a href="projects.html" class="nav-item inline-flex items-center gap-2">
-      <i class="fa-solid fa-diagram-project"></i>
-      <span>Projects</span>
-    </a>
-  </li>
-  <li>
-    <a href="contact.html" class="nav-item inline-flex items-center gap-2">
-      <i class="fa-solid fa-envelope"></i>
-      <span>Contact</span>
-    </a>
-  </li>
-</ul>
-
-<!-- DESKTOP CTA BUTTON -->
-<a href="contact.html"
-  class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
-  bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-  text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
-
-  <i class="fa-solid fa-paper-plane"></i>
-  <span>Get in Touch</span>
-</a>
-
-
 
   </div>
 </nav>
+
+<!-- ===================== -->
 <!-- MOBILE MENU -->
+<!-- ===================== -->
 <div id="mobileMenu"
-  class="fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg
-         hidden flex-col items-center justify-center gap-8
-         text-white text-xl uppercase tracking-widest z-40">
+  class="fixed inset-0 z-[999] hidden flex flex-col
+         items-center justify-center gap-8
+         bg-black/95 backdrop-blur-xl
+         text-white text-xl uppercase tracking-widest">
+
+  <!-- CLOSE BUTTON -->
+  <button id="mobileCloseBtn"
+    class="absolute top-6 right-6 text-3xl hover:text-[#d7a8ff] transition">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
 
   <a href="index.html" class="mobile-link flex items-center gap-3">
     <i class="fa-solid fa-house"></i> Home
@@ -197,7 +184,16 @@ body { font-family: 'Inter', sans-serif; }
     <i class="fa-solid fa-envelope"></i> Contact
   </a>
 
+  <!-- MOBILE CTA -->
+  <a href="contact.html"
+    class="mt-6 inline-flex items-center gap-3 px-8 py-4 rounded-xl
+           bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+           text-white font-semibold shadow-lg">
+    <i class="fa-solid fa-paper-plane"></i> Get in Touch
+  </a>
+
 </div>
+
 
 <main class="pt-28">
 
@@ -812,18 +808,26 @@ document.addEventListener('mousemove', (e) => {
 <script>
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileCloseBtn = document.getElementById('mobileCloseBtn');
 
   mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
   });
 
-  // Close menu when clicking a link
+  mobileCloseBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+
   document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
     });
   });
 </script>
+
 
 
 </html>
