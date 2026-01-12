@@ -153,20 +153,10 @@ body { font-family: 'Inter', sans-serif; }
   </div>
 </nav>
 
-<!-- ===================== -->
-<!-- MOBILE MENU -->
-<!-- ===================== -->
 <div id="mobileMenu"
-  class="fixed inset-0 z-[999] hidden flex flex-col
-         items-center justify-center gap-8
-         bg-black/95 backdrop-blur-xl
-         text-white text-xl uppercase tracking-widest">
-
-  <!-- CLOSE BUTTON -->
-  <button id="mobileCloseBtn"
-    class="absolute top-6 right-6 text-3xl hover:text-[#d7a8ff] transition">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
+  class="fixed inset-0 bg-black/95 backdrop-blur-lg
+         hidden flex flex-col items-center justify-center gap-8
+         text-white text-xl uppercase tracking-widest z-40">
 
   <a href="index.html" class="mobile-link flex items-center gap-3">
     <i class="fa-solid fa-house"></i> Home
@@ -184,15 +174,14 @@ body { font-family: 'Inter', sans-serif; }
     <i class="fa-solid fa-envelope"></i> Contact
   </a>
 
-  <!-- MOBILE CTA -->
   <a href="contact.html"
-    class="mt-6 inline-flex items-center gap-3 px-8 py-4 rounded-xl
-           bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-           text-white font-semibold shadow-lg">
+     class="mobile-link mt-6 px-8 py-3 rounded-full
+            bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+            text-white text-sm shadow-lg">
     <i class="fa-solid fa-paper-plane"></i> Get in Touch
   </a>
-
 </div>
+
 
 
 <main class="pt-28">
@@ -804,29 +793,37 @@ document.addEventListener('mousemove', (e) => {
   });
 </script>
 
-</body>
 <script>
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  });
+    // SAFETY CHECK (prevents silent crashes)
+    if (!mobileMenuBtn || !mobileMenu) return;
 
-  mobileCloseBtn.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    document.body.style.overflow = '';
-  });
+    // Toggle menu
+    mobileMenuBtn.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
 
-  document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      document.body.style.overflow = '';
+      if (mobileMenu.classList.contains("hidden")) {
+        document.body.style.overflow = "";
+      } else {
+        document.body.style.overflow = "hidden";
+      }
+    });
+
+    // Close menu on link click
+    document.querySelectorAll(".mobile-link").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+        document.body.style.overflow = "";
+      });
     });
   });
 </script>
+
+</body>
+
 
 
 
