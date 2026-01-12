@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Syntavix - Home</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+/* ===================== */
+/* GLOBAL NAVBAR STYLE   */
+/* ===================== */
+.nav-glass {
+  background: rgba(5,5,10,0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Nav underline */
+.nav-item {
+  position: relative;
+}
+.nav-item::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  transition: width .35s ease;
+}
+.nav-item:hover::after {
+  width:100%;
+}
+
+/* ===================== */
+/* HERO TECH BACKGROUND  */
+/* ===================== */
+.hero-grid {
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: gridMove 30s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 80px 80px; }
+}
+
+/* Flowing data lines */
+.data-line {
+  position:absolute;
+  width:2px;
+  height:120px;
+  background: linear-gradient(to bottom, transparent, #ffffff55, transparent);
+  animation: dataFlow 6s linear infinite;
+  opacity:0.35;
+}
+
+@keyframes dataFlow {
+  from { transform: translateY(-150px); }
+  to { transform: translateY(120vh); }
+}
+
+/* Gradient mesh overlay */
+.mesh-overlay {
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, #8b1e3f55, transparent 45%),
+    radial-gradient(circle at 80% 70%, #6a1b7e55, transparent 45%);
+}
+</style>
+
+
+</head>
+
+<body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
+
+
+<!-- ===================== -->
+<!-- NAVBAR -->
+<!-- ===================== -->
+<nav class="fixed top-0 w-full z-50 nav-glass">
+  <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
+
+    <a href="index.html"
+      class="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] bg-clip-text text-transparent">
+      Syntavix
+    </a>
+
+    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="services.html" class="nav-item">Services</a></li>
+      <li><a href="projects.html" class="nav-item">Projects</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+
+    <a href="contact.html"
+      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
+      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+      text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
+      Get in Touch →
+    </a>
+
+  </div>
+</nav>
+
+<main class="pt-28">
+
+<!-- ===================== -->
+<!-- HERO -->
+<!-- ===================== -->
+<section class="relative min-h-screen flex items-center overflow-hidden"
+  style="
+    background: linear-gradient(
+      135deg,
+      #4a1236 0%,
+      #6a1b7e 45%,
+      #8b1e3f 100%
+    );
+  ">
+
+  <!-- SUBTLE PREMIUM GRID -->
+  <div class="absolute inset-0"
+    style="
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 90px 90px;
+      animation: slowFloat 40s linear infinite;
+    ">
+  </div>
+
+  <!-- SOFT BRAND MESH -->
+  <div class="absolute inset-0"
+    style="
+      background:
+        radial-gradient(circle at 20% 30%, rgba(225, 141, 15, 0.35), transparent 45%),
+        radial-gradient(circle at 80% 60%, rgba(35, 44, 214, 0.35), transparent 45%);
+      animation: meshMove 30s ease-in-out infinite alternate;
+    ">
+  </div>
+
+  <!-- HERO CONTENT -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+
+  <span
+    style="
+      color:#f3e8ff;
+      letter-spacing:0.02em;
+    "
+  >
+    Empowering
+  </span>
+
+  <span
+    style="
+      background: linear-gradient(90deg,#e6c9ff,#d7a8ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+      display:inline-block;
+    "
+  >
+    the World
+  </span>
+
+  <span style="color:#f3e8ff;">with</span>
+
+  <br class="hidden md:block">
+
+  <span
+    style="
+      color:#ffffff;
+      position:relative;
+    "
+  >
+    Intelligent
+  </span>
+
+  <span
+    style="
+      background: linear-gradient(90deg,#ffd6f5,#e7b3ff,#ffb3d1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow:
+        0 3px 6px rgba(0,0,0,0.45),
+        0 0 18px rgba(231,179,255,0.7);
+      display:inline-block;
+      margin-left:6px;
+    "
+  >
+    Technology
+  </span>
+
+</h1>
+
+
+
+    <p class="text-lg md:text-xl max-w-3xl mb-10"
+       style="color: #e6d9ea;">
+      Syntavix delivers advanced software engineering, AI platforms, embedded systems,
+      financial technology, industrial automation, and intelligent robotics for
+      global enterprises.
+    </p>   
+
+    <a href="contact.html"
+   class="relative inline-flex items-center gap-3 px-12 py-4 rounded-xl
+          bg-gradient-to-r from-[#ff416c] to-[#3b82f6]
+          text-white font-semibold text-lg
+          shadow-lg overflow-hidden
+          group
+          transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,65,108,0.7),0_0_50px_rgba(59,130,246,0.6)]">
+  Let’s Collaborate →
+</a>
+
+  
+  <!-- Shine effect -->
+  <span class="absolute top-0 left-0 w-0 h-full bg-white opacity-20 
+               transform -skew-x-12 rotate-12
+               group-hover:w-[200%] transition-all duration-700"></span>
+</a>
+
+</a>
+
+</a>
+
+  </div>
+</section>
+
+<!-- ANIMATIONS -->
+<style>
+@keyframes slowFloat {
+  from { background-position: 0 0; }
+  to   { background-position: 90px 90px; }
+}
+
+@keyframes meshMove {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-25px); }
+}
+</style>
+
+
+
+<!-- ===================== -->
+<!-- HERO CSS -->
+<!-- ===================== -->
+<style>
+.hero-grid, .mesh-overlay {
+  position:absolute;
+  inset:0;
+  z-index:1;
+}
+
+/* GRID MOVE ANIMATION */
+.hero-grid {
+  background-size: 100px 100px;
+  animation: gridMove 35s linear infinite;
+  filter: blur(0.5px);
+}
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+/* DATA STREAMS */
+.data-line {
+  position:absolute;
+  width:2px;
+  height:120px;
+  opacity:0.4;
+  animation: dataFlow 6s linear infinite;
+  z-index:2;
+  border-radius:2px;
+}
+@keyframes dataFlow {
+  from { transform: translateY(-150px); }
+  to { transform: translateY(120vh); }
+}
+
+/* Glow effect */
+.glow-line {
+  box-shadow: 0 0 15px rgba(209,59,112,0.5), 0 0 30px rgba(106,27,126,0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* FLOATING 3D EFFECT */
+.floating-grid {
+  animation: gridFloat 25s ease-in-out infinite alternate;
+}
+.floating-mesh {
+  animation: meshFloat 30s ease-in-out infinite alternate;
+}
+
+@keyframes gridFloat {
+  0%   { transform: translate3d(0,0,0) rotateX(0deg) rotateY(0deg); }
+  25%  { transform: translate3d(5px,-5px,0) rotateX(1deg) rotateY(1deg); }
+  50%  { transform: translate3d(-5px,5px,0) rotateX(-1deg) rotateY(-1deg); }
+  75%  { transform: translate3d(3px,-3px,0) rotateX(0.5deg) rotateY(0.5deg); }
+  100% { transform: translate3d(0,0,0) rotateX(0deg) rotateY(0deg); }
+}
+
+@keyframes meshFloat {
+  0%   { transform: translate3d(0,0,0) rotateX(0deg) rotateY(0deg); }
+  25%  { transform: translate3d(-4px,4px,0) rotateX(-0.5deg) rotateY(-0.5deg); }
+  50%  { transform: translate3d(4px,-4px,0) rotateX(0.5deg) rotateY(0.5deg); }
+  75%  { transform: translate3d(-2px,2px,0) rotateX(-0.25deg) rotateY(-0.25deg); }
+  100% { transform: translate3d(0,0,0) rotateX(0deg) rotateY(0deg); }
+}
+
+</style>
+
+<!-- ===================== -->
+<!-- HERO INTERACTIVITY -->
+<!-- ===================== -->
+<script>
+const dataLines = document.querySelectorAll('.glow-line');
+
+document.addEventListener('mousemove', (e) => {
+  const { clientX: x, clientY: y } = e;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const offsetX = (x - centerX) / centerX; 
+  const offsetY = (y - centerY) / centerY; 
+
+  dataLines.forEach((line, idx) => {
+    const moveX = offsetX * 30 * (idx % 2 === 0 ? 1 : -1);
+    const moveY = offsetY * 30 * (idx % 2 === 0 ? 1 : -1);
+    line.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    line.style.boxShadow = `0 0 25px rgba(209,59,112,0.6), 0 0 40px rgba(106,27,126,0.4)`;
+  });
+});
+</script>
+<!-- ===================== -->
+<!-- HERO TO ABOUT TRANSITION (Global-Level Premium Styling) -->
+<!-- ===================== -->
+<div class="relative flex justify-center mt-16 mb-16">
+  
+  <!-- Floating Card/Break Container -->
+  <div class="relative z-10 w-11/12 md:w-3/4 lg:w-2/3 p-12 rounded-3xl bg-gradient-to-tr from-[#6a1b7e]/70 to-[#8b1e3f]/70 shadow-2xl overflow-hidden animate-float-card">
+    
+    <!-- Subtle Glow Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#c07fb1]/20 to-[#f4a5c1]/10 opacity-50 rounded-3xl blur-xl pointer-events-none"></div>
+
+    <!-- Small Floating Particles -->
+    <div class="absolute top-5 left-10 w-3 h-3 rounded-full bg-[#f4a5c1] opacity-60 animate-bounce-slow"></div>
+    <div class="absolute bottom-8 right-12 w-4 h-4 rounded-full bg-[#c07fb1] opacity-50 animate-bounce-slower"></div>
+
+    <!-- Text Content -->
+    <div class="relative z-20 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-wide mb-3"
+          data-aos="fade-up">
+        Explore Our Expertise
+      </h2>
+      <p class="text-gray-200 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+         data-aos="fade-up" data-aos-delay="150">
+        Advanced AI, embedded systems, industrial automation, and robotics solutions designed to empower global enterprises with intelligence, precision, and innovation.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ===================== -->
+<!-- ANIMATIONS FOR BREAK -->
+<!-- ===================== -->
+<style>
+  /* Floating effect for break container */
+  @keyframes float-card {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-float-card { animation: float-card 6s ease-in-out infinite; }
+
+  /* Floating particle animations */
+  @keyframes bounce-slow {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes bounce-slower {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  .animate-bounce-slow { animation: bounce-slow 5s ease-in-out infinite; }
+  .animate-bounce-slower { animation: bounce-slower 7s ease-in-out infinite; }
+</style>
+
+
+
+<!-- ================= ABOUT US & CORE CAPABILITIES ================= -->
+<section id="about" class="relative py-32 overflow-hidden"
+         style="background: linear-gradient(135deg, #131313 0%, #c45086 100%);">
+
+  <!-- Floating Gradient Background Shapes -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Large soft glow -->
+    <div class="absolute w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#a85671] via-[#7b4f8a] to-transparent opacity-25 blur-[180px] top-[-150px] left-[-150px] animate-slow-spin"></div>
+    <!-- Smaller accent glow -->
+    <div class="absolute w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-[#c07fb1] via-[#e38ca1] to-transparent opacity-20 blur-[130px] bottom-[5%] right-[8%] animate-slow-spin-reverse"></div>
+    <!-- Floating pastel blob -->
+    <div class="absolute w-[400px] h-[400px] rounded-full bg-[#f4a5c1] opacity-15 blur-[120px] top-[25%] right-[12%] animate-float-slow"></div>
+    <!-- Subtle bottom-left glow -->
+    <div class="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#a85671] via-[#7b4f8a] to-transparent opacity-15 blur-[100px] bottom-[10%] left-[5%] animate-float-slower"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10 max-w-7xl">
+
+    <!-- Section Heading -->
+    <div class="text-center mb-24" data-aos="fade-up">
+      <h2 class="text-5xl md:text-6xl font-extrabold text-white mt-4 leading-tight relative inline-block">
+        About Us
+        <span class="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-[#c07fb1] to-[#f4a5c1] rounded-full animate-gradient-slide"></span>
+      </h2>
+      <p class="mt-6 text-lg md:text-xl text-gray-100 max-w-4xl mx-auto leading-relaxed tracking-wide">
+        Syntavix is a global software engineering leader delivering innovative solutions across AI-driven platforms, embedded systems, industrial automation, financial technology, and robotics. Our mission is to empower enterprises with intelligent, secure, and scalable technologies.
+      </p>
+      <p class="mt-4 text-gray-100 max-w-4xl mx-auto leading-relaxed tracking-wide">
+        With deep expertise in both software and hardware, we help companies automate processes, optimize systems, and innovate in complex, mission-critical environments worldwide. Our solutions are trusted by Fortune 500 companies for transformative digital experiences.
+      </p>
+    </div>
+
+    <!-- About Us Cards Responsive Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 relative">
+
+      <!-- Card 1 -->
+      <div class="about-card-unique floating-card p-8 bg-white rounded-3xl shadow-2xl cursor-pointer relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="interactive-glow absolute inset-0 rounded-3xl opacity-40 pointer-events-none"></div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Global Technology Expertise</h3>
+        <p class="text-gray-600 leading-relaxed text-sm">
+          Delivering advanced engineering and digital solutions across embedded systems, AI platforms, financial technology, industrial automation, and intelligent robotics worldwide.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="about-card-unique floating-card p-8 bg-white rounded-3xl shadow-2xl cursor-pointer relative" data-aos="fade-up" data-aos-delay="200">
+        <div class="interactive-glow absolute inset-0 rounded-3xl opacity-40 pointer-events-none"></div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Innovative Embedded Systems</h3>
+        <p class="text-gray-600 leading-relaxed text-sm">
+          Expertise in SoC-based PCB design and firmware development across diverse platforms to build scalable and high-performance embedded solutions.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="about-card-unique floating-card p-8 bg-white rounded-3xl shadow-2xl cursor-pointer relative" data-aos="fade-up" data-aos-delay="300">
+        <div class="interactive-glow absolute inset-0 rounded-3xl opacity-40 pointer-events-none"></div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">AI & Intelligent Platforms</h3>
+        <p class="text-gray-600 leading-relaxed text-sm">
+          Designing, deploying, and managing AI agents and intelligent automation platforms to enhance operational efficiency, data intelligence, and business insights.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="about-card-unique floating-card p-8 bg-white rounded-3xl shadow-2xl cursor-pointer relative" data-aos="fade-up" data-aos-delay="400">
+        <div class="interactive-glow absolute inset-0 rounded-3xl opacity-40 pointer-events-none"></div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Financial & Regulatory Solutions</h3>
+        <p class="text-gray-600 leading-relaxed text-sm">
+          Delivering investment banking compliance systems, stock market applications, and audit-ready regulatory platforms for global institutions.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="about-card-unique floating-card p-8 bg-white rounded-3xl shadow-2xl cursor-pointer relative" data-aos="fade-up" data-aos-delay="500">
+        <div class="interactive-glow absolute inset-0 rounded-3xl opacity-40 pointer-events-none"></div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Industrial & Robotic Innovation</h3>
+        <p class="text-gray-600 leading-relaxed text-sm">
+          Enabling industrial instrumentation, automation, and autonomous robotic systems for precise, mission-critical operations.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Core Capabilities Section -->
+    <div class="mt-32 relative z-10 p-12 rounded-3xl"
+         style="background: linear-gradient(to top right, #141214, #a360b3, #7b0349); box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
+
+      <h3 class="text-3xl md:text-4xl font-bold text-white text-center mb-16" data-aos="fade-up">Our Core Capabilities</h3>
+
+      <!-- Staggered Floating Badges -->
+      <div class="relative flex flex-wrap justify-center gap-6">
+        <div class="core-badge p-3 px-5 rounded-3xl bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] text-white font-semibold opacity-0 transform translate-y-10" data-aos="fade-up" data-aos-delay="100">PCB design using SoCs</div>
+        <div class="core-badge p-3 px-5 rounded-3xl bg-gradient-to-r from-[#10b981] to-[#3b82f6] text-white font-semibold opacity-0 transform translate-y-10" data-aos="fade-up" data-aos-delay="200">Firmware development for all SoC types</div>
+        <div class="core-badge p-3 px-5 rounded-3xl bg-gradient-to-r from-[#f472b6] to-[#f59e0b] text-white font-semibold opacity-0 transform translate-y-10" data-aos="fade-up" data-aos-delay="300">AI agent development & deployment</div>
+        <div class="core-badge p-3 px-5 rounded-3xl bg-gradient-to-r from-[#8b5cf6] to-[#6366f1] text-white font-semibold opacity-0 transform translate-y-10" data-aos="fade-up" data-aos-delay="400">Investment banking compliance & verification</div>
+        <div class="core-badge p-3 px-5 rounded-3xl bg-gradient-to-r from-[#3b82f6] to-[#06b6d4] text-white font-semibold opacity-0 transform translate-y-10" data-aos="fade-up" data-aos-delay="500">Stock market systems development</div>
+        <div class="core-badge p-3 px-5 rounded-3xl bg-gradient-to-r from-[#f97316] to-[#ef4444] text-white font-semibold opacity-0 transform translate-y-10" data-aos="fade-up" data-aos-delay="600">Industrial instrumentation engineering</div>
+        <div class="core-badge p-3 px-5 rounded-3xl bg-gradient-to-r from-[#ec4899] to-[#f43f5e] text-white font-semibold opacity-0 transform translate-y-10" data-aos="fade-up" data-aos-delay="700">Robotics & drones</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+  /* ============================= */
+  /* About Card Glow & Hover Effects */
+  /* ============================= */
+  .about-card-unique {
+    perspective: 1000px;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .about-card-unique:hover {
+    box-shadow: 0 40px 80px rgba(106,27,126,0.25),
+                0 0 35px rgba(139,30,63,0.2),
+                0 0 20px rgba(255, 255, 255,0.1);
+  }
+  .about-card-unique:hover .interactive-glow {
+    opacity:0.6;
+  }
+
+  /* About Card Floating Animation */
+  @keyframes float-card { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+  .floating-card { animation: float-card 6s ease-in-out infinite; }
+
+  /* Interactive Glow */
+  .interactive-glow {
+    background: linear-gradient(135deg, rgba(106,27,126,0.25), rgba(139,30,63,0.25));
+    filter: blur(50px);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    mix-blend-mode: screen;
+  }
+
+  /* Core Badge Hover Glow & Scale */
+  .core-badge {
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease;
+  }
+  .core-badge:hover {
+    transform: translateY(-5px) scale(1.07);
+    box-shadow: 0 15px 35px rgba(106,27,126,0.25),
+                0 0 25px rgba(139,30,63,0.2),
+                0 0 15px rgba(255,255,255,0.1);
+  }
+</style>
+
+
+<!-- ================= Styles & Animations ================= -->
+<style>
+  /* Floating Background */
+  @keyframes slow-spin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+  @keyframes slow-spin-reverse { 0%{transform:rotate(360deg);} 100%{transform:rotate(0deg);} }
+  @keyframes float-slow { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-30px);} }
+  .animate-slow-spin { animation: slow-spin 120s linear infinite; }
+  .animate-slow-spin-reverse { animation: slow-spin-reverse 150s linear infinite; }
+  .animate-float-slow { animation: float-slow 20s ease-in-out infinite; }
+
+  /* Floating Cards */
+  @keyframes float-card { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+  .floating-card { animation: float-card 6s ease-in-out infinite; }
+
+  /* Interactive Card Glow */
+  .about-card-unique { perspective: 1000px; position: relative; transition: transform 0.2s ease; }
+  .about-card-unique:hover { box-shadow: 0 30px 60px rgba(106,27,126,0.4), 0 0 25px rgba(139,30,63,0.3); }
+  .interactive-glow { background: linear-gradient(135deg, rgba(106,27,126,0.3), rgba(139,30,63,0.3)); filter: blur(50px); transition: transform 0.2s ease; mix-blend-mode: screen; }
+
+  /* Gradient underline animation */
+  @keyframes gradient-slide { 0%{left:0%;width:0%;}50%{left:0%;width:100%;}100%{left:100%;width:0%;} }
+  .animate-gradient-slide { animation: gradient-slide 3s infinite linear; }
+
+  /* Core badges animation */
+  .core-badge { transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease; }
+  .core-badge:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+</style>
+
+<script>
+  // 3D Tilt + Glow for About Us Cards
+  document.querySelectorAll('.about-card-unique').forEach(card => {
+    const glow = card.querySelector('.interactive-glow');
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const dx = x - cx;
+      const dy = y - cy;
+      card.style.transform = `rotateX(${dy/cy*8}deg) rotateY(${-dx/cx*8}deg) scale(1.05)`;
+      glow.style.transform = `translate(${dx*0.2}px,${dy*0.2}px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+      glow.style.transform = 'translate(0px,0px)';
+    });
+  });
+
+  AOS.init({ duration: 1200, easing: 'ease-out-cubic', once:true });
+</script>
+
+
+
+    <!-- VISION & MISSION -->
+<section class="py-20 bg-[#0b0b16]">
+  <div class="container mx-auto px-6 max-w-6xl">
+    <div class="grid md:grid-cols-2 gap-12 items-stretch">
+
+      <!-- VISION -->
+      <div
+        class="p-8 rounded-2xl shadow-2xl border-t-4 border-[#6a1b7e]
+               bg-gradient-to-br from-[#1a0a2e] to-[#3b0f4d]
+               hover:shadow-[0_15px_40px_rgba(106,27,126,0.5)]
+               transition-all"
+        data-aos="fade-right"
+      >
+        <div class="flex items-center gap-4 mb-4">
+          <!-- Eye / Vision Icon -->
+          <div class="p-3 rounded-full bg-[#6a1b7e] text-white">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <path d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h2 class="text-3xl font-bold text-[#e0c3fc]">Our Vision</h2>
+        </div>
+
+        <p class="text-gray-300 text-lg leading-relaxed">
+          To be a trusted global technology partner delivering intelligent,
+          secure, and scalable solutions that shape the future of engineering
+          and digital transformation.
+        </p>
+      </div>
+
+      <!-- MISSION -->
+      <div
+        class="p-8 rounded-2xl shadow-2xl border-t-4 border-[#8b1e3f]
+               bg-gradient-to-br from-[#2e0b14] to-[#5b0d2d]
+               hover:shadow-[0_15px_40px_rgba(139,30,63,0.5)]
+               transition-all"
+        data-aos="fade-left"
+      >
+        <div class="flex items-center gap-4 mb-4">
+          <!-- Target / Mission Icon -->
+          <div class="p-3 rounded-full bg-[#8b1e3f] text-white">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="12" cy="12" r="1.5"/>
+            </svg>
+          </div>
+          <h2 class="text-3xl font-bold text-[#f8a1c2]">Our Mission</h2>
+        </div>
+
+        <p class="text-gray-300 text-lg leading-relaxed">
+          To engineer high-impact solutions across hardware, software,
+          and AI-driven platforms—helping enterprises innovate,
+          modernize systems, and operate with confidence in
+          complex real-world environments.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- BOTTOM STATEMENT -->
+<div class="mt-20 py-12 text-center"
+     style="
+       background: linear-gradient(
+         180deg,
+         rgba(245,245,247,0.95),
+         rgba(238,238,241,0.95)
+       );
+     "
+     data-aos="fade-up"
+     data-aos-delay="300">
+
+  <p class="text-lg max-w-4xl mx-auto
+            bg-gradient-to-r from-gray-500 via-[#6a1b7e] to-gray-500
+            bg-clip-text text-transparent"
+     style="
+       text-shadow: 0 0 10px rgba(106, 27, 126, 0.15);
+     ">
+    Guided by engineering excellence, innovation, and operational integrity,
+    <strong class="font-semibold text-[#6a1b7e]">
+      Syntavix
+    </strong>
+    delivers future-ready solutions across hardware,
+    software, and intelligent digital platforms.
+  </p>
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white py-8">
+  <div class="max-w-7xl mx-auto text-center text-sm">
+    © 2026 Syntavix. All rights reserved.
+  </div>
+</footer>
+
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-cubic',
+    once: true,
+  });
+</script>
+
+</body>
+</html>

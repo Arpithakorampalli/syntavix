@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syntavix - Services</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+/* ===================== */
+/* GLOBAL NAVBAR STYLE   */
+/* ===================== */
+.nav-glass {
+  background: rgba(5,5,10,0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Nav underline */
+.nav-item {
+  position: relative;
+}
+.nav-item::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  transition: width .35s ease;
+}
+.nav-item:hover::after {
+  width:100%;
+}
+
+/* ===================== */
+/* HERO TECH BACKGROUND  */
+/* ===================== */
+.hero-grid {
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: gridMove 30s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 80px 80px; }
+}
+
+/* Flowing data lines */
+.data-line {
+  position:absolute;
+  width:2px;
+  height:120px;
+  background: linear-gradient(to bottom, transparent, #ffffff55, transparent);
+  animation: dataFlow 6s linear infinite;
+  opacity:0.35;
+}
+
+@keyframes dataFlow {
+  from { transform: translateY(-150px); }
+  to { transform: translateY(120vh); }
+}
+
+/* Gradient mesh overlay */
+.mesh-overlay {
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, #8b1e3f55, transparent 45%),
+    radial-gradient(circle at 80% 70%, #6a1b7e55, transparent 45%);
+}
+
+/* =============================== */
+/* SERVICE CARD – OUTLINE + GLOW   */
+/* =============================== */
+
+.timeline-item-content {
+  position: relative;
+  border-radius: 1rem;
+  border: 1px solid rgba(106, 27, 126, 0.25);
+  transition:
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* REMOVE Tailwind shadow conflict */
+.timeline-item-content {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08) !important;
+}
+
+/* LEFT (Purple theme) */
+.timeline-item-left .timeline-item-content:hover {
+  border-color: rgba(106, 27, 126, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(106, 27, 126, 0.6),
+    0 20px 45px rgba(106, 27, 126, 0.35),
+    0 0 35px rgba(106, 27, 126, 0.45) !important;
+  transform: translateY(-6px);
+}
+
+/* RIGHT (Maroon theme) */
+.timeline-item-right .timeline-item-content:hover {
+  border-color: rgba(139, 30, 63, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(139, 30, 63, 0.6),
+    0 20px 45px rgba(139, 30, 63, 0.35),
+    0 0 35px rgba(139, 30, 63, 0.45) !important;
+  transform: translateY(-6px);
+}
+
+/* ICON GLOW SYNC */
+.timeline-item-content:hover .service-icon {
+  box-shadow: 0 0 25px rgba(106, 27, 126, 0.45);
+  transform: scale(1.08);
+}
+
+
+/* ===================== */
+/* TIMELINE STYLE        */
+/* ===================== */
+.timeline::before {
+  content:'';
+  position:absolute;
+  left:50%;
+  top:9rem;
+  bottom:10rem;
+  width:3px;
+  background: linear-gradient(to bottom,#6a1b7e,#8b1e3f);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position:relative;
+  width:50%;
+  padding:2rem 2rem 2rem 4rem;
+}
+.timeline-item-left { left:0; text-align:right; }
+.timeline-item-right { left:50%; }
+
+.timeline-item::before {
+  content:'';
+  position:absolute;
+  top:2rem;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background: linear-gradient(135deg,#6a1b7e,#8b1e3f);
+  border:3px solid white;
+  z-index:2;
+}
+.timeline-item-left::before { right:-10px; }
+.timeline-item-right::before { left:-10px; }
+
+.timeline-item-content {
+  background:white;
+  padding:1.5rem;
+  border-radius:1rem;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  transition:.3s;
+}
+.timeline-item-content:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.service-icon {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:1rem;
+  background: linear-gradient(135deg,#6a1b7e,#8b1e3f);
+  color:white;
+  font-size:1.5rem;
+}
+
+@media (max-width:768px){
+  .timeline::before{ left:15px; }
+  .timeline-item{ width:100%; padding-left:3rem; text-align:left; left:0; }
+  .timeline-item::before{ left:-10px; right:auto; }
+}
+</style>
+</head>
+
+<body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
+
+
+<!-- ===================== -->
+<!-- NAVBAR (SAME AS INDEX) -->
+<!-- ===================== -->
+<nav class="fixed top-0 w-full z-50 nav-glass">
+  <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
+
+    <a href="index.html"
+      class="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] bg-clip-text text-transparent">
+      Syntavix
+    </a>
+
+    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="services.html" class="nav-item">Services</a></li>
+      <li><a href="projects.html" class="nav-item">Projects</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+
+    <a href="contact.html"
+      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
+      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+      text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
+      Get in Touch →
+    </a>
+
+  </div>
+</nav>
+
+<main class="pt-28">
+
+<!-- ===================== -->
+<!-- SERVICES HERO (UNIQUE STYLE) -->
+<!-- ===================== -->
+<section class="relative min-h-[70vh] flex items-center overflow-hidden"
+  style="
+    background:
+      radial-gradient(1200px 600px at 10% 20%, rgba(106,27,126,0.18), transparent 50%),
+      radial-gradient(1000px 500px at 90% 80%, rgba(139,30,63,0.18), transparent 55%),
+      linear-gradient(180deg, #f7f5fa 0%, #efecf6 100%);
+  ">
+
+  <!-- SOFT FLOATING SHAPES (SERVICES-ONLY) -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute w-96 h-96 rounded-full blur-3xl opacity-30
+                bg-[#6a1b7e] top-[-8rem] left-[-6rem]
+                animate-[float_18s_ease-in-out_infinite]"></div>
+
+    <div class="absolute w-[28rem] h-[28rem] rounded-full blur-3xl opacity-30
+                bg-[#8b1e3f] bottom-[-10rem] right-[-6rem]
+                animate-[float_22s_ease-in-out_infinite]"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl" data-aos="fade-up">
+
+      <span class="inline-block mb-4 text-sm tracking-widest uppercase
+                   text-[#6a1b7e] font-semibold">
+        Our Expertise
+      </span>
+
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-[#1f1f2e] leading-tight">
+        Engineering Services<br class="hidden md:block">
+        <span class="bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+                     bg-clip-text text-transparent">
+          Built for Scale & Precision
+        </span>
+      </h1>
+
+      <p class="text-lg md:text-xl max-w-2xl text-[#4b4b63] leading-relaxed">
+        From embedded systems and AI platforms to financial software,
+        industrial automation, and robotics — our services are crafted
+        to support mission-critical systems with reliability,
+        compliance, and performance at their core.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FLOAT ANIMATION -->
+<style>
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-28px); }
+}
+</style>
+
+
+<!-- ===================== -->
+<!-- SERVICES TIMELINE -->
+<!-- ===================== -->
+<section class="py-24 relative timeline bg-gradient-to-b from-[#f4f2f7] to-[#eceaf2]">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-20 text-[#1f1f2e]" data-aos="fade-up">
+      What We Do
+    </h2>
+
+    <!-- Service 1 -->
+    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="100">
+      <div class="timeline-item-content
+                  bg-gradient-to-b from-white to-[#f6f4fa]
+                  text-[#2a2a3a]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
+                  transition-all duration-300">
+        <div class="service-icon"><span>🛠️</span></div>
+        <h3 class="text-xl font-bold mb-2">PCB Design Using SoCs</h3>
+        <p>
+          Advanced PCB layouts and embedded systems built on modern System-on-Chip architectures for high-performance and reliable operation.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="200">
+      <div class="timeline-item-content
+                  bg-gradient-to-b from-white to-[#f6f4fa]
+                  text-[#2a2a3a]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+                  hover:shadow-[0_30px_60px_rgba(139,30,63,0.18)]
+                  transition-all duration-300">
+        <div class="service-icon"><span>💻</span></div>
+        <h3 class="text-xl font-bold mb-2">Firmware Development Across All SoCs</h3>
+        <p>
+          Robust and optimized firmware solutions for diverse SoC platforms, ensuring compatibility, efficiency, and scalability.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="300">
+      <div class="timeline-item-content
+                  bg-gradient-to-b from-white to-[#f6f4fa]
+                  text-[#2a2a3a]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
+                  transition-all duration-300">
+        <div class="service-icon"><span>🤖</span></div>
+        <h3 class="text-xl font-bold mb-2">AI Agent Development & Deployment</h3>
+        <p>
+          Custom AI agents designed for automation, intelligent decision-making, and enterprise-level scalable solutions.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="400">
+      <div class="timeline-item-content
+                  bg-gradient-to-b from-white to-[#f6f4fa]
+                  text-[#2a2a3a]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+                  hover:shadow-[0_30px_60px_rgba(139,30,63,0.18)]
+                  transition-all duration-300">
+        <div class="service-icon"><span>💼</span></div>
+        <h3 class="text-xl font-bold mb-2">Investment Banking Compliance & Verification</h3>
+        <p>
+          Regulatory compliance systems and verification solutions to secure investment banking operations and ensure audit readiness.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="500">
+      <div class="timeline-item-content
+                  bg-gradient-to-b from-white to-[#f6f4fa]
+                  text-[#2a2a3a]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
+                  transition-all duration-300">
+        <div class="service-icon"><span>📈</span></div>
+        <h3 class="text-xl font-bold mb-2">Stock Market Financial Systems</h3>
+        <p>
+          End-to-end development and deployment of high-performance applications for trading, analytics, and financial market operations.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 6 -->
+    <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="600">
+      <div class="timeline-item-content
+                  bg-gradient-to-b from-white to-[#f6f4fa]
+                  text-[#2a2a3a]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+                  hover:shadow-[0_30px_60px_rgba(139,30,63,0.18)]
+                  transition-all duration-300">
+        <div class="service-icon"><span>⚙️</span></div>
+        <h3 class="text-xl font-bold mb-2">Industrial Instrumentation Engineering Services</h3>
+        <p>
+          Precision monitoring, control, and automation solutions for industrial processes to optimize performance and safety.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 7 -->
+    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="700">
+      <div class="timeline-item-content
+                  bg-gradient-to-b from-white to-[#f6f4fa]
+                  text-[#2a2a3a]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
+                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
+                  transition-all duration-300">
+        <div class="service-icon"><span>🚁</span></div>
+        <h3 class="text-xl font-bold mb-2">Robotics & Drones</h3>
+        <p>
+          Intelligent and autonomous robotics and drone systems designed for mission-critical industrial and enterprise applications.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- BOTTOM STATEMENT -->
+<div class="mt-20 py-12 text-center"
+     style="
+       background: linear-gradient(
+         180deg,
+         rgba(245,245,247,0.95),
+         rgba(238,238,241,0.95)
+       );
+     "
+     data-aos="fade-up"
+     data-aos-delay="300">
+
+  <p class="text-lg max-w-4xl mx-auto
+            bg-gradient-to-r from-gray-500 via-[#6a1b7e] to-gray-500
+            bg-clip-text text-transparent"
+     style="
+       text-shadow: 0 0 10px rgba(106, 27, 126, 0.15);
+     ">
+    Guided by engineering excellence, innovation, and operational integrity,
+    <strong class="font-semibold text-[#6a1b7e]">
+      Syntavix
+    </strong>
+    delivers future-ready solutions across hardware,
+    software, and intelligent digital platforms.
+  </p>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white py-8">
+  <div class="max-w-7xl mx-auto text-center text-sm">
+    © 2026 Syntavix. All rights reserved.
+  </div>
+</footer>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    easing: 'ease-out-cubic',
+    offset: 120,
+    once: true,
+  });
+</script>
+
+</body>
+</html>
+
+

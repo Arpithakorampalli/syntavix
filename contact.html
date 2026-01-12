@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syntavix | Contact Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* ---------- Animated Gradient Hero Background ---------- */
+    .animated-bg {
+      background: linear-gradient(270deg, #6a1b7e, #8b1e3f, #ff5e62, #f7971e);
+      background-size: 800% 800%;
+      animation: gradientBG 20s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ---------- INDEX NAVBAR STYLE ---------- */
+    .nav-glass {
+      background: rgba(5,5,10,0.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-item {
+      position: relative;
+    }
+    .nav-item::after {
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0%;
+      height:2px;
+      background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+      transition: width .35s ease;
+    }
+    .nav-item:hover::after {
+      width:100%;
+    }
+
+    /* ---------- EXISTING CONTACT STYLES ---------- */
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .info-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+    }
+    .particle {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.15);
+      font-size: 1.5rem;
+      animation: floatUp linear infinite;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+      50% { opacity: 0.6; }
+      100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 overflow-x-hidden relative">
+
+<!-- ===================== -->
+<!-- NAVBAR (INDEX EXACT) -->
+<!-- ===================== -->
+<nav class="fixed top-0 w-full z-50 nav-glass">
+  <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
+
+    <a href="index.html"
+      class="text-3xl font-extrabold tracking-wide
+      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+      bg-clip-text text-transparent">
+      Syntavix
+    </a>
+
+    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="services.html" class="nav-item">Services</a></li>
+      <li><a href="projects.html" class="nav-item">Projects</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+
+    <a href="contact.html"
+      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
+      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+      text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
+      Get in Touch →
+    </a>
+
+  </div>
+</nav>
+
+<main class="pt-28 relative overflow-hidden">
+
+<!-- ===================== -->
+<!-- HERO (INDEX LAYOUT, SAME COLORS) -->
+<!-- ===================== -->
+<section class="animated-bg min-h-screen flex items-center text-center relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+      Let’s Build the Future Together
+    </h1>
+    <p class="text-xl md:text-2xl max-w-3xl mx-auto text-white/90">
+      Reach out to Syntavix for cutting-edge solutions in AI, engineering, and next-gen platforms.
+    </p>
+  </div>
+
+  <!-- Floating Icons in Hero (UNCHANGED) -->
+  <div class="absolute inset-0">
+    <span class="particle left-10 top-1 text-2xl">💡</span>
+    <span class="particle left-1/3 top-20 text-3xl">🤖</span>
+    <span class="particle right-20 top-32 text-2xl">🚀</span>
+    <span class="particle right-1/4 top-10 text-3xl">🌐</span>
+    <span class="particle left-1/2 top-40 text-2xl">⚡</span>
+  </div>
+</section>
+
+  <!-- Floating Icons in Hero -->
+  <div class="absolute inset-0">
+    <span class="particle left-10 top-1 text-2xl">💡</span>
+    <span class="particle left-1/3 top-20 text-3xl">🤖</span>
+    <span class="particle right-20 top-32 text-2xl">🚀</span>
+    <span class="particle right-1/4 top-10 text-3xl">🌐</span>
+    <span class="particle left-1/2 top-40 text-2xl">⚡</span>
+  </div>
+</section>
+
+<!-- ---------- CONTACT SECTION ---------- -->
+<section class="py-24 bg-gray-900 relative overflow-hidden">
+  <div class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-12 items-start">
+
+    <!-- LEFT: Info Cards -->
+    <div class="space-y-8 z-10 relative">
+      <h2 class="text-4xl font-bold text-[#ff5e62] mb-6">Get in Touch</h2>
+      <p class="text-gray-400 text-lg leading-relaxed">
+        Whether you’re modernizing systems, building AI platforms, or collaborating on critical projects, 
+        our experts are here to help.
+      </p>
+
+      <div class="space-y-5">
+        <div class="info-card p-6 rounded-2xl bg-gray-800/70 border border-gray-700 transition-transform duration-300">
+          <h3 class="font-semibold text-xl mb-2">📍 Address</h3>
+          <p class="text-gray-300">123 Innovation Avenue, Hyderabad, India</p>
+        </div>
+        <div class="info-card p-6 rounded-2xl bg-gray-800/70 border border-gray-700 transition-transform duration-300">
+          <h3 class="font-semibold text-xl mb-2">📧 Email</h3>
+          <p class="text-gray-300">contact@syntavix.com</p>
+        </div>
+        <div class="info-card p-6 rounded-2xl bg-gray-800/70 border border-gray-700 transition-transform duration-300">
+          <h3 class="font-semibold text-xl mb-2">📞 Phone</h3>
+          <p class="text-gray-300">+91 00 00000</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Glassmorphic Form -->
+    <div class="glass-card p-10 rounded-3xl shadow-2xl border border-white/20 z-10 relative">
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Full Name</label>
+          <input type="text" placeholder="Your Name"
+                 class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Email Address</label>
+          <input type="email" placeholder="you@company.com"
+                 class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Message</label>
+          <textarea rows="5" placeholder="Tell us about your project"
+                    class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition"></textarea>
+        </div>
+        <button type="submit"
+                class="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-[#6a1b7e] to-[#ff5e62] hover:opacity-90 transition">
+          Send Message
+        </button>
+      </form>
+
+      <!-- Floating Particles behind form -->
+      <div class="absolute inset-0 pointer-events-none">
+        <span class="particle left-5 top-20 text-xl">💻</span>
+        <span class="particle left-1/2 top-32 text-2xl">🛠️</span>
+        <span class="particle right-10 top-10 text-xl">⚡</span>
+        <span class="particle right-1/3 top-40 text-2xl">🌟</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM STATEMENT -->
+<div class="mt-20 py-12 text-center"
+     style="
+       background: linear-gradient(
+         180deg,
+         rgba(245,245,247,0.95),
+         rgba(238,238,241,0.95)
+       );
+     "
+     data-aos="fade-up"
+     data-aos-delay="300">
+
+  <p class="text-lg max-w-4xl mx-auto
+            bg-gradient-to-r from-gray-500 via-[#6a1b7e] to-gray-500
+            bg-clip-text text-transparent"
+     style="
+       text-shadow: 0 0 10px rgba(106, 27, 126, 0.15);
+     ">
+    Guided by engineering excellence, innovation, and operational integrity,
+    <strong class="font-semibold text-[#6a1b7e]">
+      Syntavix
+    </strong>
+    delivers future-ready solutions across hardware,
+    software, and intelligent digital platforms.
+  </p>
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white py-8">
+  <div class="max-w-7xl mx-auto text-center text-sm">
+    © 2026 Syntavix. All rights reserved.
+  </div>
+</footer>
+
+<!-- ---------- JS for Random Particle Animation Speed ---------- -->
+<script>
+  const particles = document.querySelectorAll('.particle');
+  particles.forEach(p => {
+    const duration = Math.random() * 20 + 10; // 10s to 30s
+    const delay = Math.random() * 5; // 0s to 5s
+    p.style.animationDuration = duration + 's';
+    p.style.animationDelay = delay + 's';
+  });
+</script>
+
+</body>
+</html>
