@@ -671,7 +671,6 @@ document.addEventListener('mousemove', (e) => {
     });
   });
 
-  AOS.init({ duration: 1200, easing: 'ease-out-cubic', once:true });
 </script>
 
 
@@ -786,17 +785,22 @@ document.addEventListener('mousemove', (e) => {
 </footer>
 
 
-<!-- AOS LIBRARY -->
+<!-- AOS LIBRARY (MUST COME FIRST) -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
+<!-- INIT AOS AFTER LIBRARY LOAD -->
 <script>
-  // INIT AOS
-  AOS.init({
-    duration: 1000,
-    easing: 'ease-out-cubic',
-    once: true,
-  });
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-out-cubic",
+      once: true,
+    });
+  }
+</script>
 
+<!-- MOBILE MENU SCRIPT -->
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
@@ -817,6 +821,7 @@ document.addEventListener('mousemove', (e) => {
     });
   });
 </script>
+
 
 
 </body>
