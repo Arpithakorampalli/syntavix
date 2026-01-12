@@ -155,12 +155,15 @@ body { font-family: 'Inter', sans-serif; }
   </div>
 </nav>
 
-<div id="mobileMenu"
-  class="fixed inset-0 bg-red-600
+<!-- MOBILE MENU -->
+<div
+  id="mobileMenu"
+  class="fixed inset-0 bg-black/95 backdrop-blur-lg
          flex flex-col items-center justify-center gap-8
-         text-white text-xl uppercase tracking-widest z-[9999]">
-
-
+         text-white text-xl uppercase tracking-widest
+         opacity-0 pointer-events-none
+         transition-opacity duration-300 z-[9999]"
+>
   <a href="index.html" class="mobile-link flex items-center gap-3">
     <i class="fa-solid fa-house"></i> Home
   </a>
@@ -177,11 +180,15 @@ body { font-family: 'Inter', sans-serif; }
     <i class="fa-solid fa-envelope"></i> Contact
   </a>
 
-  <a href="contact.html"
-     class="mobile-link mt-6 px-8 py-3 rounded-full
-            bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-            text-white text-sm shadow-lg">
-    <i class="fa-solid fa-paper-plane"></i> Get in Touch
+  <!-- MOBILE CTA -->
+  <a
+    href="contact.html"
+    class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-full
+           bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+           text-white text-sm tracking-wide shadow-lg"
+  >
+    <i class="fa-solid fa-paper-plane"></i>
+    Get in Touch
   </a>
 </div>
 
@@ -808,19 +815,29 @@ document.addEventListener('mousemove', (e) => {
     if (!mobileMenuBtn || !mobileMenu) return;
 
     mobileMenuBtn.addEventListener("click", function () {
-      mobileMenu.classList.toggle("hidden");
-      document.body.style.overflow =
-        mobileMenu.classList.contains("hidden") ? "" : "hidden";
+      const isOpen = mobileMenu.classList.contains("opacity-100");
+
+      if (isOpen) {
+        mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "";
+      } else {
+        mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+        mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+        document.body.style.overflow = "hidden";
+      }
     });
 
-    document.querySelectorAll(".mobile-link").forEach(function (link) {
-      link.addEventListener("click", function () {
-        mobileMenu.classList.add("hidden");
+    document.querySelectorAll(".mobile-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
         document.body.style.overflow = "";
       });
     });
   });
 </script>
+
 
 
 
