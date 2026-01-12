@@ -126,7 +126,15 @@ body { font-family: 'Inter', sans-serif; }
       Syntavix
     </a>
 
-    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+  <!-- MOBILE MENU BUTTON -->
+<button id="mobileMenuBtn"
+  class="md:hidden text-white text-2xl focus:outline-none hover:text-[#d7a8ff] transition"
+  aria-label="Open menu">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+<!-- DESKTOP NAVIGATION -->
+<ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
   <li>
     <a href="index.html" class="nav-item inline-flex items-center gap-2">
       <i class="fa-solid fa-house"></i>
@@ -153,15 +161,16 @@ body { font-family: 'Inter', sans-serif; }
   </li>
 </ul>
 
-
-    <a href="contact.html"
+<!-- DESKTOP CTA BUTTON -->
+<a href="contact.html"
   class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
   bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
   text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
 
   <i class="fa-solid fa-paper-plane"></i>
   <span>Get in Touch</span>
-    </a>
+</a>
+
 
 
   </div>
@@ -777,4 +786,13 @@ document.addEventListener('mousemove', (e) => {
 </script>
 
 </body>
+<script>
+  const btn = document.getElementById("mobileMenuBtn");
+  const menu = document.getElementById("mobileMenu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
+
 </html>
