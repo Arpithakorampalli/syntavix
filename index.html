@@ -83,8 +83,32 @@ body { font-family: 'Inter', sans-serif; }
     radial-gradient(circle at 20% 30%, #8b1e3f55, transparent 45%),
     radial-gradient(circle at 80% 70%, #6a1b7e55, transparent 45%);
 }
-</style>
+/* ================= MOBILE ICON VISIBILITY FIX ================= */
+.fa-solid,
+.fa-regular,
+.fa-brands {
+  display: inline-block !important;
+  font-size: 1.1rem;
+  line-height: 1;
+}
 
+/* ================= NAV ICON MOBILE FIX ================= */
+@media (max-width: 768px) {
+  nav i {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+</style>
+<!-- ================= ICON SUPPORT (MOBILE FIX) ================= -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
 </head>
 
@@ -110,11 +134,14 @@ body { font-family: 'Inter', sans-serif; }
     </ul>
 
     <a href="contact.html"
-      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
-      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-      text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
-      Get in Touch →
+  class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
+  bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+  text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
+
+  <i class="fa-solid fa-paper-plane"></i>
+  <span>Get in Touch</span>
     </a>
+
 
   </div>
 </nav>
