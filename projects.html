@@ -123,34 +123,36 @@ body { font-family: 'Inter', sans-serif; }
 
 
 <!-- NAVBAR -->
-<nav class="fixed top-0 w-full z-50 nav-glass">
-  <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
-    <a href="index.html"
-      class="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] bg-clip-text text-transparent">
-      Syntavix
-    </a>
+<header class="fixed top-0 w-full z-50 nav-glass">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <button id="mobileMenuBtn"
-  class="md:hidden text-white focus:outline-none">
-  <i class="fa-solid fa-bars"></i>
-</button>
+    <!-- LOGO -->
+    <div class="text-white text-xl font-bold">Syntavix</div>
 
-
-    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
-      <li><a href="index.html" class="nav-item">Home</a></li>
-      <li><a href="services.html" class="nav-item">Services</a></li>
-      <li><a href="projects.html" class="nav-item">Projects</a></li>
-      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    <!-- DESKTOP MENU -->
+    <ul class="hidden md:flex gap-8 text-white">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
 
-    <a href="contact.html"
-      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
-      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-      text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
-      Get in Touch →
-    </a>
+    <!-- MENU BUTTON -->
+    <button id="menuBtn" class="md:hidden text-white text-3xl">
+      ☰
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="hidden md:hidden bg-black px-6 pb-6">
+    <ul class="flex flex-col gap-4 text-white text-lg">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </div>
-</nav>
+</header>
 
 <main class="pt-28">
 
@@ -330,11 +332,6 @@ body { font-family: 'Inter', sans-serif; }
 
 </div>
 
-
-</section>
-
-
-
 </main>
 
 <!-- FOOTER -->
@@ -369,6 +366,22 @@ document.querySelectorAll('.particle, .shape').forEach(p => {
   p.style.animationDuration = duration + 's';
   p.style.animationDelay = delay + 's';
 });
+</script>
+
+<script>
+  const btn = document.getElementById("menuBtn");
+  const menu = document.getElementById("mobileMenu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+
+  // CLOSE MENU AFTER CLICK
+  document.querySelectorAll("#mobileMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.add("hidden");
+    });
+  });
 </script>
 
 </body>
