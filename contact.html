@@ -69,36 +69,66 @@
       100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
     }
   </style>
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
 </head>
 
 <body class="bg-gray-900 text-gray-100 overflow-x-hidden relative">
 
 <!-- ===================== -->
-<!-- NAVBAR (INDEX EXACT) -->
+<!-- NAVBAR (SAME AS SERVICES) -->
 <!-- ===================== -->
-<nav class="fixed top-0 w-full z-50 nav-glass">
-  <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
+<nav class="fixed top-0 w-full z-50 nav-glass relative">
+  <div class="max-w-7xl mx-auto px-6 py-5">
 
-    <a href="index.html"
-      class="text-3xl font-extrabold tracking-wide
-      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-      bg-clip-text text-transparent">
-      Syntavix
-    </a>
+    <div class="flex justify-between items-center">
+      <!-- LOGO -->
+      <a href="index.html"
+        class="text-3xl font-extrabold tracking-wide
+        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+        bg-clip-text text-transparent">
+        Syntavix
+      </a>
 
-    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
-      <li><a href="index.html" class="nav-item">Home</a></li>
-      <li><a href="services.html" class="nav-item">Services</a></li>
-      <li><a href="projects.html" class="nav-item">Projects</a></li>
-      <li><a href="contact.html" class="nav-item">Contact</a></li>
-    </ul>
+      <!-- MOBILE TOGGLE -->
+      <button id="mobileMenuBtn"
+        class="md:hidden text-white text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-    <a href="contact.html"
-      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
-      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-      text-white text-sm tracking-wide shadow-lg hover:scale-105 transition">
-      Get in Touch →
-    </a>
+      <!-- DESKTOP MENU -->
+      <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+        <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+        <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="md:hidden hidden absolute left-0 top-full w-full
+             bg-[rgba(5,5,10,0.96)]
+             backdrop-blur-xl
+             border-t border-white/10
+             py-8 space-y-6 text-center uppercase tracking-widest">
+
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
+
+      <a href="contact.html"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+        text-white text-sm">
+        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+      </a>
+    </div>
 
   </div>
 </nav>
@@ -253,6 +283,17 @@
     p.style.animationDuration = duration + 's';
     p.style.animationDelay = delay + 's';
   });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("mobileMenuBtn");
+  const menu = document.getElementById("mobileMenu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+});
 </script>
 
 </body>
