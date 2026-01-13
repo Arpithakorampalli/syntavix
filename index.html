@@ -89,6 +89,11 @@ body { font-family: 'Inter', sans-serif; }
   line-height: 1;
 }
 
+#mobileMenu.show {
+  display: block !important;
+}
+
+
 /* ================= NAV ICON MOBILE FIX ================= */
 @media (max-width: 768px) {
   nav i {
@@ -101,12 +106,12 @@ body { font-family: 'Inter', sans-serif; }
 }
 
 #mobileMenu {
-  position: absolute;   /* already inside nav, good */
-  top: 100%;            /* right below navbar */
+  position: absolute;
+  top: 100%;
   left: 0;
   width: 100%;
-  background-color: #000; /* black background */
-  z-index: 60;           /* higher than hero-grid (1) but below navbar if needed */
+  background-color: #000; 
+  z-index: 9999; /* SUPER high to appear above everything */
   padding: 1.5rem 0;
 }
 
@@ -118,6 +123,8 @@ body { font-family: 'Inter', sans-serif; }
 />
 
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -139,11 +146,10 @@ body { font-family: 'Inter', sans-serif; }
         Syntavix
       </a>
 
-      <!-- MOBILE TOGGLE -->
-<button id="mobileMenuBtn"
-  class="md:hidden text-white text-2xl">
-  <i class="fa-solid fa-bars"></i>
-</button>
+  <!-- MOBILE TOGGLE BUTTON -->
+  <button id="mobileMenuBtn" aria-label="Toggle navigation" class="md:hidden text-white text-2xl">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 
 
       <!-- DESKTOP MENU -->
@@ -156,21 +162,16 @@ body { font-family: 'Inter', sans-serif; }
     </div>
 
     <!-- MOBILE MENU (SAME LINKS, STACKED) -->
-    <div id="mobileMenu"
-      class="md:hidden hidden mt-6 space-y-6 text-center uppercase tracking-widest">
-
-      <a href="index.html" class="block">Home</a>
-      <a href="services.html" class="block">Services</a>
-      <a href="projects.html" class="block">Projects</a>
-      <a href="contact.html" class="block">Contact</a>
-
-      <a href="contact.html"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-full
-        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-        text-white text-sm">
-        <i class="fa-solid fa-paper-plane"></i> Get in Touch
-      </a>
-    </div>
+    
+      <div id="mobileMenu" class="hidden md:hidden">
+  <a href="index.html" class="block px-6 py-3">Home</a>
+  <a href="services.html" class="block px-6 py-3">Services</a>
+  <a href="projects.html" class="block px-6 py-3">Projects</a>
+  <a href="contact.html" class="block px-6 py-3">Contact</a>
+  <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+    bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] text-white text-sm">
+    <i class="fa-solid fa-paper-plane"></i> Get in Touch
+  </a>
 
   </div>
 </nav>
@@ -456,8 +457,6 @@ document.addEventListener('mousemove', (e) => {
   .animate-bounce-slower { animation: bounce-slower 7s ease-in-out infinite; }
 </style>
 
-
-
 <!-- ================= ABOUT US & CORE CAPABILITIES ================= -->
 <section id="about" class="relative py-32 overflow-hidden"
          style="background: linear-gradient(135deg, #131313 0%, #c45086 100%);">
@@ -622,9 +621,6 @@ document.addEventListener('mousemove', (e) => {
     opacity:0.6;
   }
 
-  /* About Card Floating Animation */
-  @keyframes float-card { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
-  .floating-card { animation: float-card 6s ease-in-out infinite; }
 
   /* Interactive Glow */
   .interactive-glow {
@@ -656,10 +652,6 @@ document.addEventListener('mousemove', (e) => {
   .animate-slow-spin { animation: slow-spin 120s linear infinite; }
   .animate-slow-spin-reverse { animation: slow-spin-reverse 150s linear infinite; }
   .animate-float-slow { animation: float-slow 20s ease-in-out infinite; }
-
-  /* Floating Cards */
-  @keyframes float-card { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-  .floating-card { animation: float-card 6s ease-in-out infinite; }
 
   /* Interactive Card Glow */
   .about-card-unique { perspective: 1000px; position: relative; transition: transform 0.2s ease; }
@@ -825,13 +817,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
 
   btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+    menu.classList.toggle("show"); // instead of hidden
   });
 
-  // Close menu when clicking any link
   menu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      menu.classList.add("hidden");
+      menu.classList.remove("show");
     });
   });
 });
