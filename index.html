@@ -101,6 +101,19 @@ body { font-family: 'Inter', sans-serif; }
   }
 }
 
+/* ===================== */
+/* HERO CLICK SAFETY FIX */
+/* ===================== */
+.hero-grid,
+.mesh-overlay,
+.data-line,
+.glow-line,
+.floating-grid,
+.floating-mesh,
+section > div.absolute {
+  pointer-events: none !important;
+}
+
 
 </style>
 <!-- ================= ICON SUPPORT (MOBILE FIX) ================= -->
@@ -121,7 +134,7 @@ body { font-family: 'Inter', sans-serif; }
 <!-- ===================== -->
 <!-- NAVBAR -->
 <!-- ===================== -->
-<nav class="fixed top-0 w-full z-50 nav-glass">
+<nav class="fixed top-0 w-full z-50 nav-glass pointer-events-auto">
   <div class="max-w-7xl mx-auto px-6 py-5 relative">
 
     <div class="flex justify-between items-center">
@@ -160,7 +173,7 @@ body { font-family: 'Inter', sans-serif; }
          backdrop-blur-xl
          border-t border-white/10
          py-8 space-y-6 text-center uppercase tracking-widest
-         z-[9999]">
+         z-[9999] pointer-events-auto">
 
       <a href="index.html" class="block">Home</a>
       <a href="services.html" class="block">Services</a>
@@ -318,11 +331,6 @@ body { font-family: 'Inter', sans-serif; }
 <!-- HERO CSS -->
 <!-- ===================== -->
 <style>
-.hero-grid, .mesh-overlay {
-  position:absolute;
-  inset:0;
-  z-index:1;
-}
 
 /* GRID MOVE ANIMATION */
 .hero-grid {
