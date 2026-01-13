@@ -166,29 +166,29 @@ section > div.absolute {
       </ul>
     </div>
 
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu"
-  class="hidden md:hidden fixed left-0 top-[80px] w-full
-         bg-[rgba(5,5,10,0.97)]
-         backdrop-blur-xl
+<!-- MOBILE MENU -->
+<div
+  id="mobileMenu"
+  class="md:hidden fixed inset-x-0 top-[80px] hidden
+         bg-black/95 backdrop-blur-xl
          border-t border-white/10
-         py-8 space-y-6 text-center uppercase tracking-widest
-         z-[9999] pointer-events-auto">
+         py-8 space-y-6 text-center
+         uppercase tracking-widest
+         z-[99999]">
 
-      <a href="index.html" class="block">Home</a>
-      <a href="services.html" class="block">Services</a>
-      <a href="projects.html" class="block">Projects</a>
-      <a href="contact.html" class="block">Contact</a>
+  <a href="index.html" class="block">Home</a>
+  <a href="services.html" class="block">Services</a>
+  <a href="projects.html" class="block">Projects</a>
+  <a href="contact.html" class="block">Contact</a>
 
-      <a href="contact.html"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-full
-        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-        text-white text-sm">
-        <i class="fa-solid fa-paper-plane"></i> Get in Touch
-      </a>
-    </div>
+  <a href="contact.html"
+     class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+            bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+            text-white text-sm">
+    <i class="fa-solid fa-paper-plane"></i> Get in Touch
+  </a>
+</div>
 
-  </div>
 </nav>
 
 <main class="pt-28">
@@ -809,17 +809,23 @@ if (dataLines.length > 0) {
 
 <!-- MOBILE MENU SCRIPT -->
 <script>
-(function () {
+document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("mobileMenuBtn");
   const menu = document.getElementById("mobileMenu");
 
   if (!btn || !menu) return;
 
-  btn.addEventListener("click", function (e) {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
-    menu.classList.toggle("hidden");
+    e.stopPropagation();
+
+    const isOpen = !menu.classList.contains("hidden");
+
+    // force state
+    menu.classList.toggle("hidden", isOpen);
+    btn.setAttribute("aria-expanded", String(!isOpen));
   });
-})();
+});
 </script>
 
 
