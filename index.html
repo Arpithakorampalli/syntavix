@@ -146,16 +146,6 @@ section > div.absolute {
         Syntavix
       </a>
 
-      <!-- MOBILE BUTTON -->
-<button
-  id="mobileMenuBtn"
-  type="button"
-  aria-label="Toggle menu"
-  class="md:hidden text-white text-2xl flex items-center justify-center w-10 h-10">
-  <i class="fa-solid fa-bars"></i>
-</button>
-
-
 
       <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
@@ -166,10 +156,19 @@ section > div.absolute {
       </ul>
     </div>
 
+<!-- MOBILE BUTTON -->
+<button
+  id="mobileMenuBtn"
+  type="button"
+  aria-label="Toggle menu"
+  aria-expanded="false"
+  class="md:hidden text-white text-2xl flex items-center justify-center w-10 h-10">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
 <!-- MOBILE MENU -->
 <div
   id="mobileMenu"
-  data-aos="none"
   class="md:hidden fixed left-0 top-[80px] w-full
          bg-black/95 backdrop-blur-xl
          border-t border-white/10
@@ -177,9 +176,6 @@ section > div.absolute {
          uppercase tracking-widest
          z-[99999]"
   style="display: none;">
-
-
-
   <a href="index.html" class="block">Home</a>
   <a href="services.html" class="block">Services</a>
   <a href="projects.html" class="block">Projects</a>
@@ -821,14 +817,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let isOpen = false;
 
+  // CLICK BUTTON
   btn.addEventListener("click", (e) => {
-    e.preventDefault();
     e.stopPropagation();
-
     isOpen = !isOpen;
     menu.style.display = isOpen ? "block" : "none";
     btn.setAttribute("aria-expanded", isOpen);
   });
+
+  // CLICK OUTSIDE TO CLOSE
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !btn.contains(e.target) && isOpen) {
+      isOpen = false;
+      menu.style.display = "none";
+      btn.setAttribute("aria-expanded", false);
+    }
+  });
+
+  // PREVENT FLASH ON LOAD
+  menu.style.display = "none";
 });
 </script>
 
