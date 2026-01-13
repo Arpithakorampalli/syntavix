@@ -113,6 +113,10 @@ body { font-family: 'Inter', sans-serif; }
   50% { transform: translateY(-50px) rotate(180deg); }
   100% { transform: translateY(0) rotate(360deg); }
 }
+#mobileMenuBtn i {
+  font-size: 1.5rem !important;
+}
+
 </style>
 </head>
 <body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
@@ -125,6 +129,12 @@ body { font-family: 'Inter', sans-serif; }
       class="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] bg-clip-text text-transparent">
       Syntavix
     </a>
+
+    <button id="mobileMenuBtn"
+  class="md:hidden text-white focus:outline-none">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
 
     <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
       <li><a href="index.html" class="nav-item">Home</a></li>
