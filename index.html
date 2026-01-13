@@ -169,12 +169,14 @@ section > div.absolute {
 <!-- MOBILE MENU -->
 <div
   id="mobileMenu"
-  class="md:hidden fixed inset-x-0 top-[80px] hidden
+  class="md:hidden fixed left-0 top-[80px] w-full
          bg-black/95 backdrop-blur-xl
          border-t border-white/10
          py-8 space-y-6 text-center
          uppercase tracking-widest
-         z-[99999]">
+         z-[99999]"
+  style="display: none;">
+
 
   <a href="index.html" class="block">Home</a>
   <a href="services.html" class="block">Services</a>
@@ -279,7 +281,7 @@ section > div.absolute {
       margin-left:6px;
     "
   >
-    Technolo
+    Technology
   </span>
 
 </h1>
@@ -815,19 +817,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!btn || !menu) return;
 
+  let isOpen = false;
+
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    const isOpen = !menu.classList.contains("hidden");
-
-    // force state
-    menu.classList.toggle("hidden", isOpen);
-    btn.setAttribute("aria-expanded", String(!isOpen));
+    isOpen = !isOpen;
+    menu.style.display = isOpen ? "block" : "none";
+    btn.setAttribute("aria-expanded", isOpen);
   });
 });
 </script>
-
 
 </body>
 
