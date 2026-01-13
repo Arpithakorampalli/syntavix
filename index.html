@@ -134,7 +134,11 @@ body { font-family: 'Inter', sans-serif; }
       </a>
 
       <!-- MOBILE BUTTON -->
-      <button id="mobileMenuBtn" class="md:hidden text-white text-2xl">
+      <button
+  id="mobileMenuBtn"
+  type="button"
+  class="md:hidden text-white text-2xl">
+
         <i class="fa-solid fa-bars"></i>
       </button>
 
@@ -149,7 +153,7 @@ body { font-family: 'Inter', sans-serif; }
 
     <!-- MOBILE MENU -->
     <div id="mobileMenu"
-  class="hidden md:hidden fixed left-0 top-[72px] w-full
+  class="hidden md:hidden fixed left-0 top-[80px] w-full
          bg-[rgba(5,5,10,0.97)]
          backdrop-blur-xl
          border-t border-white/10
@@ -795,18 +799,20 @@ if (dataLines.length > 0) {
 
 <!-- MOBILE MENU SCRIPT -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
   const btn = document.getElementById("mobileMenuBtn");
   const menu = document.getElementById("mobileMenu");
 
+  // Safety check (prevents JS errors)
   if (!btn || !menu) return;
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isHidden = menu.classList.toggle("hidden");
-    btn.setAttribute("aria-expanded", !isHidden);
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();      // stops default button behavior
+    e.stopPropagation();     // stops bubbling (CRITICAL)
+    menu.classList.toggle("hidden");
   });
-});
+
+})();
 </script>
 
 </body>
