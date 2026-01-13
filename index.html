@@ -117,74 +117,51 @@ body { font-family: 'Inter', sans-serif; }
 <!-- NAVBAR -->
 <!-- ===================== -->
 <nav class="fixed top-0 w-full z-50 nav-glass">
-  <div class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
+  <div class="max-w-7xl mx-auto px-6 py-5">
 
-    <!-- LOGO -->
-    <a href="index.html"
-      class="text-3xl font-extrabold tracking-wide bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] bg-clip-text text-transparent">
-      Syntavix
-    </a>
+    <div class="flex justify-between items-center">
+      <!-- LOGO -->
+      <a href="index.html"
+        class="text-3xl font-extrabold tracking-wide
+        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+        bg-clip-text text-transparent">
+        Syntavix
+      </a>
 
-<!-- MOBILE MENU BUTTON -->
-<button
-  id="mobileMenuBtn"
-  class="md:hidden text-white text-3xl focus:outline-none"
-  aria-label="Open menu"
->
-  <i class="fa-solid fa-bars"></i>
-</button>
+      <!-- MOBILE TOGGLE -->
+      <button id="mobileMenuBtn"
+        class="md:hidden text-white text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
+      <!-- DESKTOP MENU -->
+      <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+        <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+        <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
 
-<!-- MOBILE MENU OVERLAY -->
-<div
-  id="mobileMenu"
-  class="fixed inset-0 bg-black/95 backdrop-blur-lg
-         hidden z-[9999] md:hidden"
->
+    <!-- MOBILE MENU (SAME LINKS, STACKED) -->
+    <div id="mobileMenu"
+      class="md:hidden hidden mt-6 space-y-6 text-center uppercase tracking-widest">
 
-  <!-- CLOSE BUTTON -->
-  <button
-    id="mobileCloseBtn"
-    aria-label="Close menu"
-    class="absolute top-6 right-6 text-white text-3xl"
-  >
-    &times;
-  </button>
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
 
-  <!-- MENU CONTENT -->
-  <div class="h-full flex flex-col items-center justify-center gap-8">
-
-    <a href="index.html" class="mobile-link flex items-center gap-3 text-xl">
-      <i class="fa-solid fa-house"></i> Home
-    </a>
-
-    <a href="services.html" class="mobile-link flex items-center gap-3 text-xl">
-      <i class="fa-solid fa-layer-group"></i> Services
-    </a>
-
-    <a href="projects.html" class="mobile-link flex items-center gap-3 text-xl">
-      <i class="fa-solid fa-diagram-project"></i> Projects
-    </a>
-
-    <a href="contact.html" class="mobile-link flex items-center gap-3 text-xl">
-      <i class="fa-solid fa-envelope"></i> Contact
-    </a>
-
-    <!-- MOBILE CTA -->
-    <a
-      href="contact.html"
-      class="mt-6 inline-flex items-center gap-3 px-8 py-3 rounded-full
-             bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-             text-white text-sm tracking-widest shadow-lg"
-    >
-      <i class="fa-solid fa-paper-plane"></i>
-      GET IN TOUCH
-    </a>
+      <a href="contact.html"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+        text-white text-sm">
+        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+      </a>
+    </div>
 
   </div>
-</div>
-
-
+</nav>
 
 <main class="pt-28">
 
@@ -789,27 +766,18 @@ document.addEventListener('mousemove', (e) => {
 
 <!-- MOBILE MENU SCRIPT -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const openBtn = document.getElementById("mobileMenuBtn");
-  const closeBtn = document.getElementById("mobileCloseBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("mobileMenuBtn");
   const menu = document.getElementById("mobileMenu");
 
-  if (!openBtn || !closeBtn || !menu) return;
-
-  openBtn.addEventListener("click", function () {
-    menu.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
   });
 
-  closeBtn.addEventListener("click", function () {
-    menu.classList.add("hidden");
-    document.body.style.overflow = "";
-  });
-
-  document.querySelectorAll(".mobile-link").forEach(link => {
+  // Close menu when clicking any link
+  menu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       menu.classList.add("hidden");
-      document.body.style.overflow = "";
     });
   });
 });
