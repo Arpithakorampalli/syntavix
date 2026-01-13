@@ -101,21 +101,6 @@ body { font-family: 'Inter', sans-serif; }
   }
 }
 
-#mobileMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #000; 
-  z-index: 9999; /* SUPER high to appear above everything */
-  padding: 1.5rem 0;
-  display: none; /* initial hidden */
-}
-
-#mobileMenu.show {
-  display: block !important;
-}
-
 
 </style>
 <!-- ================= ICON SUPPORT (MOBILE FIX) ================= -->
@@ -148,33 +133,40 @@ body { font-family: 'Inter', sans-serif; }
         Syntavix
       </a>
 
-  <!-- MOBILE TOGGLE BUTTON -->
-  <button id="mobileMenuBtn" aria-label="Toggle navigation" class="md:hidden text-white text-2xl">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-
+      <!-- MOBILE BUTTON -->
+      <button id="mobileMenuBtn" class="md:hidden text-white text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
       <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
-  <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
-  <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-  <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-project-diagram"></i> Projects</a></li>
-  <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-</ul>
-
+        <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-project-diagram"></i> Projects</a></li>
+        <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
     </div>
 
-    <!-- MOBILE MENU (SAME LINKS, STACKED) -->
-    
-      <div id="mobileMenu" class="md:hidden">
-  <a href="index.html" class="block px-6 py-3">Home</a>
-  <a href="services.html" class="block px-6 py-3">Services</a>
-  <a href="projects.html" class="block px-6 py-3">Projects</a>
-  <a href="contact.html" class="block px-6 py-3">Contact</a>
-  <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full
-    bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f] text-white text-sm">
-    <i class="fa-solid fa-paper-plane"></i> Get in Touch
-  </a>
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="hidden md:hidden absolute left-0 top-full w-full
+             bg-[rgba(5,5,10,0.96)]
+             backdrop-blur-xl
+             border-t border-white/10
+             py-8 space-y-6 text-center uppercase tracking-widest">
+
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
+
+      <a href="contact.html"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+        text-white text-sm">
+        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+      </a>
+    </div>
 
   </div>
 </nav>
@@ -630,16 +622,6 @@ if (dataLines.length > 0) {
     mix-blend-mode: screen;
   }
 
-  /* Core Badge Hover Glow & Scale */
-  .core-badge {
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease;
-  }
-  .core-badge:hover {
-    transform: translateY(-5px) scale(1.07);
-    box-shadow: 0 15px 35px rgba(106,27,126,0.25),
-                0 0 25px rgba(139,30,63,0.2),
-                0 0 15px rgba(255,255,255,0.1);
-  }
 </style>
 
 
@@ -817,13 +799,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
 
   btn.addEventListener("click", () => {
-    menu.classList.toggle("show"); // instead of hidden
-  });
-
-  menu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("show");
-    });
+    const open = menu.classList.toggle("hidden");
+    btn.setAttribute("aria-expanded", !open);
   });
 });
 </script>
