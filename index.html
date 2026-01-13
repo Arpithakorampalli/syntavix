@@ -114,11 +114,10 @@ section > div.absolute {
   pointer-events: none !important;
 }
 
-#mobileMenuBtn i {
-  font-size: 2.5rem; /* make it bigger */
-  font-weight: 900;  /* make lines thicker */
-  letter-spacing: 4px; /* optional: space between bars for a bold look */
+#mobileMenuBtn {
+  padding: 0.5rem 0.7rem; /* slightly bigger clickable area */
 }
+
 
 </style>
 <!-- ================= ICON SUPPORT (MOBILE FIX) ================= -->
@@ -151,10 +150,10 @@ section > div.absolute {
       </a>
 
       <!-- MOBILE TOGGLE -->
-      <button id="mobileMenuBtn"
-              class="md:hidden text-white text-2xl">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+     <button id="mobileMenuBtn" class="md:hidden text-white text-2xl">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
 
       <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
