@@ -89,10 +89,6 @@ body { font-family: 'Inter', sans-serif; }
   line-height: 1;
 }
 
-#mobileMenu.show {
-  display: block !important;
-}
-
 
 /* ================= NAV ICON MOBILE FIX ================= */
 @media (max-width: 768px) {
@@ -113,7 +109,13 @@ body { font-family: 'Inter', sans-serif; }
   background-color: #000; 
   z-index: 9999; /* SUPER high to appear above everything */
   padding: 1.5rem 0;
+  display: none; /* initial hidden */
 }
+
+#mobileMenu.show {
+  display: block !important;
+}
+
 
 </style>
 <!-- ================= ICON SUPPORT (MOBILE FIX) ================= -->
@@ -163,7 +165,7 @@ body { font-family: 'Inter', sans-serif; }
 
     <!-- MOBILE MENU (SAME LINKS, STACKED) -->
     
-      <div id="mobileMenu" class="hidden md:hidden">
+      <div id="mobileMenu" class="md:hidden">
   <a href="index.html" class="block px-6 py-3">Home</a>
   <a href="services.html" class="block px-6 py-3">Services</a>
   <a href="projects.html" class="block px-6 py-3">Projects</a>
