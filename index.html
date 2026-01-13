@@ -100,8 +100,14 @@ body { font-family: 'Inter', sans-serif; }
   }
 }
 
-#mobileMenuBtn i {
-  font-size: 1.5rem !important;
+#mobileMenu {
+  position: absolute;   /* already inside nav, good */
+  top: 100%;            /* right below navbar */
+  left: 0;
+  width: 100%;
+  background-color: #000; /* black background */
+  z-index: 60;           /* higher than hero-grid (1) but below navbar if needed */
+  padding: 1.5rem 0;
 }
 
 </style>
