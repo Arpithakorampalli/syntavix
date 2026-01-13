@@ -134,13 +134,15 @@ body { font-family: 'Inter', sans-serif; }
       </a>
 
       <!-- MOBILE BUTTON -->
-      <button
+<button
   id="mobileMenuBtn"
   type="button"
-  class="md:hidden text-white text-2xl">
+  aria-label="Toggle menu"
+  class="md:hidden text-white text-2xl flex items-center justify-center w-10 h-10">
+  <i class="fa-solid fa-bars"></i>
+</button>
 
-        
-      </button>
+
 
       <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
@@ -803,17 +805,15 @@ if (dataLines.length > 0) {
   const btn = document.getElementById("mobileMenuBtn");
   const menu = document.getElementById("mobileMenu");
 
-  // Safety check (prevents JS errors)
   if (!btn || !menu) return;
 
   btn.addEventListener("click", function (e) {
-    e.preventDefault();      // stops default button behavior
-    e.stopPropagation();     // stops bubbling (CRITICAL)
+    e.preventDefault();
     menu.classList.toggle("hidden");
   });
-
 })();
 </script>
+
 
 </body>
 
