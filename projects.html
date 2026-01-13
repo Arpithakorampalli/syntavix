@@ -118,41 +118,67 @@ body { font-family: 'Inter', sans-serif; }
 }
 
 </style>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
 </head>
 <body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
 
 
 <!-- NAVBAR -->
-<header class="fixed top-0 w-full z-50 nav-glass">
-  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<nav class="fixed top-0 w-full z-50 nav-glass relative">
+  <div class="max-w-7xl mx-auto px-6 py-5">
 
-    <!-- LOGO -->
-    <div class="text-white text-xl font-bold">Syntavix</div>
+    <div class="flex justify-between items-center">
+      <!-- LOGO -->
+      <a href="index.html"
+        class="text-3xl font-extrabold tracking-wide
+        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+        bg-clip-text text-transparent">
+        Syntavix
+      </a>
 
-    <!-- DESKTOP MENU -->
-    <ul class="hidden md:flex gap-8 text-white">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+      <!-- MOBILE TOGGLE -->
+      <button id="mobileMenuBtn"
+        class="md:hidden text-white text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-    <!-- MENU BUTTON -->
-    <button id="menuBtn" class="md:hidden text-white text-3xl">
-      ☰
-    </button>
-  </nav>
+      <!-- DESKTOP MENU -->
+      <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
+        <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+        <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden md:hidden bg-black px-6 pb-6">
-    <ul class="flex flex-col gap-4 text-white text-lg">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+  class="md:hidden hidden fixed inset-0 pt-28
+  bg-[rgba(5,5,10,0.96)]
+  backdrop-blur-xl
+  z-[60]
+  space-y-6 text-center uppercase tracking-widest">
+
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
+
+      <a href="contact.html"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+        text-white text-sm">
+        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+      </a>
+    </div>
+
   </div>
-</header>
+</nav>
 
 <main class="pt-28">
 
@@ -368,18 +394,40 @@ document.querySelectorAll('.particle, .shape').forEach(p => {
 });
 </script>
 
-<script>
-  const btn = document.getElementById("menuBtn");
-  const menu = document.getElementById("mobileMenu");
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
+  <!-- AOS LIBRARY -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-  // CLOSE MENU AFTER CLICK
-  document.querySelectorAll("#mobileMenu a").forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.add("hidden");
+  <!-- AOS INIT -->
+  <script>
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 1000,
+        easing: "ease-out-cubic",
+        once: true,
+      });
+    }
+  </script>
+
+  <!-- MOBILE MENU SCRIPT (ADD HERE) -->
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("mobileMenuBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      menu.classList.toggle("hidden");
+      document.body.classList.toggle("overflow-hidden");
+    });
+
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.body.classList.remove("overflow-hidden");
+      });
     });
   });
 </script>
