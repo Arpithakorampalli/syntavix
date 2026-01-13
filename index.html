@@ -130,71 +130,51 @@ section > div.absolute {
 <body class="bg-[#05050a] text-gray-100">
 
 
+<!-- ===================== -->
 <!-- NAVBAR -->
-<nav class="fixed top-0 w-full z-50 nav-glass">
-  <div class="max-w-7xl mx-auto px-6 py-4 relative">
+<!-- ===================== -->
+<nav class="fixed top-0 w-full z-50 nav-glass relative">
+  <div class="max-w-7xl mx-auto px-6 py-5">
     <div class="flex justify-between items-center">
-
       <!-- LOGO -->
-      <a href="index.html"
-         class="text-2xl font-bold tracking-normal
-                bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-                bg-clip-text text-transparent">
-        Syntavix
-      </a>
+<a href="index.html"
+   class="text-2xl font-bold tracking-normal
+          bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+          bg-clip-text text-transparent">
+  Syntavix
+</a>
 
-      <!-- DESKTOP MENU -->
-      <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
-        <li>
-          <a href="index.html" class="nav-item inline-flex items-center gap-2">
-            <i class="fa-solid fa-house"></i> Home
-          </a>
-        </li>
-        <li>
-          <a href="services.html" class="nav-item inline-flex items-center gap-2">
-            <i class="fa-solid fa-layer-group"></i> Services
-          </a>
-        </li>
-        <li>
-          <a href="projects.html" class="nav-item inline-flex items-center gap-2">
-            <i class="fa-solid fa-diagram-project"></i> Projects
-          </a>
-        </li>
-        <li>
-          <a href="contact.html" class="nav-item inline-flex items-center gap-2">
-            <i class="fa-solid fa-envelope"></i> Contact
-          </a>
-        </li>
-      </ul>
+<!-- DESKTOP MENU -->
+<ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
+  <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+  <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+  <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+  <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+</ul>
 
-      <!-- MOBILE MENU BUTTON -->
-      <button id="mobileMenuBtn" class="md:hidden text-white p-2">
-        <i class="fa-solid fa-bars text-2xl"></i>
-      </button>
-
-    </div>
+<!-- MOBILE MENU BUTTON -->
+<button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
+  <i class="fa-solid fa-bars text-2xl"></i>
+</button>
 
     <!-- MOBILE MENU -->
     <div id="mobileMenu"
          class="md:hidden hidden absolute left-0 top-full w-full
-                bg-[rgba(5,5,10,0.96)] backdrop-blur-xl
-                border-t border-white/10
+                bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
                 py-8 space-y-6 text-center uppercase tracking-widest">
 
-      <a href="index.html" class="block text-white text-base font-medium">Home</a>
-      <a href="services.html" class="block text-white text-base font-medium">Services</a>
-      <a href="projects.html" class="block text-white text-base font-medium">Projects</a>
-      <a href="contact.html" class="block text-white text-base font-medium">Contact</a>
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
 
       <a href="contact.html"
-         class="inline-flex items-center justify-center gap-2
-                px-6 py-3 rounded-full
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full
                 bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-                text-white text-sm font-semibold">
+                text-white text-sm">
         <i class="fa-solid fa-paper-plane"></i> Get in Touch
       </a>
     </div>
-
   </div>
 </nav>
 
@@ -817,12 +797,34 @@ if (dataLines.length > 0) {
 
 <!-- MOBILE MENU SCRIPT -->
 <script>
-  const mobileBtn = document.getElementById("mobileMenuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("mobileMenuBtn");
+  const menu = document.getElementById("mobileMenu");
 
-  mobileBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+  if (!btn || !menu) return;
+
+  let isOpen = false;
+
+  // CLICK BUTTON TOGGLE
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    isOpen = !isOpen;
+    menu.style.display = isOpen ? "block" : "none";
+    btn.setAttribute("aria-expanded", isOpen);
   });
+
+  // CLICK OUTSIDE TO CLOSE
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !btn.contains(e.target) && isOpen) {
+      isOpen = false;
+      menu.style.display = "none";
+      btn.setAttribute("aria-expanded", false);
+    }
+  });
+
+  // PREVENT FLASH ON LOAD
+  menu.style.display = "none";
+});
 </script>
 
 </body>
