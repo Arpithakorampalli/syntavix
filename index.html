@@ -156,11 +156,12 @@ body { font-family: 'Inter', sans-serif; }
 
       <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
-        <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-        <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-      </ul>
+  <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+  <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+  <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-project-diagram"></i> Projects</a></li>
+  <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+</ul>
+
     </div>
 
     <!-- MOBILE MENU (SAME LINKS, STACKED) -->
@@ -330,10 +331,6 @@ body { font-family: 'Inter', sans-serif; }
   animation: gridMove 35s linear infinite;
   filter: blur(0.5px);
 }
-@keyframes gridMove {
-  from { background-position: 0 0; }
-  to { background-position: 100px 100px; }
-}
 
 /* DATA STREAMS */
 .data-line {
@@ -387,21 +384,22 @@ body { font-family: 'Inter', sans-serif; }
 <!-- ===================== -->
 <script>
 const dataLines = document.querySelectorAll('.glow-line');
+if (dataLines.length > 0) {
+  document.addEventListener('mousemove', (e) => {
+    const { clientX: x, clientY: y } = e;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const offsetX = (x - centerX) / centerX; 
+    const offsetY = (y - centerY) / centerY; 
 
-document.addEventListener('mousemove', (e) => {
-  const { clientX: x, clientY: y } = e;
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-  const offsetX = (x - centerX) / centerX; 
-  const offsetY = (y - centerY) / centerY; 
-
-  dataLines.forEach((line, idx) => {
-    const moveX = offsetX * 30 * (idx % 2 === 0 ? 1 : -1);
-    const moveY = offsetY * 30 * (idx % 2 === 0 ? 1 : -1);
-    line.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    line.style.boxShadow = `0 0 25px rgba(209,59,112,0.6), 0 0 40px rgba(106,27,126,0.4)`;
+    dataLines.forEach((line, idx) => {
+      const moveX = offsetX * 30 * (idx % 2 === 0 ? 1 : -1);
+      const moveY = offsetY * 30 * (idx % 2 === 0 ? 1 : -1);
+      line.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      line.style.boxShadow = `0 0 25px rgba(209,59,112,0.6), 0 0 40px rgba(106,27,126,0.4)`;
+    });
   });
-});
+}
 </script>
 <!-- ===================== -->
 <!-- HERO TO ABOUT TRANSITION (Global-Level Premium Styling) -->
