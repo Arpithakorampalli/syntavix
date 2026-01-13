@@ -129,7 +129,7 @@ body { font-family: 'Inter', sans-serif; }
 
 
 <!-- NAVBAR -->
-<nav class="fixed top-0 w-full z-50 nav-glass relative">
+<nav class="fixed top-0 w-full z-[10000] nav-glass relative">
   <div class="max-w-7xl mx-auto px-6 py-5">
 
     <div class="flex justify-between items-center">
@@ -158,11 +158,12 @@ body { font-family: 'Inter', sans-serif; }
 
     <!-- MOBILE MENU -->
     <div id="mobileMenu"
-  class="md:hidden hidden fixed inset-0 pt-28
-  bg-[rgba(5,5,10,0.96)]
-  backdrop-blur-xl
-  z-[60]
-  space-y-6 text-center uppercase tracking-widest">
+  class="md:hidden hidden fixed inset-0
+  bg-black/95 backdrop-blur-2xl
+  z-[9999]
+  flex flex-col items-center justify-center
+  space-y-8 text-center uppercase tracking-widest">
+
 
       <a href="index.html" class="block">Home</a>
       <a href="services.html" class="block">Services</a>
