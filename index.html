@@ -125,53 +125,55 @@ body { font-family: 'Inter', sans-serif; }
       Syntavix
     </a>
 
-    <!-- MOBILE MENU BUTTON (RESTORED) -->
-    <button
-      id="mobileMenuBtn"
-      class="md:hidden text-white text-2xl"
-      aria-label="Open menu"
-    >
-      <i class="fa-solid fa-bars"></i>
-    </button>
-
-    <!-- DESKTOP NAV -->
-    <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
-      <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-      <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-      <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-    </ul>
-
-    <!-- DESKTOP CTA -->
-    <a href="contact.html"
-      class="hidden md:inline-flex items-center gap-2 px-6 py-2 rounded-full
-      bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-      text-white text-sm shadow-lg hover:scale-105 transition">
-      <i class="fa-solid fa-paper-plane"></i> Get in Touch
-    </a>
-
-  </div>
-</nav>
-
+<!-- MOBILE MENU OVERLAY -->
 <div
   id="mobileMenu"
   class="fixed inset-0 bg-black/95 backdrop-blur-lg
-         hidden flex-col items-center justify-center gap-8
-         text-white text-xl uppercase tracking-widest
-         z-[9999]"
+         hidden z-[9999] md:hidden"
 >
-  <a href="index.html" class="mobile-link flex gap-3"><i class="fa-solid fa-house"></i> Home</a>
-  <a href="services.html" class="mobile-link flex gap-3"><i class="fa-solid fa-layer-group"></i> Services</a>
-  <a href="projects.html" class="mobile-link flex gap-3"><i class="fa-solid fa-diagram-project"></i> Projects</a>
-  <a href="contact.html" class="mobile-link flex gap-3"><i class="fa-solid fa-envelope"></i> Contact</a>
 
-  <a href="contact.html"
-     class="mt-6 inline-flex gap-2 px-6 py-3 rounded-full
-            bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-            text-white text-sm shadow-lg">
-    <i class="fa-solid fa-paper-plane"></i> Get in Touch
-  </a>
+  <!-- CLOSE BUTTON -->
+  <button
+    id="mobileCloseBtn"
+    aria-label="Close menu"
+    class="absolute top-6 right-6 text-white text-3xl"
+  >
+    &times;
+  </button>
+
+  <!-- MENU CONTENT -->
+  <div class="h-full flex flex-col items-center justify-center gap-8">
+
+    <a href="index.html" class="mobile-link flex items-center gap-3 text-xl">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+
+    <a href="services.html" class="mobile-link flex items-center gap-3 text-xl">
+      <i class="fa-solid fa-layer-group"></i> Services
+    </a>
+
+    <a href="projects.html" class="mobile-link flex items-center gap-3 text-xl">
+      <i class="fa-solid fa-diagram-project"></i> Projects
+    </a>
+
+    <a href="contact.html" class="mobile-link flex items-center gap-3 text-xl">
+      <i class="fa-solid fa-envelope"></i> Contact
+    </a>
+
+    <!-- MOBILE CTA -->
+    <a
+      href="contact.html"
+      class="mt-6 inline-flex items-center gap-3 px-8 py-3 rounded-full
+             bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+             text-white text-sm tracking-widest shadow-lg"
+    >
+      <i class="fa-solid fa-paper-plane"></i>
+      GET IN TOUCH
+    </a>
+
+  </div>
 </div>
+
 
 
 <main class="pt-28">
@@ -778,15 +780,20 @@ document.addEventListener('mousemove', (e) => {
 <!-- MOBILE MENU SCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("mobileMenuBtn");
+  const openBtn = document.getElementById("mobileMenuBtn");
+  const closeBtn = document.getElementById("mobileCloseBtn");
   const menu = document.getElementById("mobileMenu");
 
-  if (!btn || !menu) return;
+  if (!openBtn || !closeBtn || !menu) return;
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-    document.body.style.overflow =
-      menu.classList.contains("hidden") ? "" : "hidden";
+  openBtn.addEventListener("click", function () {
+    menu.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeBtn.addEventListener("click", function () {
+    menu.classList.add("hidden");
+    document.body.style.overflow = "";
   });
 
   document.querySelectorAll(".mobile-link").forEach(link => {
