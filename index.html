@@ -134,62 +134,53 @@ section > div.absolute {
 <!-- ===================== -->
 <!-- NAVBAR -->
 <!-- ===================== -->
-<nav class="fixed top-0 w-full z-50 nav-glass pointer-events-auto">
-  <div class="max-w-7xl mx-auto px-6 py-5 relative">
-
+<nav class="fixed top-0 w-full z-50 nav-glass relative">
+  <div class="max-w-7xl mx-auto px-6 py-5">
     <div class="flex justify-between items-center">
       <!-- LOGO -->
       <a href="index.html"
-        class="text-3xl font-extrabold tracking-wide
-        bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-        bg-clip-text text-transparent">
+         class="text-3xl font-extrabold tracking-wide
+                bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+                bg-clip-text text-transparent">
         Syntavix
       </a>
 
+      <!-- MOBILE TOGGLE -->
+      <button id="mobileMenuBtn"
+              class="md:hidden text-white text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
       <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-10 text-sm uppercase tracking-widest text-gray-200">
         <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-project-diagram"></i> Projects</a></li>
+        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
         <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
       </ul>
     </div>
 
-<!-- MOBILE BUTTON -->
-<button
-  id="mobileMenuBtn"
-  type="button"
-  aria-label="Toggle menu"
-  aria-expanded="false"
-  class="md:hidden text-white text-2xl flex items-center justify-center w-10 h-10">
-  <i class="fa-solid fa-bars"></i>
-</button>
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+         class="md:hidden hidden absolute left-0 top-full w-full
+                bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
+                py-8 space-y-6 text-center uppercase tracking-widest">
 
-<!-- MOBILE MENU -->
-<div
-  id="mobileMenu"
-  class="md:hidden fixed left-0 top-[80px] w-full
-         bg-black/95 backdrop-blur-xl
-         border-t border-white/10
-         py-8 space-y-6 text-center
-         uppercase tracking-widest
-         z-[99999]"
-  style="display: none;">
-  <a href="index.html" class="block">Home</a>
-  <a href="services.html" class="block">Services</a>
-  <a href="projects.html" class="block">Projects</a>
-  <a href="contact.html" class="block">Contact</a>
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
 
-  <a href="contact.html"
-     class="inline-flex items-center gap-2 px-6 py-3 rounded-full
-            bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-            text-white text-sm">
-    <i class="fa-solid fa-paper-plane"></i> Get in Touch
-  </a>
-</div>
-
+      <a href="contact.html"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+                bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+                text-white text-sm">
+        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+      </a>
+    </div>
+  </div>
 </nav>
+
 
 <main class="pt-28">
 
@@ -817,7 +808,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let isOpen = false;
 
-  // CLICK BUTTON
+  // CLICK BUTTON TOGGLE
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
     isOpen = !isOpen;
