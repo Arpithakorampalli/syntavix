@@ -326,6 +326,79 @@ body { font-family: 'Inter', sans-serif; }
 <!-- ===================== -->
 <!-- SERVICES TIMELINE -->
 <!-- ===================== -->
+
+<style>
+/* =============================== */
+/* SERVICE LIST – PREMIUM ARROWS   */
+/* =============================== */
+
+/* =============================== */
+/* INDIVIDUAL ARROW HOVER EFFECT   */
+/* =============================== */
+
+.service-list li {
+  position: relative;
+  padding-left: 2.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #2a2a3a;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Arrow default */
+.service-list li::before {
+  content: "➜";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 1.35rem;
+  font-weight: 900;
+
+  background: linear-gradient(90deg, #6a1b7e, #8b1e3f);
+
+  /* Standard + vendor-prefixed background clip */
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  /* Standard + vendor-prefixed text fill */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  transform: translateX(-8px);
+  opacity: 0.4;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* ONLY hovered item reacts */
+.service-list li:hover {
+  transform: translateX(6px);
+  color: #1f1f2e;
+}
+
+.service-list li:hover::before {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Heading fix (keep strong) */
+.timeline-item-content h3 {
+  color: #1f1f2e;
+  font-weight: 700;
+}
+
+
+/* =============================== */
+/* STRONG HEADING FIX (IMPORTANT)  */
+/* =============================== */
+.timeline-item-content h3 {
+  color: #1f1f2e;
+  font-weight: 700;
+}
+</style>
+
 <section class="py-24 relative timeline bg-gradient-to-b from-[#f4f2f7] to-[#eceaf2]">
   <div class="max-w-6xl mx-auto px-6">
 
@@ -333,115 +406,87 @@ body { font-family: 'Inter', sans-serif; }
       What We Do
     </h2>
 
-    <!-- Service 1 -->
-    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="100">
-      <div class="timeline-item-content
-                  bg-gradient-to-b from-white to-[#f6f4fa]
-                  text-[#2a2a3a]
-                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
-                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
-                  transition-all duration-300">
-        <div class="service-icon"><span>🛠️</span></div>
-        <h3 class="text-xl font-bold mb-2">PCB Design Using SoCs</h3>
-        <p>
-          Advanced PCB layouts and embedded systems built on modern System-on-Chip architectures for high-performance and reliable operation.
-        </p>
+    <!-- SERVICE 1 -->
+    <div class="timeline-item timeline-item-left" data-aos="fade-right">
+      <div class="timeline-item-content bg-gradient-to-b from-white to-[#f6f4fa]">
+        <div class="service-icon"><span>🔌</span></div>
+
+        <h3 class="text-2xl mb-6">
+          Electronics & Embedded Systems
+        </h3>
+
+        <ul class="service-list space-y-4">
+          <li>
+            PCB design and embedded system development using modern
+            System-on-Chip (SoC) architectures
+          </li>
+          <li>
+            Firmware development and performance optimization across
+            multiple SoC platforms
+          </li>
+        </ul>
       </div>
     </div>
 
-    <!-- Service 2 -->
-    <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="200">
-      <div class="timeline-item-content
-                  bg-gradient-to-b from-white to-[#f6f4fa]
-                  text-[#2a2a3a]
-                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
-                  hover:shadow-[0_30px_60px_rgba(139,30,63,0.18)]
-                  transition-all duration-300">
-        <div class="service-icon"><span>💻</span></div>
-        <h3 class="text-xl font-bold mb-2">Firmware Development Across All SoCs</h3>
-        <p>
-          Robust and optimized firmware solutions for diverse SoC platforms, ensuring compatibility, efficiency, and scalability.
-        </p>
+    <!-- SERVICE 2 -->
+    <div class="timeline-item timeline-item-right" data-aos="fade-left">
+      <div class="timeline-item-content bg-gradient-to-b from-white to-[#f6f4fa]">
+        <div class="service-icon"><span>🏦</span></div>
+
+        <h3 class="text-2xl mb-6">
+          Financial & Capital Market Systems
+        </h3>
+
+        <ul class="service-list space-y-4">
+          <li>
+            Investment banking compliance solutions, regulatory validation,
+            and risk control systems
+          </li>
+          <li>
+            End-to-end design and deployment of stock market and
+            financial trading platforms
+          </li>
+        </ul>
       </div>
     </div>
 
-    <!-- Service 3 -->
-    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="300">
-      <div class="timeline-item-content
-                  bg-gradient-to-b from-white to-[#f6f4fa]
-                  text-[#2a2a3a]
-                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
-                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
-                  transition-all duration-300">
-        <div class="service-icon"><span>🤖</span></div>
-        <h3 class="text-xl font-bold mb-2">AI Agent Development & Deployment</h3>
-        <p>
-          Custom AI agents designed for automation, intelligent decision-making, and enterprise-level scalable solutions.
-        </p>
-      </div>
-    </div>
-
-    <!-- Service 4 -->
-    <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="400">
-      <div class="timeline-item-content
-                  bg-gradient-to-b from-white to-[#f6f4fa]
-                  text-[#2a2a3a]
-                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
-                  hover:shadow-[0_30px_60px_rgba(139,30,63,0.18)]
-                  transition-all duration-300">
-        <div class="service-icon"><span>💼</span></div>
-        <h3 class="text-xl font-bold mb-2">Investment Banking Compliance & Verification</h3>
-        <p>
-          Regulatory compliance systems and verification solutions to secure investment banking operations and ensure audit readiness.
-        </p>
-      </div>
-    </div>
-
-    <!-- Service 5 -->
-    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="500">
-      <div class="timeline-item-content
-                  bg-gradient-to-b from-white to-[#f6f4fa]
-                  text-[#2a2a3a]
-                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
-                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
-                  transition-all duration-300">
-        <div class="service-icon"><span>📈</span></div>
-        <h3 class="text-xl font-bold mb-2">Stock Market Financial Systems</h3>
-        <p>
-          End-to-end development and deployment of high-performance applications for trading, analytics, and financial market operations.
-        </p>
-      </div>
-    </div>
-
-    <!-- Service 6 -->
-    <div class="timeline-item timeline-item-right" data-aos="fade-left" data-aos-delay="600">
-      <div class="timeline-item-content
-                  bg-gradient-to-b from-white to-[#f6f4fa]
-                  text-[#2a2a3a]
-                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
-                  hover:shadow-[0_30px_60px_rgba(139,30,63,0.18)]
-                  transition-all duration-300">
+    <!-- SERVICE 3 -->
+    <div class="timeline-item timeline-item-left" data-aos="fade-right">
+      <div class="timeline-item-content bg-gradient-to-b from-white to-[#f6f4fa]">
         <div class="service-icon"><span>⚙️</span></div>
-        <h3 class="text-xl font-bold mb-2">Industrial Instrumentation Engineering Services</h3>
-        <p>
-          Precision monitoring, control, and automation solutions for industrial processes to optimize performance and safety.
-        </p>
+
+        <h3 class="text-2xl mb-6">
+          Industrial Automation & Intelligent Machines
+        </h3>
+
+        <ul class="service-list space-y-4">
+          <li>
+            Industrial instrumentation engineering for monitoring,
+            control, and automation environments
+          </li>
+          <li>
+            Robotics and autonomous drone solutions for industrial
+            and enterprise use cases
+          </li>
+        </ul>
       </div>
     </div>
 
-    <!-- Service 7 -->
-    <div class="timeline-item timeline-item-left" data-aos="fade-right" data-aos-delay="700">
-      <div class="timeline-item-content
-                  bg-gradient-to-b from-white to-[#f6f4fa]
-                  text-[#2a2a3a]
-                  shadow-[0_20px_40px_rgba(0,0,0,0.08)]
-                  hover:shadow-[0_30px_60px_rgba(106,27,126,0.18)]
-                  transition-all duration-300">
-        <div class="service-icon"><span>🚁</span></div>
-        <h3 class="text-xl font-bold mb-2">Robotics & Drones</h3>
-        <p>
-          Intelligent and autonomous robotics and drone systems designed for mission-critical industrial and enterprise applications.
-        </p>
+    <!-- SERVICE 4 -->
+    <div class="timeline-item timeline-item-right" data-aos="fade-left">
+      <div class="timeline-item-content bg-gradient-to-b from-white to-[#f6f4fa]">
+        <div class="service-icon"><span>🧠</span></div>
+
+        <h3 class="text-2xl mb-6">
+          Artificial Intelligence & Autonomous Agents
+        </h3>
+
+        <ul class="service-list space-y-4">
+          <li>
+            Design, development, and deployment of AI agents for
+            intelligent automation and decision-making systems
+          </li>
+        </ul>
       </div>
     </div>
 
