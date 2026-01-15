@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Syntavix | Stock Market & Finance Management</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+/* ================= NAVBAR – EXACT COPY ================= */
+.nav-glass {
+  background: rgba(5,5,10,0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-item { position: relative; }
+.nav-item::after {
+  content:'';
+  position:absolute;
+  left:0; bottom:-6px;
+  width:0%; height:2px;
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  transition: width .35s ease;
+}
+.nav-item:hover::after { width:100%; }
+#mobileMenuBtn i { font-size:1.5rem!important; }
+
+/* ================= FINTECH BACKGROUND ================= */
+.market-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 100px 100px;
+  animation: gridMove 40s linear infinite;
+}
+@keyframes gridMove {
+  to { background-position: 100px 100px; }
+}
+
+/* ================= AI SIGNAL LINES ================= */
+.signal {
+  position:absolute;
+  width:2px; height:160px;
+  background: linear-gradient(to bottom, transparent, #ffffff77, transparent);
+  animation: signalMove 9s linear infinite;
+  opacity:.35;
+}
+@keyframes signalMove {
+  from { transform: translateY(-200px); }
+  to { transform: translateY(120vh); }
+}
+
+/* ================= AI GRAPH ================= */
+.ai-graph path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: drawGraph 4s ease-out forwards;
+}
+@keyframes drawGraph {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ================= GLASS ================= */
+.glass {
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.15);
+}
+
+/* ================= TEXT GRADIENT ================= */
+.text-gradient {
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+</style>
+</head>
+
+<body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 w-full z-50 nav-glass">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+
+<a href="index.html"
+   class="font-bold tracking-normal
+          bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+          bg-clip-text text-transparent"
+   style="font-size:2.5rem;">
+  Syntavix
+</a>
+
+<ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
+  <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+  <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+  <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+  <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+</ul>
+
+<button id="mobileMenuBtn" class="md:hidden text-white p-2">
+  <i class="fa-solid fa-bars"></i>
+</button>
+</div>
+
+<div id="mobileMenu"
+ class="md:hidden hidden absolute left-0 top-full w-full
+ bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
+ py-8 space-y-6 text-center uppercase tracking-widest">
+  <a href="index.html" class="block">Home</a>
+  <a href="services.html" class="block">Services</a>
+  <a href="projects.html" class="block">Projects</a>
+  <a href="contact.html" class="block">Contact</a>
+</div>
+</nav>
+
+<main class="pt-28">
+
+<!-- ================= HERO ================= -->
+<section class="relative min-h-[650px] flex items-center overflow-hidden">
+
+<div class="market-grid"></div>
+<span class="signal left-[20%]"></span>
+<span class="signal left-[45%]"></span>
+<span class="signal left-[70%]"></span>
+
+<div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+<!-- LEFT -->
+<div>
+<h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-gradient">
+Stock Market & Finance Management
+</h1>
+<p class="text-lg text-gray-300 leading-relaxed">
+AI-driven financial analytics and trading intelligence platforms
+engineered for high-velocity capital markets, institutional investors,
+and banking ecosystems.
+</p>
+<p class="text-lg text-gray-300 leading-relaxed">
+We provide innovative financial analytics and AI-driven trading intelligence solutions for the investment and banking sector. Our systems combine real-time market data, predictive modeling, and portfolio optimization to empower traders, analysts, and institutions with smarter investment decisions.
+From automated trading algorithms to end-to-end financial management software, we deliver technology that helps streamline processes, minimize risk, and maximize returns.
+</p>
+</div>
+
+<!-- RIGHT – AI GRAPH -->
+<div class="glass rounded-3xl p-8">
+<svg viewBox="0 0 600 300" class="ai-graph w-full">
+  <path d="M0 220 L80 180 L160 200 L240 140 L320 160 L400 90 L480 120 L600 60"
+        fill="none"
+        stroke="url(#grad)"
+        stroke-width="4"/>
+  <defs>
+    <linearGradient id="grad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#6a1b7e"/>
+      <stop offset="100%" stop-color="#8b1e3f"/>
+    </linearGradient>
+  </defs>
+</svg>
+<p class="text-sm text-gray-400 mt-4">
+AI-predicted market signal trajectory
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- ================= EXPERTISE ================= -->
+<section class="py-32 bg-[#f9f8fb] text-black">
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="text-4xl font-extrabold mb-16 text-center text-gradient">
+Our Financial Expertise
+</h2>
+
+<div class="grid md:grid-cols-4 gap-8">
+
+<div class="glass p-6 rounded-2xl">
+<h4 class="font-bold mb-2 text-gradient">Market & ETF Analytics</h4>
+<p class="text-sm text-gray-700">
+High-frequency stock data analysis and ETF monitoring.
+</p>
+</div>
+
+<div class="glass p-6 rounded-2xl">
+<h4 class="font-bold mb-2 text-gradient">Portfolio & Risk Systems</h4>
+<p class="text-sm text-gray-700">
+Risk-aware portfolio optimization and exposure management.
+</p>
+</div>
+
+<div class="glass p-6 rounded-2xl">
+<h4 class="font-bold mb-2 text-gradient">AI Forecasting</h4>
+<p class="text-sm text-gray-700">
+Machine learning models for trends and volatility prediction.
+</p>
+</div>
+
+<div class="glass p-6 rounded-2xl">
+<h4 class="font-bold mb-2 text-gradient">Banking Automation</h4>
+<p class="text-sm text-gray-700">
+Investment banking workflow and compliance automation.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-black text-white py-8 text-center text-sm">
+© 2026 Syntavix. All rights reserved.
+</footer>
+
+<script>
+document.getElementById("mobileMenuBtn").onclick = () =>
+document.getElementById("mobileMenu").classList.toggle("hidden");
+</script>
+
+</body>
+</html>

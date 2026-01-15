@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Syntavix | AI Agent Systems</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+/* ===== BRAND GRADIENT ===== */
+.brand-gradient {
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+}
+.text-brand {
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== NAV GLASS ===== */
+.nav-glass {
+  background: rgba(5,5,10,0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== AI GRID FLOW ===== */
+.ai-grid {
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 90px 90px;
+  animation: gridShift 40s linear infinite;
+}
+@keyframes gridShift {
+  from { background-position: 0 0; }
+  to { background-position: 180px 180px; }
+}
+
+/* ===== NEURAL STREAMS ===== */
+.stream {
+  position:absolute;
+  width:2px;
+  height:140px;
+  background: linear-gradient(to bottom, transparent, #8b1e3f99, transparent);
+  animation: streamFlow 7s linear infinite;
+  opacity:.35;
+}
+@keyframes streamFlow {
+  from { transform: translateY(-200px); }
+  to { transform: translateY(120vh); }
+}
+
+/* ===== REVEAL SYSTEM ===== */
+[data-reveal] {
+  opacity:0;
+  transform: translateY(40px);
+  transition: all .9s cubic-bezier(.22,.61,.36,1);
+}
+[data-reveal].show {
+  opacity:1;
+  transform:none;
+}
+
+/* ===== GLOW CORE ===== */
+.glow-core {
+  position:absolute;
+  width:600px;
+  height:600px;
+  background: radial-gradient(circle,#6a1b7e55,transparent 60%);
+  filter: blur(120px);
+}
+</style>
+</head>
+
+<body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 w-full z-50 nav-glass">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+    <!-- LOGO LEFT -->
+    <a href="index.html"
+       class="font-bold tracking-normal
+              bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+              bg-clip-text text-transparent"
+       style="font-size:2.5rem;">
+      Syntavix
+    </a>
+
+    <!-- NAV ITEMS RIGHT -->
+    <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
+      <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+      <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
+      <i class="fa-solid fa-bars text-2xl"></i>
+    </button>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+         class="md:hidden hidden absolute left-0 top-full w-full
+                bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
+                py-8 space-y-6 text-center uppercase tracking-widest">
+
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
+
+      <a href="contact.html"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+                bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+                text-white text-sm">
+        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<main class="pt-28">
+
+<!-- ================= HERO ================= -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+
+  <div class="ai-grid"></div>
+  <div class="glow-core left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+  <!-- Neural Streams -->
+  <span class="stream left-[18%]"></span>
+  <span class="stream left-[42%] delay-500"></span>
+  <span class="stream left-[68%] delay-1000"></span>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <p class="uppercase tracking-[0.35em] text-sm text-gray-400 mb-6">
+      Artificial Intelligence
+    </p>
+
+    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-8">
+      Autonomous <span class="text-brand">AI Agent</span><br>
+      Systems Engineering
+    </h1>
+
+    <p class="text-xl text-gray-300 max-w-3xl">
+      We architect intelligent AI agents capable of reasoning,
+      planning, and executing complex enterprise workflows
+      with reliability, governance, and scale.
+    </p>
+  </div>
+
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section class="py-28 bg-black">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div data-reveal>
+      <h2 class="text-4xl font-bold mb-6">Why Traditional Automation Fails</h2>
+      <p class="text-gray-400 text-lg leading-relaxed">
+        Rule-based systems collapse under ambiguity.
+        Enterprises need adaptive intelligence, not scripts.
+      </p>
+    </div>
+
+    <div class="border border-white/10 rounded-2xl p-10
+                bg-gradient-to-br from-white/5 to-transparent"
+         data-reveal>
+      <ul class="space-y-4 text-gray-300">
+        <li>• Static decision trees</li>
+        <li>• No reasoning or context</li>
+        <li>• High operational cost</li>
+        <li>• Manual exception handling</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SOLUTION ================= -->
+<section class="py-28 bg-[#f6f5f9] text-black">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold mb-16" data-reveal>
+      Our AI Agent Architecture
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-3">Cognitive Reasoning</h3>
+        <p class="text-gray-600">
+          LLM-powered reasoning engines interpret intent,
+          constraints, and context dynamically.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-3">Tool Orchestration</h3>
+        <p class="text-gray-600">
+          Secure execution of APIs, databases,
+          and enterprise systems.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-3">Observability & Control</h3>
+        <p class="text-gray-600">
+          Full visibility, logging, and human-in-the-loop governance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SYSTEM FLOW ================= -->
+<section class="py-28 bg-[#05050a]">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold mb-16 text-center" data-reveal>
+      AI Execution Flow
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+
+      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
+           data-reveal>
+        <span class="text-sm text-[#8b1e3f]">01</span>
+        <h3 class="font-bold mt-2">Input</h3>
+        <p class="text-gray-400 text-sm mt-2">Intent & context ingestion</p>
+      </div>
+
+      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
+           data-reveal>
+        <span class="text-sm text-[#8b1e3f]">02</span>
+        <h3 class="font-bold mt-2">Reason</h3>
+        <p class="text-gray-400 text-sm mt-2">Planning & decision logic</p>
+      </div>
+
+      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
+           data-reveal>
+        <span class="text-sm text-[#8b1e3f]">03</span>
+        <h3 class="font-bold mt-2">Act</h3>
+        <p class="text-gray-400 text-sm mt-2">Tool & system execution</p>
+      </div>
+
+      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
+           data-reveal>
+        <span class="text-sm text-[#8b1e3f]">04</span>
+        <h3 class="font-bold mt-2">Learn</h3>
+        <p class="text-gray-400 text-sm mt-2">Feedback & optimization</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPACT ================= -->
+<section class="py-28 bg-black text-center">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-4xl font-extrabold mb-8" data-reveal>
+      Enterprise Impact
+    </h2>
+    <p class="text-xl text-gray-300 leading-relaxed" data-reveal>
+      • 60% reduction in manual operations<br>
+      • Faster decision cycles<br>
+      • Production-grade governance<br>
+      • Scalable AI automation
+    </p>
+  </div>
+</section>
+
+<!-- ================= FOOTER NAV ================= -->
+<section class="py-20 bg-[#05050a] text-center">
+  <a href="projects.html"
+     class="inline-flex items-center gap-3 px-12 py-4 rounded-full
+            brand-gradient font-semibold text-white">
+    ← Back to Projects
+  </a>
+</section>
+
+</main>
+
+<footer class="bg-black text-white py-8 text-center text-sm">
+  © 2026 Syntavix. All rights reserved.
+</footer>
+
+<script>
+const reveal = document.querySelectorAll('[data-reveal]');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.isIntersecting && e.target.classList.add('show'));
+},{threshold:0.2});
+reveal.forEach(el=>obs.observe(el));
+
+// Mobile menu toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("mobileMenuBtn");
+  const menu = document.getElementById("mobileMenu");
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+});
+</script>
+
+</body>
+</html>

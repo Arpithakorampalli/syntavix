@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Syntavix | Geospatial & Simulation Software</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+body { font-family: 'Inter', sans-serif; background:#05050a; color:#f1f1f1; overflow-x:hidden; }
+
+/* ===== NAV GLASS ===== */
+.nav-glass {
+  background: rgba(5,5,10,0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== BRAND GRADIENT ===== */
+.brand-gradient {
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+}
+.text-brand {
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== DATA STREAMS & NODES ===== */
+.stream {
+  position:absolute;
+  width:2px;
+  height:120px;
+  background: linear-gradient(to bottom, transparent, #8b1e3f99, transparent);
+  animation: streamFlow 6s linear infinite;
+  opacity:0.4;
+}
+@keyframes streamFlow {
+  0% { transform: translateY(-150px); }
+  100% { transform: translateY(120vh); }
+}
+
+.node {
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background: #6a1b7e;
+  box-shadow: 0 0 10px #8b1e3f80;
+  animation: nodePulse 2s infinite alternate;
+}
+@keyframes nodePulse {
+  0% { transform: scale(0.8); opacity:0.7; }
+  100% { transform: scale(1.2); opacity:1; }
+}
+
+/* ===== REVEAL EFFECT ===== */
+[data-reveal] {
+  opacity:0;
+  transform: translateY(40px);
+  transition: all .9s cubic-bezier(.22,.61,.36,1);
+}
+[data-reveal].show {
+  opacity:1;
+  transform:none;
+}
+
+/* ===== FEATURE CARDS ===== */
+.feature-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.4s;
+}
+.feature-card:hover {
+  background: rgba(107,27,126,0.15);
+  transform: translateY(-10px);
+  border-color: #6a1b7e;
+}
+
+/* ===== MAP IMAGE ===== */
+.map-img {
+  width:100%;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 0.5s;
+}
+.map-img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== HORIZONTAL LINE ===== */
+.section-line {
+  height: 2px;
+  width: 60px;
+  background: #6a1b7e;
+  margin: 1rem auto 3rem auto;
+  border-radius: 4px;
+}
+
+/* ===== KEY CAPABILITIES LIST ===== */
+.capability-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 1.5rem;
+}
+.capability-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  transition: all 0.4s;
+  display:flex;
+  align-items:flex-start;
+  gap: 1rem;
+}
+.capability-item i {
+  font-size: 2rem;
+  color: #6a1b7e;
+  margin-top:4px;
+}
+.capability-item:hover {
+  background: rgba(107,27,126,0.15);
+  transform: translateY(-6px);
+  border-color: #6a1b7e;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 w-full z-50 nav-glass">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="index.html"
+       class="font-bold tracking-normal text-brand"
+       style="font-size:2.2rem;">
+      Syntavix
+    </a>
+    <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
+      <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+      <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+    <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div id="mobileMenu"
+         class="md:hidden hidden absolute left-0 top-full w-full bg-[rgba(5,5,10,0.96)] py-8 space-y-6 text-center uppercase tracking-widest">
+      <a href="index.html" class="block">Home</a>
+      <a href="services.html" class="block">Services</a>
+      <a href="projects.html" class="block">Projects</a>
+      <a href="contact.html" class="block">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-28">
+
+<!-- ================= HERO ================= -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0a0a12]">
+  <div class="absolute inset-0">
+    <!-- Animated Data Streams -->
+    <span class="stream left-[15%]"></span>
+    <span class="stream left-[40%] animation-delay-500"></span>
+    <span class="stream left-[65%] animation-delay-1000"></span>
+
+    <!-- Floating nodes -->
+    <span class="node left-[20%] top-[30%]"></span>
+    <span class="node left-[45%] top-[50%]"></span>
+    <span class="node left-[70%] top-[25%]"></span>
+    <span class="node left-[30%] top-[70%]"></span>
+    <span class="node left-[60%] top-[60%]"></span>
+  </div>
+
+  <div class="relative z-10 text-center max-w-5xl px-6">
+    <p class="uppercase tracking-[0.35em] text-sm text-gray-400 mb-6">Geospatial Simulation Software</p>
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+      <span class="text-brand">Advanced Terrain & Climate Modeling</span>
+    </h1>
+    <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
+      Harness the power of advanced Geospatial Intelligence with our cutting-edge land surface simulation technology. 
+      We develop high-performance software solutions that analyze satellite imagery, topographical data, and environmental variables to deliver real-time terrain modeling, predictive analytics, and decision support systems.
+    </p>
+    <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+      Our tools enable governments, environmental agencies, and private organizations to simulate climate impact, manage land use efficiently, and optimize resource allocation through data-driven insights and AI-based geospatial modeling.
+    </p>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="py-28 max-w-6xl mx-auto px-6">
+  <h2 class="text-4xl font-extrabold mb-2 text-center" data-reveal>Key Software Capabilities</h2>
+  <div class="section-line" data-reveal></div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
+
+    <div class="feature-card" data-reveal>
+      <i class="fa-solid fa-satellite-dish text-3xl mb-4 text-brand"></i>
+      <h3 class="font-bold text-xl mb-2">Satellite & Aerial Data</h3>
+      <p class="text-gray-300 text-sm">
+        Integrate multi-source satellite and drone imagery for precision mapping and monitoring.
+      </p>
+    </div>
+
+    <div class="feature-card" data-reveal>
+      <i class="fa-solid fa-mountain-sun text-3xl mb-4 text-brand"></i>
+      <h3 class="font-bold text-xl mb-2">Dynamic Terrain Modeling</h3>
+      <p class="text-gray-300 text-sm">
+        Real-time terrain and land surface simulation for predictive flood and disaster management.
+      </p>
+    </div>
+
+    <div class="feature-card" data-reveal>
+      <i class="fa-solid fa-water text-3xl mb-4 text-brand"></i>
+      <h3 class="font-bold text-xl mb-2">Hydrological & Climate Analysis</h3>
+      <p class="text-gray-300 text-sm">
+        AI-driven simulation of water flow, rainfall, and climate impact across urban and rural regions.
+      </p>
+    </div>
+
+    <div class="feature-card" data-reveal>
+      <i class="fa-solid fa-chart-network text-3xl mb-4 text-brand"></i>
+      <h3 class="font-bold text-xl mb-2">AI & Predictive Analytics</h3>
+      <p class="text-gray-300 text-sm">
+        Forecast environmental risks and optimize resource allocation using machine learning algorithms.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= KEY CAPABILITIES LIST ================= -->
+<section class="py-20 max-w-6xl mx-auto px-6">
+  <h2 class="text-4xl font-extrabold mb-12 text-center" data-reveal>Core Capabilities</h2>
+  <div class="capability-list" data-reveal>
+    <div class="capability-item"><i class="fa-solid fa-satellite"></i>Satellite and aerial imagery processing</div>
+    <div class="capability-item"><i class="fa-solid fa-mountain"></i>Terrain and land surface modeling</div>
+    <div class="capability-item"><i class="fa-solid fa-cloud-showers-heavy"></i>Environmental and climate impact simulation</div>
+    <div class="capability-item"><i class="fa-solid fa-map-location-dot"></i>GIS-based decision support and visualization dashboards</div>
+  </div>
+</section>
+
+<!-- ================= SIMULATION MAPS ================= -->
+<section class="py-28 max-w-6xl mx-auto px-6 text-center">
+  <h2 class="text-4xl font-extrabold mb-12" data-reveal>Simulation Visualizations</h2>
+  <div class="grid md:grid-cols-3 gap-10">
+    <img src="chennai.png"
+     alt="Chennai Flood Simulation"
+     class="map-img"
+     data-reveal>
+
+     <img src="mapviewer.png"
+     alt="Chennai Flood Simulation"
+     class="map-img"
+     data-reveal>
+
+     <img src="hyderabad.png"
+     alt="Chennai Flood Simulation"
+     class="map-img"
+     data-reveal>
+</div>
+</section>
+
+<!-- ================= APPLICATIONS ================= -->
+<section class="py-28 bg-[#0a0c12] max-w-6xl mx-auto px-6">
+  <h2 class="text-4xl font-extrabold mb-16 text-center" data-reveal>Real-World Applications</h2>
+  <div class="grid md:grid-cols-3 gap-10">
+
+    <div class="feature-card" data-reveal>
+      <i class="fa-solid fa-city text-3xl mb-4 text-brand"></i>
+      <h3 class="font-bold text-xl mb-2">Urban Planning</h3>
+      <p class="text-gray-300 text-sm">
+        Optimize infrastructure development, flood control, and land use planning with predictive models.
+      </p>
+    </div>
+
+    <div class="feature-card" data-reveal>
+      <i class="fa-solid fa-tree text-3xl mb-4 text-brand"></i>
+      <h3 class="font-bold text-xl mb-2">Environmental Management</h3>
+      <p class="text-gray-300 text-sm">
+        Simulate climate change effects and natural resource allocation for sustainable planning.
+      </p>
+    </div>
+
+    <div class="feature-card" data-reveal>
+      <i class="fa-solid fa-industry text-3xl mb-4 text-brand"></i>
+      <h3 class="font-bold text-xl mb-2">Enterprise Risk Analysis</h3>
+      <p class="text-gray-300 text-sm">
+        Assess flood, drought, and disaster risk for industrial and agricultural sectors.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER NAV ================= -->
+<section class="py-20 bg-[#05050a] text-center">
+  <a href="projects.html"
+     class="inline-flex items-center gap-3 px-12 py-4 rounded-full
+            brand-gradient font-semibold text-white">
+    ← Back to Projects
+  </a>
+</section>
+
+</main>
+
+<footer class="bg-[#0a0c12] text-white py-8 text-center text-sm">
+  © 2026 Syntavix. All rights reserved.
+</footer>
+
+<script>
+// Reveal effect
+const reveal = document.querySelectorAll('[data-reveal]');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.isIntersecting && e.target.classList.add('show'));
+},{threshold:0.2});
+reveal.forEach(el=>obs.observe(el));
+
+// Mobile menu toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("mobileMenuBtn");
+  const menu = document.getElementById("mobileMenu");
+  btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+});
+</script>
+
+</body>
+</html>
