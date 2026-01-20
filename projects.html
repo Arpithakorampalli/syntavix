@@ -137,12 +137,9 @@ style="padding-top:0px; padding-bottom:0px;">
 
     <div class="flex justify-between items-center">
       <!-- LOGO -->
-<a href="index.html"
-   class="font-bold tracking-normal
-          bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-          bg-clip-text text-transparent"
-   style="font-size:2.5rem;">
-  Syntavix
+<a href="index.html" class="logo-container">
+  <img src="syntavixlogo.png" alt="Syntavix Logo" class="logo-img" />
+  <span class="logo-text">Syntavix</span>
 </a>
 
 <!-- DESKTOP MENU -->
@@ -255,6 +252,60 @@ style="padding-top:0px; padding-bottom:0px;">
 .animate-ping-slow { animation: ping-slow 6s infinite ease-in-out; }
 .animate-ping-slow.delay-500 { animation-delay: 0.5s; }
 .animate-ping-slow.delay-1000 { animation-delay: 1s; }
+
+/* --- LOGO ANIMATION STYLES --- */
+.logo-container {
+  position: relative;
+  width: 220px; 
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 80px; 
+  width: auto;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+  mix-blend-mode: screen; 
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+}
+
+/* --- UPDATED LOGO TEXT WITH GRADIENT --- */
+.logo-text {
+  position: absolute;
+  font-weight: 700; /* font-bold */
+  font-size: 2.5rem; /* Your requested size */
+  letter-spacing: normal; /* tracking-normal */
+  
+  /* Gradient Text Effect */
+  background: linear-gradient(to right, #6a1b7e, #8b1e3f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Animation Logic */
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* Hover State: Image disappears, Gradient Name appears */
+.logo-container:hover .logo-img {
+  transform: scale(0.5);
+  opacity: 0;
+}
+
+.logo-container:hover .logo-text {
+  opacity: 1;
+  transform: scale(1);
+}
 </style>
 
 

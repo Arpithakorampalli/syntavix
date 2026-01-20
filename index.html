@@ -1,153 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Syntavix - Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syntavix - Intelligent Technology</title>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #05050a; color: #f3f4f6; overflow-x: hidden; }
 
-<style>
-body { font-family: 'Inter', sans-serif; }
+    /* --- NAVBAR GLASS EFFECT --- */
+    .nav-glass {
+      background: rgba(5, 5, 10, 0.8);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-/* ===================== */
-/* GLOBAL NAVBAR STYLE   */
-/* ===================== */
-.nav-glass {
-  background: rgba(5,5,10,0.75);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+    /* --- CORRECTED LOGO ANIMATION --- */
+    .logo-container {
+      position: relative;
+      width: 220px; /* Prevents layout shifting */
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 80px; /* Larger base size */
+      width: auto;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(1);
+      mix-blend-mode: screen; /* Makes JPG background transparent */
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+    }
+
+/* --- UPDATED LOGO TEXT WITH GRADIENT --- */
+.logo-text {
+  position: absolute;
+  font-weight: 700; /* font-bold */
+  font-size: 2.5rem; /* Your requested size */
+  letter-spacing: normal; /* tracking-normal */
+  
+  /* Gradient Text Effect */
+  background: linear-gradient(to right, #6a1b7e, #8b1e3f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Animation Logic */
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
 }
 
-/* Nav underline */
-.nav-item {
-  position: relative;
-}
-.nav-item::after {
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0%;
-  height:2px;
-  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
-  transition: width .35s ease;
-}
-.nav-item:hover::after {
-  width:100%;
+/* Hover State: Image disappears, Gradient Name appears */
+.logo-container:hover .logo-img {
+  transform: scale(0.5);
+  opacity: 0;
 }
 
-/* ===================== */
-/* HERO TECH BACKGROUND  */
-/* ===================== */
-.hero-grid {
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
-  background-size: 80px 80px;
-  animation: gridMove 30s linear infinite;
+.logo-container:hover .logo-text {
+  opacity: 1;
+  transform: scale(1);
 }
 
-@keyframes gridMove {
-  from { background-position: 0 0; }
-  to { background-position: 80px 80px; }
-}
+    /* --- NAV ITEM UNDERLINE --- */
+    .nav-item { position: relative; }
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 2px;
+      bottom: -6px; left: 0;
+      background: linear-gradient(90deg, #6a1b7e, #8b1e3f);
+      transition: width 0.35s ease;
+    }
+    .nav-item:hover::after { width: 100%; }
 
-/* Flowing data lines */
-.data-line {
-  position:absolute;
-  width:2px;
-  height:120px;
-  background: linear-gradient(to bottom, transparent, #ffffff55, transparent);
-  animation: dataFlow 6s linear infinite;
-  opacity:0.35;
-}
+    /* --- HERO BACKGROUND EFFECTS --- */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridMove 30s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes gridMove { from { background-position: 0 0; } to { background-position: 80px 80px; } }
 
-@keyframes dataFlow {
-  from { transform: translateY(-150px); }
-  to { transform: translateY(120vh); }
-}
-
-/* Gradient mesh overlay */
-.mesh-overlay {
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 30%, #8b1e3f55, transparent 45%),
-    radial-gradient(circle at 80% 70%, #6a1b7e55, transparent 45%);
-}
-/* ================= MOBILE ICON VISIBILITY FIX ================= */
-.fa-solid,
-.fa-regular,
-.fa-brands {
-  display: inline-block !important;
-  font-size: 1.1rem;
-  line-height: 1;
-}
-
-
-/* ================= NAV ICON MOBILE FIX ================= */
-@media (max-width: 768px) {
-  nav i {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-}
-
-/* ===================== */
-/* HERO CLICK SAFETY FIX */
-/* ===================== */
-.hero-grid,
-.mesh-overlay,
-.data-line,
-.glow-line,
-.floating-grid,
-.floating-mesh,
-section > div.absolute {
-  pointer-events: none !important;
-}
-
-</style>
-<!-- ================= ICON SUPPORT (MOBILE FIX) ================= -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
-
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+    /* Floating effect for About Cards */
+    .about-card-unique {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+    .about-card-unique:hover {
+      transform: translateY(-10px) rotateX(2deg);
+      box-shadow: 0 25px 50px -12px rgba(106, 27, 126, 0.5);
+    }
+  </style>
 </head>
 
-<body class="bg-[#05050a] text-gray-100">
+<body>
 
-
-<!-- ===================== -->
-<!-- NAVBAR -->
-<!-- ===================== -->
-<nav class="fixed top-0 w-full z-50 nav-glass relative h-[1px]">
-<div class="max-w-7xl mx-auto px-6 py-0"
-style="padding-top:0px; padding-bottom:0px;">
-
-    <div class="flex justify-between items-center">
-      <!-- LOGO -->
-<a href="index.html"
-   class="font-bold tracking-normal
-          bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-          bg-clip-text text-transparent"
-   style="font-size:2.5rem;">
-  Syntavix
+  <nav class="fixed top-0 w-full z-50 nav-glass h-20">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-full">
+      
+      <a href="index.html" class="logo-container">
+  <img src="syntavixlogo.png" alt="Syntavix Logo" class="logo-img" />
+  <span class="logo-text">Syntavix</span>
 </a>
 
-<!-- DESKTOP MENU -->
+
+
 <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
   <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
   <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
@@ -155,12 +128,10 @@ style="padding-top:0px; padding-bottom:0px;">
   <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
 </ul>
 
-<!-- MOBILE MENU BUTTON -->
 <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
   <i class="fa-solid fa-bars text-2xl"></i>
 </button>
 
-    <!-- MOBILE MENU -->
     <div id="mobileMenu"
          class="md:hidden hidden absolute left-0 top-full w-full
                 bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
