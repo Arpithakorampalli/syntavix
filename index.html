@@ -111,41 +111,38 @@
 
 <body>
 
-  <nav class="fixed top-0 w-full z-50 nav-glass h-20">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-full">
-      
-      <a href="index.html" class="logo-container">
-  <img src="syntavixlogo.png" alt="Syntavix Logo" class="logo-img" />
-  <span class="logo-text">Syntavix</span>
-</a>
+<nav class="fixed top-0 w-full z-50 nav-glass h-20">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-full relative">
+    
+    <a href="index.html" class="logo-container">
+      <img src="syntavixlogo.png" alt="Syntavix Logo" class="logo-img" />
+      <span class="logo-text">Syntavix</span>
+    </a>
 
+    <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
+      <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+      <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
 
-
-<ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
-  <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
-  <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-  <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-  <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-</ul>
-
-<button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
-  <i class="fa-solid fa-bars text-2xl"></i>
-</button>
+    <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2 focus:outline-none">
+      <i class="fa-solid fa-bars text-2xl"></i>
+    </button>
 
     <div id="mobileMenu"
          class="md:hidden hidden absolute left-0 top-full w-full
-                bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
-                py-8 space-y-6 text-center uppercase tracking-widest">
-
-      <a href="index.html" class="block">Home</a>
-      <a href="services.html" class="block">Services</a>
-      <a href="projects.html" class="block">Projects</a>
-      <a href="contact.html" class="block">Contact</a>
+                bg-[rgba(5,5,10,0.98)] backdrop-blur-2xl border-t border-white/10
+                py-8 space-y-6 text-center uppercase tracking-widest shadow-2xl">
+      <a href="index.html" class="block text-white hover:text-[#6a1b7e] transition">Home</a>
+      <a href="services.html" class="block text-white hover:text-[#6a1b7e] transition">Services</a>
+      <a href="projects.html" class="block text-white hover:text-[#6a1b7e] transition">Projects</a>
+      <a href="contact.html" class="block text-white hover:text-[#6a1b7e] transition">Contact</a>
 
       <a href="contact.html"
          class="inline-flex items-center gap-2 px-6 py-3 rounded-full
                 bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-                text-white text-sm">
+                text-white text-sm mx-auto">
         <i class="fa-solid fa-paper-plane"></i> Get in Touch
       </a>
     </div>
