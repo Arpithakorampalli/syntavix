@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Syntavix | Investment Banking Compliance Systems</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+/* BRAND */
+.text-brand {
+  background: linear-gradient(90deg,#7a1f5c,#5b2b82);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.brand-gradient {
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+}
+
+/* NAVBAR */
+.nav-glass {
+  background: rgba(5,5,10,0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* GLASS PANELS */
+.glass {
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius: 2rem;
+}
+
+/* GRID BACKGROUND */
+.compliance-grid {
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 140px 140px;
+  animation: gridMove 50s linear infinite;
+}
+@keyframes gridMove {
+  to { background-position: 280px 280px; }
+}
+
+/* GLOW */
+.secure-glow {
+  position:absolute;
+  width:650px;
+  height:650px;
+  background: radial-gradient(circle,#5b2b8240,transparent 65%);
+  filter: blur(140px);
+}
+
+/* SECURE FLOW */
+.secure-flow {
+  position:absolute;
+  width:3px;
+  height:200px;
+  background: linear-gradient(to bottom, transparent, #7a1f5caa, transparent);
+  animation: secureMove 9s linear infinite;
+}
+@keyframes secureMove {
+  from { transform: translateY(-260px); }
+  to { transform: translateY(120vh); }
+}
+
+/* REVEAL */
+[data-reveal] {
+  opacity:0;
+  transform: translateY(40px);
+  transition: all .9s cubic-bezier(.22,.61,.36,1);
+}
+[data-reveal].show {
+  opacity:1;
+  transform:none;
+}
+
+/* FLOW DIAGRAM */
+.flow-path {
+  fill:none;
+  stroke:#7a1f5c77;
+  stroke-width:3;
+  stroke-dasharray:8 8;
+  stroke-linecap:round;
+  animation: dashMove 2s linear infinite;
+}
+@keyframes dashMove {
+  to { stroke-dashoffset: -40; }
+}
+
+.node-circle {
+  fill:#7a1f5c;
+  filter: drop-shadow(0 0 12px #7a1f5c66);
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+.node-circle:hover {
+  transform: scale(1.3);
+  fill:#a5408c;
+}
+.node-label {
+  fill:#fff;
+  font-size:0.8rem;
+  font-weight:600;
+  text-anchor:middle;
+}
+</style>
+</head>
+
+<body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 nav-glass">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html"
+       class="font-bold bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+              bg-clip-text text-transparent text-4xl">
+      Syntavix
+    </a>
+
+    <ul class="hidden md:flex space-x-8 uppercase tracking-wide text-gray-200">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="services.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+      <li><a href="projects.html"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+
+    <button id="mobileMenuBtn" class="md:hidden text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <div id="mobileMenu"
+       class="md:hidden hidden bg-[rgba(5,5,10,.96)]
+              backdrop-blur-xl border-t border-white/10
+              py-8 text-center space-y-6 uppercase">
+    <a href="index.html" class="block">Home</a>
+    <a href="services.html" class="block">Services</a>
+    <a href="projects.html" class="block">Projects</a>
+    <a href="contact.html" class="block">Contact</a>
+  </div>
+</nav>
+
+<main class="pt-28">
+
+<!-- HERO -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <div class="compliance-grid"></div>
+  <div class="secure-glow left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+  <span class="secure-flow left-[25%]"></span>
+  <span class="secure-flow left-[50%] delay-700"></span>
+  <span class="secure-flow left-[75%] delay-1000"></span>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+
+    <div data-reveal>
+      <p class="uppercase tracking-[0.35em] text-sm text-gray-400 mb-6">
+        Regulatory & Security Platforms
+      </p>
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-8">
+        Investment Banking<br>
+        <span class="text-brand">Compliance Systems</span>
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        Enterprise-grade secure systems with auditability, verification, and regulatory alignment.
+      </p>
+    </div>
+
+    <!-- ADVANCED AUDIT FLOW DIAGRAM -->
+    <div class="glass rounded-3xl p-8" data-reveal>
+      <svg viewBox="0 0 600 250" class="w-full h-60">
+        <!-- Paths -->
+        <path d="M100 50 C200 50, 400 50, 500 50" class="flow-path"/>
+        <path d="M100 200 C200 200, 400 200, 500 200" class="flow-path"/>
+        <path d="M100 50 C100 120, 100 180, 100 200" class="flow-path"/>
+        <path d="M500 50 C500 120, 500 180, 500 200" class="flow-path"/>
+
+        <!-- Nodes -->
+        <circle cx="100" cy="50" r="10" class="node-circle"/>
+        <text x="100" y="35" class="node-label">KYC</text>
+
+        <circle cx="500" cy="50" r="10" class="node-circle"/>
+        <text x="500" y="35" class="node-label">AML</text>
+
+        <circle cx="100" cy="200" r="10" class="node-circle"/>
+        <text x="100" y="220" class="node-label">Monitoring</text>
+
+        <circle cx="500" cy="200" r="10" class="node-circle"/>
+        <text x="500" y="220" class="node-label">Audit</text>
+      </svg>
+      <p class="text-sm text-gray-400 mt-4 text-center">
+        Secure Audit & Compliance Verification Flow
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="py-28 bg-black">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <div data-reveal>
+      <h2 class="text-4xl font-bold mb-6">
+        Regulation-Ready Banking Platforms
+      </h2>
+      <p class="text-gray-400 text-lg leading-relaxed">
+        We design and implement secure compliance systems for investment banks
+        and financial institutions, ensuring accuracy, auditability, and
+        regulatory alignment.
+      </p>
+      <p class="text-gray-400 text-lg leading-relaxed mt-4">
+        Our platforms integrate seamlessly with core banking systems while
+        meeting global regulatory standards.
+      </p>
+    </div>
+
+    <div class="glass rounded-2xl p-10" data-reveal>
+      <h3 class="text-xl font-semibold mb-4 text-brand">
+        Security & Compliance First
+      </h3>
+      <p class="text-gray-300">
+        Built to withstand regulatory audits, security reviews,
+        and enterprise risk assessments.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT WE DELIVER -->
+<section class="py-28 bg-[#f6f5f9] text-black">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-extrabold mb-16" data-reveal>
+      What We Deliver
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">Regulatory Compliance & Reporting</h3>
+        <p class="text-gray-600">
+          Automated reporting systems aligned with global banking regulations.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">KYC / AML Systems</h3>
+        <p class="text-gray-600">
+          Secure client onboarding, identity verification, and AML controls.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">Transaction Monitoring</h3>
+        <p class="text-gray-600">
+          Risk-based monitoring, alerts, and fraud detection workflows.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">Audit Trails & Data Security</h3>
+        <p class="text-gray-600">
+          Encrypted data storage with immutable, audit-ready trails.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BACK BUTTON -->
+<section class="py-20 bg-[#05050a] text-center">
+  <a href="projects.html"
+     class="inline-flex items-center gap-3 px-12 py-4 rounded-full
+            brand-gradient font-semibold text-white">
+    ← Back to Projects
+  </a>
+</section>
+
+</main>
+
+<footer class="bg-black text-white py-8 text-center text-sm">
+© 2026 Syntavix. All rights reserved.
+</footer>
+
+<script>
+/* REVEAL */
+const reveal = document.querySelectorAll('[data-reveal]');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.isIntersecting && e.target.classList.add('show'));
+},{threshold:0.2});
+reveal.forEach(el=>obs.observe(el));
+
+/* MOBILE MENU */
+document.getElementById("mobileMenuBtn").onclick = () =>
+  document.getElementById("mobileMenu").classList.toggle("hidden");
+</script>
+
+</body>
+</html>

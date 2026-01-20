@@ -12,204 +12,258 @@
 <style>
 body { font-family: 'Inter', sans-serif; }
 
-/* ================= NAVBAR – EXACT COPY ================= */
-.nav-glass {
-  background: rgba(5,5,10,0.75);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.nav-item { position: relative; }
-.nav-item::after {
-  content:'';
-  position:absolute;
-  left:0; bottom:-6px;
-  width:0%; height:2px;
-  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
-  transition: width .35s ease;
-}
-.nav-item:hover::after { width:100%; }
-#mobileMenuBtn i { font-size:1.5rem!important; }
-
-/* ================= FINTECH BACKGROUND ================= */
-.market-grid {
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px);
-  background-size: 100px 100px;
-  animation: gridMove 40s linear infinite;
-}
-@keyframes gridMove {
-  to { background-position: 100px 100px; }
-}
-
-/* ================= AI SIGNAL LINES ================= */
-.signal {
-  position:absolute;
-  width:2px; height:160px;
-  background: linear-gradient(to bottom, transparent, #ffffff77, transparent);
-  animation: signalMove 9s linear infinite;
-  opacity:.35;
-}
-@keyframes signalMove {
-  from { transform: translateY(-200px); }
-  to { transform: translateY(120vh); }
-}
-
-/* ================= AI GRAPH ================= */
-.ai-graph path {
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
-  animation: drawGraph 4s ease-out forwards;
-}
-@keyframes drawGraph {
-  to { stroke-dashoffset: 0; }
-}
-
-/* ================= GLASS ================= */
-.glass {
-  backdrop-filter: blur(18px);
-  background: rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.15);
-}
-
-/* ================= TEXT GRADIENT ================= */
-.text-gradient {
-  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+/* BRAND */
+.text-brand {
+  background: linear-gradient(90deg,#7a1f5c,#5b2b82);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
+}
+.brand-gradient {
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+}
+
+/* NAV */
+.nav-glass {
+  background: rgba(5,5,10,0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* GRID */
+.market-grid {
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 120px 120px;
+  animation: gridShift 40s linear infinite;
+}
+@keyframes gridShift {
+  to { background-position: 240px 240px; }
+}
+
+/* FLOW */
+.flow {
+  position:absolute;
+  width:2px;
+  height:180px;
+  background: linear-gradient(to bottom, transparent, #7a1f5c88, transparent);
+  animation: flowMove 8s linear infinite;
+}
+@keyframes flowMove {
+  from { transform: translateY(-250px); }
+  to { transform: translateY(120vh); }
+}
+
+/* GLOW */
+.market-glow {
+  position:absolute;
+  width:700px;
+  height:700px;
+  background: radial-gradient(circle,#7a1f5c33,transparent 65%);
+  filter: blur(140px);
+}
+
+/* GLASS */
+.glass {
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+/* REVEAL */
+[data-reveal] {
+  opacity:0;
+  transform: translateY(40px);
+  transition: all .9s cubic-bezier(.22,.61,.36,1);
+}
+[data-reveal].show {
+  opacity:1;
+  transform:none;
+}
+
+/* MARKET LINE */
+.market-line {
+  fill:none;
+  stroke:url(#wineGradient);
+  stroke-width:3;
+  filter: drop-shadow(0 0 14px rgba(122,31,92,.9));
 }
 </style>
 </head>
 
 <body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <nav class="fixed top-0 w-full z-50 nav-glass">
   <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html"
+       class="font-bold bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+              bg-clip-text text-transparent text-4xl">
+      Syntavix
+    </a>
 
-<a href="index.html"
-   class="font-bold tracking-normal
-          bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-          bg-clip-text text-transparent"
-   style="font-size:2.5rem;">
-  Syntavix
-</a>
+    <ul class="hidden md:flex space-x-8 uppercase tracking-wide text-gray-200">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="services.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+      <li><a href="projects.html"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
 
-<ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
-  <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
-  <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-  <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-  <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-</ul>
+    <button id="mobileMenuBtn" class="md:hidden text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
 
-<button id="mobileMenuBtn" class="md:hidden text-white p-2">
-  <i class="fa-solid fa-bars"></i>
-</button>
-</div>
-
-<div id="mobileMenu"
- class="md:hidden hidden absolute left-0 top-full w-full
- bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
- py-8 space-y-6 text-center uppercase tracking-widest">
-  <a href="index.html" class="block">Home</a>
-  <a href="services.html" class="block">Services</a>
-  <a href="projects.html" class="block">Projects</a>
-  <a href="contact.html" class="block">Contact</a>
-</div>
+  <div id="mobileMenu"
+       class="md:hidden hidden bg-[rgba(5,5,10,.96)]
+              backdrop-blur-xl border-t border-white/10
+              py-8 text-center space-y-6 uppercase">
+    <a href="index.html" class="block">Home</a>
+    <a href="services.html" class="block">Services</a>
+    <a href="projects.html" class="block">Projects</a>
+    <a href="contact.html" class="block">Contact</a>
+  </div>
 </nav>
 
 <main class="pt-28">
 
-<!-- ================= HERO ================= -->
-<section class="relative min-h-[650px] flex items-center overflow-hidden">
+<!-- HERO -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <div class="market-grid"></div>
+  <div class="market-glow left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
-<div class="market-grid"></div>
-<span class="signal left-[20%]"></span>
-<span class="signal left-[45%]"></span>
-<span class="signal left-[70%]"></span>
+  <span class="flow left-[20%]"></span>
+  <span class="flow left-[50%] delay-700"></span>
+  <span class="flow left-[80%] delay-1000"></span>
 
-<div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-<!-- LEFT -->
-<div>
-<h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-gradient">
-Stock Market & Finance Management
-</h1>
-<p class="text-lg text-gray-300 leading-relaxed">
-AI-driven financial analytics and trading intelligence platforms
-engineered for high-velocity capital markets, institutional investors,
-and banking ecosystems.
-</p>
-<p class="text-lg text-gray-300 leading-relaxed">
-We provide innovative financial analytics and AI-driven trading intelligence solutions for the investment and banking sector. Our systems combine real-time market data, predictive modeling, and portfolio optimization to empower traders, analysts, and institutions with smarter investment decisions.
-From automated trading algorithms to end-to-end financial management software, we deliver technology that helps streamline processes, minimize risk, and maximize returns.
-</p>
-</div>
+    <div data-reveal>
+      <p class="uppercase tracking-[0.35em] text-sm text-gray-400 mb-6">
+        Financial Intelligence Systems
+      </p>
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-8">
+        Stock Market &<br>
+        <span class="text-brand">Finance Management</span>
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        We provide innovative financial analytics and AI-driven trading
+        intelligence solutions for the investment and banking sector.
+      </p>
+    </div>
 
-<!-- RIGHT – AI GRAPH -->
-<div class="glass rounded-3xl p-8">
-<svg viewBox="0 0 600 300" class="ai-graph w-full">
-  <path d="M0 220 L80 180 L160 200 L240 140 L320 160 L400 90 L480 120 L600 60"
-        fill="none"
-        stroke="url(#grad)"
-        stroke-width="4"/>
-  <defs>
-    <linearGradient id="grad" x1="0" x2="1">
-      <stop offset="0%" stop-color="#6a1b7e"/>
-      <stop offset="100%" stop-color="#8b1e3f"/>
-    </linearGradient>
-  </defs>
-</svg>
-<p class="text-sm text-gray-400 mt-4">
-AI-predicted market signal trajectory
-</p>
-</div>
+    <!-- GRAPH -->
+    <div class="glass rounded-3xl p-8" data-reveal>
+      <svg viewBox="0 0 600 220" class="w-full h-56">
+        <defs>
+          <linearGradient id="wineGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#4b0033"/>
+            <stop offset="50%" stop-color="#7a1f5c"/>
+            <stop offset="100%" stop-color="#5b2b82"/>
+          </linearGradient>
+        </defs>
+        <path id="marketPath" class="market-line"/>
+      </svg>
+      <p class="text-sm text-gray-400 mt-4 text-center">
+        AI-Predicted Market Signal Trajectory
+      </p>
+    </div>
 
-</div>
+  </div>
 </section>
 
-<!-- ================= EXPERTISE ================= -->
-<section class="py-32 bg-[#f9f8fb] text-black">
-<div class="max-w-7xl mx-auto px-6">
+<!-- DESCRIPTION -->
+<section class="py-28 bg-black">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-<h2 class="text-4xl font-extrabold mb-16 text-center text-gradient">
-Our Financial Expertise
-</h2>
+    <div data-reveal>
+      <h2 class="text-4xl font-bold mb-6">
+        Intelligent Financial Platforms
+      </h2>
+      <p class="text-gray-400 text-lg leading-relaxed">
+        Our systems combine real-time market data, predictive modeling,
+        and portfolio optimization to empower traders, analysts, and
+        institutions with smarter investment decisions.
+      </p>
+      <p class="text-gray-400 text-lg leading-relaxed mt-4">
+        From automated trading algorithms to end-to-end financial
+        management software, we help minimize risk and maximize returns.
+      </p>
+    </div>
 
-<div class="grid md:grid-cols-4 gap-8">
+    <div class="glass rounded-2xl p-10" data-reveal>
+      <h3 class="text-xl font-semibold mb-4 text-brand">
+        Used by Traders & Institutions
+      </h3>
+      <p class="text-gray-300">
+        Built for capital markets, banks, investment firms,
+        and professional trading desks.
+      </p>
+    </div>
 
-<div class="glass p-6 rounded-2xl">
-<h4 class="font-bold mb-2 text-gradient">Market & ETF Analytics</h4>
-<p class="text-sm text-gray-700">
-High-frequency stock data analysis and ETF monitoring.
-</p>
-</div>
+  </div>
+</section>
 
-<div class="glass p-6 rounded-2xl">
-<h4 class="font-bold mb-2 text-gradient">Portfolio & Risk Systems</h4>
-<p class="text-sm text-gray-700">
-Risk-aware portfolio optimization and exposure management.
-</p>
-</div>
+<!-- EXPERTISE -->
+<section class="py-28 bg-[#f6f5f9] text-black">
+  <div class="max-w-6xl mx-auto px-6">
 
-<div class="glass p-6 rounded-2xl">
-<h4 class="font-bold mb-2 text-gradient">AI Forecasting</h4>
-<p class="text-sm text-gray-700">
-Machine learning models for trends and volatility prediction.
-</p>
-</div>
+    <h2 class="text-4xl font-extrabold mb-16" data-reveal>
+      Our Expertise Includes
+    </h2>
 
-<div class="glass p-6 rounded-2xl">
-<h4 class="font-bold mb-2 text-gradient">Banking Automation</h4>
-<p class="text-sm text-gray-700">
-Investment banking workflow and compliance automation.
-</p>
-</div>
+    <div class="grid md:grid-cols-2 gap-10">
 
-</div>
-</div>
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">
+          Stock Market & ETF Monitoring
+        </h3>
+        <p class="text-gray-600">
+          Real-time stock market analytics and ETF performance tracking.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">
+          Portfolio & Risk Management
+        </h3>
+        <p class="text-gray-600">
+          Institutional-grade portfolio optimization and risk controls.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">
+          AI Market Forecasting Tools
+        </h3>
+        <p class="text-gray-600">
+          AI-powered forecasting for trends, volatility, and signals.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
+        <h3 class="font-bold text-xl mb-2">
+          Investment Banking Automation
+        </h3>
+        <p class="text-gray-600">
+          Workflow automation for banking, compliance, and operations.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BACK -->
+<section class="py-20 bg-[#05050a] text-center">
+  <a href="projects.html"
+     class="inline-flex items-center gap-3 px-12 py-4 rounded-full
+            brand-gradient font-semibold text-white">
+    ← Back to Projects
+  </a>
 </section>
 
 </main>
@@ -219,8 +273,39 @@ Investment banking workflow and compliance automation.
 </footer>
 
 <script>
+/* REVEAL */
+const reveal = document.querySelectorAll('[data-reveal]');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.isIntersecting && e.target.classList.add('show'));
+},{threshold:0.2});
+reveal.forEach(el=>obs.observe(el));
+
+/* MOBILE MENU */
 document.getElementById("mobileMenuBtn").onclick = () =>
-document.getElementById("mobileMenu").classList.toggle("hidden");
+  document.getElementById("mobileMenu").classList.toggle("hidden");
+
+/* MARKET LINE ANIMATION */
+const path = document.getElementById("marketPath");
+const POINTS = 60, MID = 110;
+let points = Array.from({length:POINTS},()=>MID + Math.random()*10-5);
+let velocity = 0;
+
+function animateMarketLine() {
+  points.shift();
+  const last = points.at(-1);
+  velocity += (Math.random()-0.5)*10;
+  velocity *= 0.88;
+  const meanPull = (MID - last)*0.05;
+  let next = last + velocity + meanPull;
+  next = Math.max(40, Math.min(180,next));
+  points.push(next);
+
+  let d = `M 0 ${points[0]}`;
+  const step = 600/(POINTS-1);
+  points.forEach((y,i)=>d+=` L ${i*step} ${y}`);
+  path.setAttribute("d",d);
+}
+setInterval(animateMarketLine,90);
 </script>
 
 </body>
