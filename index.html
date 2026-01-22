@@ -106,6 +106,11 @@
       transform: translateY(-10px) rotateX(2deg);
       box-shadow: 0 25px 50px -12px rgba(106, 27, 126, 0.5);
     }
+
+    html, body {
+  overflow-x: hidden;
+}
+
   </style>
 </head>
 
@@ -133,9 +138,11 @@
     </div>
 
     <div id="mobileMenu"
-         class="md:hidden hidden absolute left-0 top-[80px] w-full
-                bg-[rgba(5,5,10,0.98)] backdrop-blur-2xl border-t border-white/10
-                py-8 space-y-6 text-center uppercase tracking-widest shadow-2xl">
+     class="md:hidden hidden fixed inset-x-0 top-20
+            bg-[rgba(5,5,10,0.98)] backdrop-blur-2xl
+            border-t border-white/10
+            py-8 space-y-6 text-center uppercase tracking-widest shadow-2xl">
+
       <a href="index.html" class="block text-white">Home</a>
       <a href="services.html" class="block text-white">Services</a>
       <a href="projects.html" class="block text-white">Projects</a>
@@ -780,27 +787,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let isOpen = false;
 
-  // CLICK BUTTON TOGGLE
+  // Ensure hidden on load
+  menu.classList.add("hidden");
+  btn.setAttribute("aria-expanded", "false");
+
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
     isOpen = !isOpen;
-    menu.style.display = isOpen ? "block" : "none";
-    btn.setAttribute("aria-expanded", isOpen);
+    menu.classList.toggle("hidden", !isOpen);
+    btn.setAttribute("aria-expanded", String(isOpen));
   });
 
-  // CLICK OUTSIDE TO CLOSE
+  // Click outside to close
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !btn.contains(e.target) && isOpen) {
       isOpen = false;
-      menu.style.display = "none";
-      btn.setAttribute("aria-expanded", false);
+      menu.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
     }
   });
-
-  // PREVENT FLASH ON LOAD
-  menu.style.display = "none";
 });
 </script>
+
 
 </body>
 
