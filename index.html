@@ -11,50 +11,64 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    
     body { font-family: 'Inter', sans-serif; background-color: #05050a; color: #f3f4f6; overflow-x: hidden; }
+/* NAVBAR GLASS EFFECT */
+.nav-glass {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
-    /* --- NAVBAR GLASS EFFECT --- */
-    .nav-glass {
-      background: rgba(5, 5, 10, 0.8);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
+/* NAV ITEM UNDERLINE */
+.nav-item {
+  position: relative;
+}
+.nav-item::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  transition: width .35s ease;
+}
+.nav-item:hover::after {
+  width:100%;
+}
 
-    /* --- CORRECTED LOGO ANIMATION --- */
-    .logo-container {
-      position: relative;
-      width: 220px; /* Prevents layout shifting */
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-      text-decoration: none;
-    }
+/* LOGO ANIMATION STYLES */
+.logo-container {
+  position: relative;
+  width: 220px; 
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  text-decoration: none;
+}
 
-    .logo-img {
-      height: 80px; /* Larger base size */
-      width: auto;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      transform: scale(1);
-      mix-blend-mode: screen; /* Makes JPG background transparent */
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
-    }
+.logo-img {
+  height: 80px; 
+  width: auto;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+  mix-blend-mode: screen; 
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+}
 
-/* --- UPDATED LOGO TEXT WITH GRADIENT --- */
+/* UPDATED LOGO TEXT WITH GRADIENT */
 .logo-text {
   position: absolute;
-  font-weight: 700; /* font-bold */
-  font-size: 2.5rem; /* Your requested size */
-  letter-spacing: normal; /* tracking-normal */
-  
-  /* Gradient Text Effect */
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: normal;
   background: linear-gradient(to right, #6a1b7e, #8b1e3f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-
-  /* Animation Logic */
   opacity: 0;
   transform: scale(0.6);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,30 +76,16 @@
   z-index: 10;
   white-space: nowrap;
 }
-
-/* Hover State: Image disappears, Gradient Name appears */
 .logo-container:hover .logo-img {
   transform: scale(0.5);
   opacity: 0;
 }
-
-.logo-container:hover .logo-text {
+.logo-container:hover .logo-text,
+.logo-container .logo-text[style*="opacity:1"] {
   opacity: 1;
   transform: scale(1);
+  position: static;
 }
-
-    /* --- NAV ITEM UNDERLINE --- */
-    .nav-item { position: relative; }
-    .nav-item::after {
-      content: '';
-      position: absolute;
-      width: 0; height: 2px;
-      bottom: -6px; left: 0;
-      background: linear-gradient(90deg, #6a1b7e, #8b1e3f);
-      transition: width 0.35s ease;
-    }
-    .nav-item:hover::after { width: 100%; }
-
     /* --- HERO BACKGROUND EFFECTS --- */
     .hero-grid {
       position: absolute; inset: 0;
@@ -107,7 +107,7 @@
       box-shadow: 0 25px 50px -12px rgba(106, 27, 126, 0.5);
     }
 
-    html, body {
+    body {
   overflow-x: hidden;
 }
 
@@ -115,42 +115,38 @@
 </head>
 
 <body>
-
-<nav class="fixed top-0 w-full z-50 nav-glass">
-  <div class="max-w-7xl mx-auto px-6">
+  <!-- Consistent NAVBAR for all pages -->
+<nav class="fixed top-0 w-full z-50 nav-glass relative h-[1px]">
+  <div class="max-w-7xl mx-auto px-6 py-0" style="padding-top:0px; padding-bottom:0px;">
     <div class="flex justify-between items-center h-20">
-      
+      <!-- LOGO -->
       <a href="index.html" class="logo-container">
-        <img src="syntavixlogo.png" alt="Syntavix Logo" class="logo-img" />
-        <span class="logo-text">Syntavix</span>
+        <span class="logo-text" style="opacity:1; transform:scale(1); position:static;">
+          Syntavix
+        </span>
       </a>
-
+      <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
-        <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-        <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-        <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="services.html" class="nav-item">Services</a></li>
+        <li><a href="projects.html" class="nav-item">Projects</a></li>
+        <li><a href="contact.html" class="nav-item">Contact</a></li>
       </ul>
-
-      <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2 focus:outline-none">
-        <i class="fa-solid fa-bars"></i>
+      <!-- MOBILE MENU BUTTON -->
+      <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
+        <i class="fa-solid fa-bars text-2xl"></i>
       </button>
-    </div>
-
-    <div id="mobileMenu"
-     class="md:hidden hidden fixed inset-x-0 top-20
-            bg-[rgba(5,5,10,0.98)] backdrop-blur-2xl
-            border-t border-white/10
-            py-8 space-y-6 text-center uppercase tracking-widest shadow-2xl">
-
-      <a href="index.html" class="block text-white">Home</a>
-      <a href="services.html" class="block text-white">Services</a>
-      <a href="projects.html" class="block text-white">Projects</a>
-      <a href="contact.html" class="block text-white">Contact</a>
-
-      <div class="pt-4">
+      <!-- MOBILE MENU -->
+      <div id="mobileMenu"
+           class="md:hidden hidden absolute left-0 top-full w-full
+                  bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
+                  py-8 space-y-6 text-center uppercase tracking-widest">
+        <a href="index.html" class="block">Home</a>
+        <a href="services.html" class="block">Services</a>
+        <a href="projects.html" class="block">Projects</a>
+        <a href="contact.html" class="block">Contact</a>
         <a href="contact.html"
-           class="inline-flex items-center gap-2 px-8 py-3 rounded-full
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full
                   bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
                   text-white text-sm">
           <i class="fa-solid fa-paper-plane"></i> Get in Touch
@@ -161,14 +157,13 @@
 </nav>
 
 
-<main class="pt-28">
+<main class="pt-[80px]">
 
 <!-- ===================== -->
 <!-- HERO -->
 <!-- ===================== -->
-<section class="relative min-h-screen flex items-center overflow-hidden"
-  style="
-    background: linear-gradient(
+<section class="relative min-h-screen flex items-center overflow-hidde"
+  style="background: linear-gradient(
       135deg,
       #4a1236 0%,
       #6a1b7e 45%,
@@ -207,50 +202,10 @@
       letter-spacing:0.02em;
     "
   >
-    Empowering
+Empowering the World with Intelligent Technology
   </span>
 
-  <span
-    style="
-      background: linear-gradient(90deg,#e6c9ff,#d7a8ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.35);
-      display:inline-block;
-    "
-  >
-    the World
-  </span>
 
-  <span style="color:#f3e8ff;">with</span>
-
-  <br class="hidden md:block">
-
-  <span
-    style="
-      color:#ffffff;
-      position:relative;
-    "
-  >
-    Intelligent
-  </span>
-
-  <span
-    style="
-      background: linear-gradient(90deg,#ffd6f5,#e7b3ff,#ffb3d1);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow:
-        0 3px 6px rgba(0,0,0,0.45),
-        0 0 18px rgba(231,179,255,0.7);
-      display:inline-block;
-      margin-left:6px;
-    "
-  >
-    Technology
-  </span>
 
 </h1>
 
@@ -778,34 +733,15 @@ if (dataLines.length > 0) {
 
 
 <!-- MOBILE MENU SCRIPT -->
-<script>
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("mobileMenuBtn");
   const menu = document.getElementById("mobileMenu");
-
-  if (!btn || !menu) return;
-
-  let isOpen = false;
-
-  // Ensure hidden on load
-  menu.classList.add("hidden");
-  btn.setAttribute("aria-expanded", "false");
-
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    isOpen = !isOpen;
-    menu.classList.toggle("hidden", !isOpen);
-    btn.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  // Click outside to close
-  document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !btn.contains(e.target) && isOpen) {
-      isOpen = false;
-      menu.classList.add("hidden");
-      btn.setAttribute("aria-expanded", "false");
-    }
-  });
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  }
 });
 </script>
 

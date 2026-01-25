@@ -8,14 +8,10 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body { font-family: 'Inter', sans-serif; }
+  body { font-family: 'Inter', sans-serif; background-color: #05050a; color: #f3f4f6; overflow-x: hidden; }
 
-/* NAVBAR GLASS STYLE */
-.nav-glass {
-  background: rgba(5,5,10,0.75);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+
+
 
 /* NAV ITEM UNDERLINE */
 .nav-item { position: relative; }
@@ -131,52 +127,48 @@ body { font-family: 'Inter', sans-serif; }
 <!-- ===================== -->
 <!-- NAVBAR -->
 <!-- ===================== -->
+<!-- Consistent NAVBAR for all pages -->
 <nav class="fixed top-0 w-full z-50 nav-glass relative h-[1px]">
-<div class="max-w-7xl mx-auto px-6 py-0"
-style="padding-top:0px; padding-bottom:0px;">
-
-    <div class="flex justify-between items-center">
+  <div class="max-w-7xl mx-auto px-6 py-0" style="padding-top:0px; padding-bottom:0px;">
+    <div class="flex justify-between items-center h-20">
       <!-- LOGO -->
-<a href="index.html" class="logo-container">
-  <img src="syntavixlogo.png" alt="Syntavix Logo" class="logo-img" />
-  <span class="logo-text">Syntavix</span>
-</a>
-
-<!-- DESKTOP MENU -->
-<ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
-  <li><a href="index.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-house"></i> Home</a></li>
-  <li><a href="services.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-  <li><a href="projects.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-  <li><a href="contact.html" class="nav-item inline-flex gap-2"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-</ul>
-
-<!-- MOBILE MENU BUTTON -->
-<button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
-  <i class="fa-solid fa-bars text-2xl"></i>
-</button>
-
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu"
-         class="md:hidden hidden absolute left-0 top-full w-full
-                bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
-                py-8 space-y-6 text-center uppercase tracking-widest">
-
-      <a href="index.html" class="block">Home</a>
-      <a href="services.html" class="block">Services</a>
-      <a href="projects.html" class="block">Projects</a>
-      <a href="contact.html" class="block">Contact</a>
-
-      <a href="contact.html"
-         class="inline-flex items-center gap-2 px-6 py-3 rounded-full
-                bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-                text-white text-sm">
-        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+      <a href="index.html" class="logo-container">
+        <span class="logo-text" style="opacity:1; transform:scale(1); position:static;">
+          Syntavix
+        </span>
       </a>
+      <!-- DESKTOP MENU -->
+      <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="services.html" class="nav-item">Services</a></li>
+        <li><a href="projects.html" class="nav-item">Projects</a></li>
+        <li><a href="contact.html" class="nav-item">Contact</a></li>
+      </ul>
+      <!-- MOBILE MENU BUTTON -->
+      <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+      <!-- MOBILE MENU -->
+      <div id="mobileMenu"
+           class="md:hidden hidden absolute left-0 top-full w-full
+                  bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
+                  py-8 space-y-6 text-center uppercase tracking-widest">
+        <a href="index.html" class="block">Home</a>
+        <a href="services.html" class="block">Services</a>
+        <a href="projects.html" class="block">Projects</a>
+        <a href="contact.html" class="block">Contact</a>
+        <a href="contact.html"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+                  bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
+                  text-white text-sm">
+          <i class="fa-solid fa-paper-plane"></i> Get in Touch
+        </a>
+      </div>
     </div>
   </div>
 </nav>
 
-<main class="pt-28">
+<main class="pt-[80px]">
 
 <!-- HERO (PROJECTS PAGE - PREMIUM HIGH-END DESIGN) -->
 <section class="relative min-h-[450px] flex items-center overflow-hidden text-white"
@@ -460,14 +452,15 @@ document.querySelectorAll('.particle, .shape').forEach(p => {
   </script>
 
   <!-- MOBILE MENU SCRIPT (ADD HERE) -->
- <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("mobileMenuBtn");
   const menu = document.getElementById("mobileMenu");
-
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  }
 });
 </script>
 

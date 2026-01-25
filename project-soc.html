@@ -11,7 +11,19 @@
 
 <style>
 body { font-family: 'Inter', sans-serif; }
-
+/* NAV ITEM UNDERLINE */
+.nav-item { position: relative; }
+.nav-item::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  transition: width .35s ease;
+}
+.nav-item:hover::after { width:100%; }
 /* ===== BRAND ===== */
 .text-brand {
   background: linear-gradient(90deg,#7a1f5c,#5b2b82);
@@ -148,16 +160,19 @@ body { font-family: 'Inter', sans-serif; }
 <nav class="fixed top-0 w-full z-50 nav-glass">
   <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
     <a href="index.html" class="logo-container">
-  <img src="syntavixlogo.png" alt="Syntavix Logo" class="logo-img" />
-  <span class="logo-text">Syntavix</span>
+  <span class="logo-text" style="opacity:1; transform:scale(1); position:static;">
+    Syntavix
+  </span>
 </a>
 
-    <ul class="hidden md:flex space-x-8 uppercase tracking-wide text-gray-200">
-      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="services.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-      <li><a href="projects.html"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-      <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-    </ul>
+
+    <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
+  <li><a href="index.html" class="nav-item">Home</a></li>
+  <li><a href="services.html" class="nav-item">Services</a></li>
+  <li><a href="projects.html" class="nav-item">Projects</a></li>
+  <li><a href="contact.html" class="nav-item">Contact</a></li>
+</ul>
+
 
     <button id="mobileMenuBtn" class="md:hidden text-2xl">
       <i class="fa-solid fa-bars"></i>
@@ -175,7 +190,7 @@ body { font-family: 'Inter', sans-serif; }
   </div>
 </nav>
 
-<main class="pt-28">
+<main class="pt-[80px]">
 
 <!-- ================= HERO ================= -->
 <section class="relative min-h-[85vh] flex items-center overflow-hidden">
