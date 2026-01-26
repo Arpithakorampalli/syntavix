@@ -114,17 +114,13 @@ body { font-family: 'Inter', sans-serif; }
 /* --- UPDATED LOGO TEXT WITH GRADIENT --- */
 .logo-text {
   position: absolute;
-  font-weight: 700; /* font-bold */
-  font-size: 2.5rem; /* Your requested size */
-  letter-spacing: normal; /* tracking-normal */
-  
-  /* Gradient Text Effect */
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: normal;
   background: linear-gradient(to right, #6a1b7e, #8b1e3f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-
-  /* Animation Logic */
   opacity: 0;
   transform: scale(0.6);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -133,7 +129,6 @@ body { font-family: 'Inter', sans-serif; }
   white-space: nowrap;
 }
 
-/* Hover State: Image disappears, Gradient Name appears */
 .logo-container:hover .logo-img {
   transform: scale(0.5);
   opacity: 0;
@@ -148,33 +143,23 @@ body { font-family: 'Inter', sans-serif; }
 
 <body class="bg-[#05050a] text-gray-100 overflow-x-hidden">
 
-<!-- ================= NAVBAR ================= -->
 <nav class="fixed top-0 w-full z-50 nav-glass">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-
-    <!-- LOGO LEFT -->
     <a href="index.html" class="logo-container">
-  <span class="logo-text" style="opacity:1; transform:scale(1); position:static;">
-    Syntavix
-  </span>
-</a>
+      <span class="logo-text" style="opacity:1; transform:scale(1); position:static;">Syntavix</span>
+    </a>
 
-
-    <!-- NAV ITEMS RIGHT -->
     <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
-  <li><a href="index.html" class="nav-item">Home</a></li>
-  <li><a href="services.html" class="nav-item">Services</a></li>
-  <li><a href="projects.html" class="nav-item">Projects</a></li>
-  <li><a href="contact.html" class="nav-item">Contact</a></li>
-</ul>
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="services.html" class="nav-item">Services</a></li>
+      <li><a href="projects.html" class="nav-item">Projects</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
 
-
-    <!-- MOBILE MENU BUTTON -->
     <button id="mobileMenuBtn" class="md:hidden text-white text-2xl p-2">
       <i class="fa-solid fa-bars text-2xl"></i>
     </button>
 
-    <!-- MOBILE MENU -->
     <div id="mobileMenu"
          class="md:hidden hidden absolute left-0 top-full w-full
                 bg-[rgba(5,5,10,0.96)] backdrop-blur-xl border-t border-white/10
@@ -184,106 +169,89 @@ body { font-family: 'Inter', sans-serif; }
       <a href="services.html" class="block">Services</a>
       <a href="projects.html" class="block">Projects</a>
       <a href="contact.html" class="block">Contact</a>
-
-      <a href="contact.html"
-         class="inline-flex items-center gap-2 px-6 py-3 rounded-full
-                bg-gradient-to-r from-[#6a1b7e] to-[#8b1e3f]
-                text-white text-sm">
-        <i class="fa-solid fa-paper-plane"></i> Get in Touch
-      </a>
     </div>
-
   </div>
 </nav>
 
 <main class="pt-[80px]">
 
-<!-- ================= HERO ================= -->
 <section class="relative min-h-[90vh] flex items-center overflow-hidden">
-
   <div class="ai-grid"></div>
   <div class="glow-core left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
-  <!-- Neural Streams -->
   <span class="stream left-[18%]"></span>
   <span class="stream left-[42%] delay-500"></span>
   <span class="stream left-[68%] delay-1000"></span>
 
   <div class="relative z-10 max-w-6xl mx-auto px-6">
     <p class="uppercase tracking-[0.35em] text-sm text-gray-400 mb-6">
-      Artificial Intelligence
+      ARYA – AI ETF Trading Assistant
     </p>
 
     <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-8">
-      Autonomous <span class="text-brand">AI Agent</span><br>
-      Systems Engineering
+      Real-Time <span class="text-brand">ETF Trading</span><br>
+      Intelligence
     </h1>
 
     <p class="text-xl text-gray-300 max-w-3xl">
-      We architect intelligent AI agents capable of reasoning,
-      planning, and executing complex enterprise workflows
-      with reliability, governance, and scale.
+      ARYA delivers real-time BUY / SELL / HOLD signals for ETFs using
+      multi-agent AI intelligence combining news, sentiment,
+      technical indicators, and macroeconomic data.
     </p>
   </div>
-
 </section>
 
-<!-- ================= PROBLEM ================= -->
 <section class="py-28 bg-black">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
     <div data-reveal>
-      <h2 class="text-4xl font-bold mb-6">Why Traditional Automation Fails</h2>
+      <h2 class="text-4xl font-bold mb-6">Why ARYA?</h2>
       <p class="text-gray-400 text-lg leading-relaxed">
-        Rule-based systems collapse under ambiguity.
-        Enterprises need adaptive intelligence, not scripts.
+        ARYA removes emotional bias and manual analysis by using
+        advanced AI reasoning for confident trading decisions.
       </p>
     </div>
 
-    <div class="border border-white/10 rounded-2xl p-10
-                bg-gradient-to-br from-white/5 to-transparent"
+    <div class="border border-white/10 rounded-2xl p-10 bg-gradient-to-br from-white/5 to-transparent"
          data-reveal>
       <ul class="space-y-4 text-gray-300">
-        <li>• Static decision trees</li>
-        <li>• No reasoning or context</li>
-        <li>• High operational cost</li>
-        <li>• Manual exception handling</li>
+        <li>• Real-Time ETF Signals</li>
+        <li>• Multi-Agent AI Architecture</li>
+        <li>• Advanced Reasoning Engine</li>
+        <li>• Smart Data Fusion</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- ================= SOLUTION ================= -->
 <section class="py-28 bg-[#f6f5f9] text-black">
   <div class="max-w-6xl mx-auto px-6">
 
     <h2 class="text-4xl font-extrabold mb-16" data-reveal>
-      Our AI Agent Architecture
+      How It Works
     </h2>
 
     <div class="grid md:grid-cols-3 gap-10">
 
       <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
-        <h3 class="font-bold text-xl mb-3">Cognitive Reasoning</h3>
+        <h3 class="font-bold text-xl mb-3">News Agent</h3>
         <p class="text-gray-600">
-          LLM-powered reasoning engines interpret intent,
-          constraints, and context dynamically.
+          Tracks real-time market and company updates.
         </p>
       </div>
 
       <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
-        <h3 class="font-bold text-xl mb-3">Tool Orchestration</h3>
+        <h3 class="font-bold text-xl mb-3">Sentiment Agent</h3>
         <p class="text-gray-600">
-          Secure execution of APIs, databases,
-          and enterprise systems.
+          Analyzes investor sentiment and news tone.
         </p>
       </div>
 
       <div class="p-8 rounded-2xl bg-white shadow" data-reveal>
-        <h3 class="font-bold text-xl mb-3">Observability & Control</h3>
+        <h3 class="font-bold text-xl mb-3">Technical & Macro Agents</h3>
         <p class="text-gray-600">
-          Full visibility, logging, and human-in-the-loop governance.
+          Interpret indicators, trends, and economic regimes.
         </p>
       </div>
 
@@ -291,7 +259,6 @@ body { font-family: 'Inter', sans-serif; }
   </div>
 </section>
 
-<!-- ================= SYSTEM FLOW ================= -->
 <section class="py-28 bg-[#05050a]">
   <div class="max-w-6xl mx-auto px-6">
 
@@ -301,54 +268,48 @@ body { font-family: 'Inter', sans-serif; }
 
     <div class="grid md:grid-cols-4 gap-8">
 
-      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
-           data-reveal>
+      <div class="border border-white/10 rounded-xl p-6" data-reveal>
         <span class="text-sm text-[#8b1e3f]">01</span>
-        <h3 class="font-bold mt-2">Input</h3>
-        <p class="text-gray-400 text-sm mt-2">Intent & context ingestion</p>
+        <h3 class="font-bold mt-2">Collect</h3>
+        <p class="text-gray-400 text-sm mt-2">Market data ingestion</p>
       </div>
 
-      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
-           data-reveal>
+      <div class="border border-white/10 rounded-xl p-6" data-reveal>
         <span class="text-sm text-[#8b1e3f]">02</span>
-        <h3 class="font-bold mt-2">Reason</h3>
-        <p class="text-gray-400 text-sm mt-2">Planning & decision logic</p>
+        <h3 class="font-bold mt-2">Analyze</h3>
+        <p class="text-gray-400 text-sm mt-2">Multi-agent reasoning</p>
       </div>
 
-      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
-           data-reveal>
+      <div class="border border-white/10 rounded-xl p-6" data-reveal>
         <span class="text-sm text-[#8b1e3f]">03</span>
-        <h3 class="font-bold mt-2">Act</h3>
-        <p class="text-gray-400 text-sm mt-2">Tool & system execution</p>
+        <h3 class="font-bold mt-2">Decide</h3>
+        <p class="text-gray-400 text-sm mt-2">BUY / SELL / HOLD output</p>
       </div>
 
-      <div class="border border-white/10 rounded-xl p-6 hover:bg-white/5 transition"
-           data-reveal>
+      <div class="border border-white/10 rounded-xl p-6" data-reveal>
         <span class="text-sm text-[#8b1e3f]">04</span>
-        <h3 class="font-bold mt-2">Learn</h3>
-        <p class="text-gray-400 text-sm mt-2">Feedback & optimization</p>
+        <h3 class="font-bold mt-2">Improve</h3>
+        <p class="text-gray-400 text-sm mt-2">Feedback optimization</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ================= IMPACT ================= -->
 <section class="py-28 bg-black text-center">
   <div class="max-w-5xl mx-auto px-6">
     <h2 class="text-4xl font-extrabold mb-8" data-reveal>
-      Enterprise Impact
+      Key Benefits
     </h2>
     <p class="text-xl text-gray-300 leading-relaxed" data-reveal>
-      • 60% reduction in manual operations<br>
-      • Faster decision cycles<br>
-      • Production-grade governance<br>
-      • Scalable AI automation
+      • Faster trading decisions<br>
+      • Reduced emotional bias<br>
+      • AI-driven market intelligence<br>
+      • Modular & enterprise-ready
     </p>
   </div>
 </section>
 
-<!-- ================= FOOTER NAV ================= -->
 <section class="py-20 bg-[#05050a] text-center">
   <a href="projects.html"
      class="inline-flex items-center gap-3 px-12 py-4 rounded-full
@@ -370,7 +331,6 @@ const obs = new IntersectionObserver(entries=>{
 },{threshold:0.2});
 reveal.forEach(el=>obs.observe(el));
 
-// Mobile menu toggle
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("mobileMenuBtn");
   const menu = document.getElementById("mobileMenu");
