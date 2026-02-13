@@ -10,19 +10,14 @@ app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  family: 4
 });
 
-transporter.verify((err, success) => {
-  if (err) console.log("Transport error:", err);
-  else console.log("Email server ready");
-});
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
