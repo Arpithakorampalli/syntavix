@@ -13,11 +13,14 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    pass: process.env.EMAIL_PASS // App password
   }
 });
 
-
+transporter.verify((err, success) => {
+  if (err) console.log("Transport error:", err);
+  else console.log("Email server ready");
+});
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
@@ -39,7 +42,7 @@ app.post('/api/contact', async (req, res) => {
 
   } catch (error) {
     console.error("Email error:", error);
-    res.status(500).json({ success: false, message: "Email failed" });
+    res.status(500).json({ success: false, message: "Email failed", error: error.message });
   }
 });
 
