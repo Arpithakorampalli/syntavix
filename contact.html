@@ -240,42 +240,39 @@ body.menu-open {
       <div class="space-y-5">
         <div class="info-card p-6 rounded-2xl bg-gray-800/70 border border-gray-700 transition-transform duration-300">
           <h3 class="font-semibold text-xl mb-2">📍 Address</h3>
-          <p class="text-gray-300">123 Innovation Avenue, Hyderabad, India</p>
+          <p class="text-gray-300">Hyderabad, India</p>
         </div>
         <div class="info-card p-6 rounded-2xl bg-gray-800/70 border border-gray-700 transition-transform duration-300">
           <h3 class="font-semibold text-xl mb-2">📧 Email</h3>
-          <p class="text-gray-300">contact@syntavix.com</p>
-        </div>
-        <div class="info-card p-6 rounded-2xl bg-gray-800/70 border border-gray-700 transition-transform duration-300">
-          <h3 class="font-semibold text-xl mb-2">📞 Phone</h3>
-          <p class="text-gray-300">+91 00 00000</p>
+          <p class="text-gray-300">syntavix@gmail.com</p>
         </div>
       </div>
     </div>
 
     <!-- RIGHT: Glassmorphic Form -->
     <div class="glass-card p-10 rounded-3xl shadow-2xl border border-white/20 z-10 relative">
-      <form class="space-y-6">
+            <form class="space-y-6" id="contactForm">
         <div>
-          <label class="block text-sm font-semibold mb-2">Full Name</label>
-          <input type="text" placeholder="Your Name"
-                 class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition">
+           <label class="block text-sm font-semibold mb-2" for="name">Full Name</label>
+           <input type="text" id="name" name="name" placeholder="Your Name"
+             class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition" required>
         </div>
         <div>
-          <label class="block text-sm font-semibold mb-2">Email Address</label>
-          <input type="email" placeholder="you@company.com"
-                 class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition">
+           <label class="block text-sm font-semibold mb-2" for="email">Email Address</label>
+           <input type="email" id="email" name="email" placeholder="you@company.com"
+             class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition" required>
         </div>
         <div>
-          <label class="block text-sm font-semibold mb-2">Message</label>
-          <textarea rows="5" placeholder="Tell us about your project"
-                    class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition"></textarea>
+           <label class="block text-sm font-semibold mb-2" for="message">Message</label>
+           <textarea id="message" name="message" rows="5" placeholder="Tell us about your project"
+                class="w-full p-4 rounded-xl border border-white/30 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#ff5e62] transition" required></textarea>
         </div>
         <button type="submit"
                 class="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-[#6a1b7e] to-[#ff5e62] hover:opacity-90 transition">
           Send Message
         </button>
       </form>
+            <div id="formStatus" class="mt-4 text-center text-lg font-semibold"></div>
 
       <!-- Floating Particles behind form -->
       <div class="absolute inset-0 pointer-events-none">
@@ -332,6 +329,38 @@ body.menu-open {
 
 <!-- ---------- JS for Random Particle Animation Speed ---------- -->
 <script>
+  // Contact form AJAX submission
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const statusDiv = document.getElementById("formStatus");
+    if (form) {
+      form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        statusDiv.textContent = "Sending...";
+        const formData = {
+          name: form.name.value,
+          email: form.email.value,
+          message: form.message.value
+        };
+        try {
+          const response = await fetch("http://localhost:3001/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+          });
+          const result = await response.json();
+          if (result.success) {
+            statusDiv.textContent = "Message sent successfully!";
+            form.reset();
+          } else {
+            statusDiv.textContent = "Failed to send message. Please try again.";
+          }
+        } catch (err) {
+          statusDiv.textContent = "Error sending message. Please try again.";
+        }
+      });
+    }
+  });
   const particles = document.querySelectorAll('.particle');
   particles.forEach(p => {
     const duration = Math.random() * 20 + 10; // 10s to 30s
