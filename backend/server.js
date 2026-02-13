@@ -12,11 +12,20 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
-  secure: false,
+  secure: false, // TLS
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    pass: process.env.EMAIL_PASS, // App password
+  },
+  requireTLS: true,
+  tls: {
+    ciphers: 'SSLv3'
   }
+});
+
+transporter.verify((err, success) => {
+  if (err) console.log("Transport error:", err);
+  else console.log("Email server ready");
 });
 
 app.post('/api/contact', async (req, res) => {
@@ -26,23 +35,23 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ success: false, message: "All fields required" });
   }
 
-  const mailOptions = {
-    from: `"Syntavix Contact" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_USER,
-    replyTo: email,
-    subject: `Contact Form Submission from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-  };
-
   try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true, message: "Message sent successfully" });
+    await transporter.sendMail({
+      from: `"Syntavix Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      replyTo: email,
+      subject: `Contact from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+    });
+
+    res.json({ success: true, message: "Message sent" });
+
   } catch (error) {
     console.error("Email error:", error);
-    res.status(500).json({ success: false, message: "Email failed" });
+    res.status(500).json({ success: false, message: "Email failed", error: error.message });
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
