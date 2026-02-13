@@ -1,7 +1,8 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-require('dotenv').config(); // optional if you use .env
+require('dotenv').config();
+require("dns").setDefaultResultOrder("ipv4first");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -11,10 +12,24 @@ app.use(express.json());
 
 // Email transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // must be false for 587
   auth: {
-    user: 'syntavix@gmail.com',                 // your gmail
-    pass: 'vnbm pxzn uxdq jovi'           // app password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+  tls: {
+    rejectUnauthorized: false   // 🔑 THIS FIXES YOUR ERROR
+  }
+});
+
+// Verify transporter
+transporter.verify((error, success) => {
+  if (error) {
+    console.log("Transporter error:", error);
+  } else {
+    console.log("Email server is ready");
   }
 });
 
@@ -26,9 +41,9 @@ app.post('/api/contact', async (req, res) => {
   }
 
   const mailOptions = {
-    from: '"Syntavix Contact" <syntavix@gmail.com>', // MUST be your Gmail
-    to: 'syntavix@gmail.com',
-    replyTo: email,  // user email here
+    from: `"Syntavix Contact" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_USER,
+    replyTo: email,
     subject: `Contact Form Submission from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
   };

@@ -20,6 +20,7 @@
     "browserslist": "^4.28.1",
     "caniuse-lite": "^1.0.30001763",
     "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
     "electron-to-chromium": "^1.5.267",
     "escalade": "^3.2.0",
     "express": "^5.2.1",
