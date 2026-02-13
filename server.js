@@ -20,7 +20,7 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS
   },
   tls: {
-    rejectUnauthorized: false   // 🔑 THIS FIXES YOUR ERROR
+    rejectUnauthorized: false
   }
 });
 
@@ -57,6 +57,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// 🔑 IMPORTANT: bind to 0.0.0.0 so mobile can access
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on http://192.168.7.6:${PORT}`);
 });
