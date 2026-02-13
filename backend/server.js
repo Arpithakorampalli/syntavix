@@ -11,16 +11,12 @@ app.use(express.json());
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // TLS
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // App password
+    pass: process.env.EMAIL_PASS,
   },
-  requireTLS: true,
-  tls: {
-    ciphers: 'SSLv3'
-  }
 });
 
 transporter.verify((err, success) => {
@@ -48,7 +44,7 @@ app.post('/api/contact', async (req, res) => {
 
   } catch (error) {
     console.error("Email error:", error);
-    res.status(500).json({ success: false, message: "Email failed", error: error.message });
+    res.status(500).json({ success: false, message: "Email failed" });
   }
 });
 
