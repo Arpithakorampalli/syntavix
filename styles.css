@@ -179,3 +179,57 @@ footer {
     transform: translateX(-50%);
   }
 }
+
+/* ================================ */
+/* MOBILE OPTIMIZATION (Responsive) */
+/* ================================ */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    padding: 0 4px;
+  }
+  h1, h2, h3 {
+    font-size: 1.3em !important;
+    line-height: 1.2 !important;
+  }
+  .case-study {
+    padding: 40px 2% !important;
+  }
+  .case-container {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .case-card {
+    padding: 18px !important;
+    border-radius: 10px !important;
+    font-size: 15px !important;
+  }
+  .case-card h3 {
+    font-size: 20px !important;
+  }
+  .tech {
+    font-size: 13px !important;
+  }
+  .btn-primary {
+    padding: 0.5rem 1.2rem !important;
+    font-size: 1em !important;
+  }
+  nav, .nav-glass {
+    height: 56px !important;
+    min-height: 56px !important;
+  }
+  .logo {
+    width: 140px !important;
+    padding: 10px !important;
+    font-size: 1em !important;
+  }
+  .logo-slider {
+    height: 60px !important;
+  }
+  .logo-track {
+    min-width: 1200px !important;
+  }
+  section {
+    scroll-margin-top: 60px !important;
+  }
+}
