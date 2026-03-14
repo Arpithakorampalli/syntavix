@@ -26,8 +26,7 @@
 }
 body.menu-open {
   overflow: hidden;
-}
-    
+}    
     body { font-family: 'Inter', sans-serif; background-color: #05050a; color: #f3f4f6; overflow-x: hidden; }
 /* NAVBAR GLASS EFFECT */
 .nav-glass {
@@ -505,6 +504,78 @@ if (dataLines.length > 0) {
     <!-- Core Capabilities Section -->
 <div class="mt-32 relative z-10 p-12 rounded-3xl"
      style="background: linear-gradient(to top right, #141214, #a360b3, #7b0349); box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
+<!-- ===================== -->
+<!-- TRUSTED CLIENTS SECTION -->
+<!-- CLIENTS / PARTNERS -->
+<section class="clients-section">
+  <h2>Trusted Clients</h2>
+  <div class="slider-wrapper">
+    <div class="slider-track">
+      <div class="logo">GLoaf Pvt Ltd</div>
+      <div class="logo">Zion Lifts</div>
+      <div class="logo">Amigo Techno Park Pvt Ltd</div>
+      <div class="logo">Future Client</div>
+      <div class="logo">GLoaf Pvt Ltd</div>
+      <div class="logo">Zion Lifts</div>
+      <div class="logo">Amigo Techno Park Pvt Ltd</div>
+      <div class="logo">Future Client</div>
+    </div>
+  </div>
+</section>
+
+<style>
+.clients-section {
+  padding: 80px 0;
+  text-align: center;
+  background: #05050a;
+  color: white;
+}
+.clients-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+.slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  height: 100px;
+  position: relative;
+}
+.slider-track {
+  display: flex;
+  width: calc(250px * 8);
+  animation: scroll-logos 18s linear infinite;
+}
+.logo {
+  width: 250px;
+  padding: 20px;
+  margin: 10px;
+  background: #111;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(106,27,126,0.12);
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo:hover {
+  transform: scale(1.07);
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  color: #fff;
+}
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+</style>
 
   <h3 class="text-3xl md:text-4xl font-bold text-white text-center mb-16" data-aos="fade-up">Our Core Capabilities</h3>
 

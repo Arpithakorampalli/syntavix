@@ -68,6 +68,7 @@ a:hover {
   box-shadow: 0 14px 35px rgba(107, 27, 126, 0.35);
 }
 
+
 /* ================================
    CARDS (Services / Projects)
    ================================ */
@@ -123,4 +124,58 @@ section {
 footer {
   font-size: 0.875rem;
   color: #e5e7eb;
+}
+
+.clients-section {
+  padding: 80px 0;
+  text-align: center;
+  background: #05050a;
+  color: white;
+}
+
+.clients-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(250px * 8);
+  animation: scroll 20s linear infinite;
+}
+
+.logo {
+  width: 250px;
+  padding: 20px;
+  margin: 10px;
+  background: #111;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(106,27,126,0.12);
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.07);
+  background: linear-gradient(90deg,#6a1b7e,#8b1e3f);
+  color: #fff;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

@@ -222,6 +222,98 @@ body.menu-open {
   </svg>
 </section>
 
+<!-- ===================== -->
+<!-- CLIENT PROJECTS -->
+<!-- ===================== -->
+<section class="case-study">
+
+<h2>Client Projects</h2>
+
+<div class="case-container">
+
+<div class="case-card">
+<h3>Audio Book Platform</h3>
+<p><strong>Client:</strong> GLoaf Pvt Ltd</p>
+<p>AI-powered audiobook system for digital publishing and narration automation.</p>
+<p class="tech">Technologies: AI, Python, Voice Processing</p>
+</div>
+
+<div class="case-card">
+<h3>Lift Engineering Design</h3>
+<p><strong>Client:</strong> Zion Lifts</p>
+<p>Engineering design platform supporting elevator system planning and infrastructure modeling.</p>
+<p class="tech">Technologies: Mechanical Design, System Modeling</p>
+</div>
+
+<div class="case-card">
+<h3>Flood Simulation & Geo Survey</h3>
+<p><strong>Client:</strong> Amigo Techno Park Pvt Ltd</p>
+<p>Flood simulation and Geo survey Management platform for environmental analysis and disaster planning.</p>
+<p class="tech">Technologies: Geospatial Analysis, Simulation, Survey Management</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Custom Case Study Styles: overrides Tailwind -->
+<style>
+.case-study {
+  padding: 80px 10% !important;
+  background: #f5f5f5 !important;
+  text-align: center !important;
+}
+.case-study h2 {
+  font-size: 40px !important;
+  margin-bottom: 48px !important;
+  color: #4a1236 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+}
+.case-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit,minmax(340px,1fr)) !important;
+  gap: 36px !important;
+}
+.case-card {
+  background: linear-gradient(135deg, #fff 80%, #f4a5c1 100%) !important;
+  padding: 36px !important;
+  border-radius: 18px !important;
+  box-shadow: 0px 8px 32px rgba(106,27,126,0.13), 0 2px 8px rgba(139,30,63,0.08) !important;
+  border: 2px solid #e6d9ea !important;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s !important;
+  text-align: left !important;
+}
+.case-card:hover {
+  transform: translateY(-12px) scale(1.03) !important;
+  box-shadow: 0px 16px 48px rgba(106,27,126,0.18), 0 4px 16px rgba(139,30,63,0.12) !important;
+  border-color: #6a1b7e !important;
+}
+.case-card h3 {
+  color: #6a1b7e !important;
+  margin-bottom: 14px !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+}
+.case-card p {
+  color: #2d2d2d !important;
+  font-size: 17px !important;
+  margin-bottom: 8px !important;
+  font-weight: 500 !important;
+}
+.case-card strong {
+  color: #8b1e3f !important;
+  font-weight: 700 !important;
+}
+.tech {
+  margin-top: 14px !important;
+  font-size: 15px !important;
+  color: #6a1b7e !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+}
+</style>
+
 <style>
 /* Gold gradient text */
 .text-gradient-gold {
