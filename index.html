@@ -131,17 +131,42 @@ html, body {
   </style>
 </head>
 
+
+
 <body>
   <!-- Consistent NAVBAR for all pages -->
 <nav class="fixed top-0 w-full z-50 nav-glass relative h-[1px]">
   <div class="max-w-7xl mx-auto px-6 py-0" style="padding-top:0px; padding-bottom:0px;">
     <div class="flex justify-between items-center h-20">
       <!-- LOGO -->
-      <a href="index.html" class="logo-container">
-        <span class="logo-text" style="opacity:1; transform:scale(1); position:static;">
-          Syntavix
-        </span>
-      </a>
+      <a href="index.html" class="logo-container flex flex-col items-start">
+  <span class="logo-text" style="opacity:1; transform:scale(1); position:static;">
+    Syntavix
+  </span>
+  <span class="tagline-nav">
+  Intelligence in Action
+</span>
+
+<style>
+.tagline-nav {
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: -6px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg,#ffffff,#c084fc,#f472b6,#ffffff);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineText 6s linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes shineText {
+  0% { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+</style>
+</a>
       <!-- DESKTOP MENU -->
       <ul class="hidden md:flex space-x-8 text-base uppercase tracking-wide text-gray-200">
         <li><a href="index.html" class="nav-item">Home</a></li>
@@ -211,18 +236,57 @@ html, body {
 
   <!-- HERO CONTENT -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 mt-16">
-    <h1 class="t ext-5xl md:text-6xl font-extrabold leading-tight mb-6">
-
-  <span
-    style="
-      color:#f3e8ff;
-      letter-spacing:0.02em;
-    "
-  >
-Empowering the World with Intelligent Technology
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+  <span style="color:#f3e8ff; letter-spacing:0.02em;">
+    Empowering the World with Intelligent Technology
   </span>
-
 </h1>
+
+<p class="hero-tagline">
+  <span>Syntavix</span>
+  <span class="divider"></span>
+  <span>Intelligence in Action</span>
+</p>
+
+<style>
+.hero-tagline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  color: #e0c3fc;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1.2s ease forwards 0.5s;
+}
+
+.hero-tagline span:first-child {
+  font-weight: 600;
+  color: white;
+}
+
+.hero-tagline .divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right,#c084fc,#f472b6);
+}
+
+.hero-tagline span:last-child {
+  background: linear-gradient(to right,#c084fc,#f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
 
     <div class="bg-gradient-to-r from-[#6a1b7e]/10 to-[#ff5e62]/10 rounded-2xl p-8 mb-10 shadow-lg border border-[#6a1b7e]/20">
   <h2 class="text-2xl font-bold mb-4 text-[#270c30]">About Syntavix</h2>
@@ -782,6 +846,100 @@ if (dataLines.length > 0) {
 </section>
 
 
+<!-- ===================== -->
+<!-- SPIRIT OF SYNTAVIX -->
+<!-- ===================== -->
+<section class="relative py-28 overflow-hidden"
+         style="background: linear-gradient(135deg, #05050a 0%, #1a0a2e 50%, #3b0f4d 100%);">
+
+  <!-- Background Glow Effects -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute w-[500px] h-[500px] bg-[#6a1b7e] opacity-20 blur-[140px] rounded-full top-[-100px] left-[-100px]"></div>
+    <div class="absolute w-[400px] h-[400px] bg-[#8b1e3f] opacity-20 blur-[120px] rounded-full bottom-[10%] right-[5%]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-20" data-aos="fade-up">
+      <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-6">
+        The Spirit of Syntavix
+      </h2>
+      <p class="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
+        The Spirit of Syntavix lies at the heart of our organization. It defines our culture, drives our decisions, and reflects our unwavering commitment to innovation, integrity, and excellence. Through these values, we strive to deliver transformative solutions and create lasting impact for our clients and society.
+      </p>
+    </div>
+
+    <!-- Values Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Value 1 -->
+      <div class="spirit-card p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 text-center" data-aos="fade-up" data-aos-delay="100">
+        <i class="fa-solid fa-lightbulb text-3xl mb-4 text-[#facc15]"></i>
+        <h3 class="text-xl font-bold mb-2">Innovation First</h3>
+        <p class="text-gray-300 text-sm">We constantly push boundaries to create intelligent and future-ready solutions.</p>
+      </div>
+
+      <!-- Value 2 -->
+      <div class="spirit-card p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 text-center" data-aos="fade-up" data-aos-delay="200">
+        <i class="fa-solid fa-shield-halved text-3xl mb-4 text-[#38bdf8]"></i>
+        <h3 class="text-xl font-bold mb-2">Integrity Always</h3>
+        <p class="text-gray-300 text-sm">We act with transparency, trust, and strong ethical values in everything we do.</p>
+      </div>
+
+      <!-- Value 3 -->
+      <div class="spirit-card p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 text-center" data-aos="fade-up" data-aos-delay="300">
+        <i class="fa-solid fa-star text-3xl mb-4 text-[#f472b6]"></i>
+        <h3 class="text-xl font-bold mb-2">Excellence Driven</h3>
+        <p class="text-gray-300 text-sm">We deliver high-quality solutions with precision and performance.</p>
+      </div>
+
+      <!-- Value 4 -->
+      <div class="spirit-card p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 text-center" data-aos="fade-up" data-aos-delay="400">
+        <i class="fa-solid fa-user-check text-3xl mb-4 text-[#4ade80]"></i>
+        <h3 class="text-xl font-bold mb-2">Ownership</h3>
+        <p class="text-gray-300 text-sm">We take responsibility and deliver with commitment and accountability.</p>
+      </div>
+
+      <!-- Value 5 -->
+      <div class="spirit-card p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 text-center" data-aos="fade-up" data-aos-delay="500">
+        <i class="fa-solid fa-people-group text-3xl mb-4 text-[#a78bfa]"></i>
+        <h3 class="text-xl font-bold mb-2">Collaboration</h3>
+        <p class="text-gray-300 text-sm">We grow together through teamwork, respect, and shared vision.</p>
+      </div>
+
+      <!-- Value 6 -->
+      <div class="spirit-card p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 text-center" data-aos="fade-up" data-aos-delay="600">
+        <i class="fa-solid fa-globe text-3xl mb-4 text-[#fb7185]"></i>
+        <h3 class="text-xl font-bold mb-2">Global Impact</h3>
+        <p class="text-gray-300 text-sm">We build solutions that create meaningful impact across industries worldwide.</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom Statement -->
+    <div class="mt-20 text-center" data-aos="fade-up" data-aos-delay="300">
+      <p class="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+        These values define the Spirit of Syntavix — driving us to innovate, lead with integrity, and deliver transformative solutions that empower businesses and shape the future.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Hover Effect -->
+<style>
+.spirit-card {
+  transition: all 0.4s ease;
+}
+.spirit-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(106,27,126,0.4);
+  border-color: rgba(255,255,255,0.3);
+}
+</style>
+
+
 
 <!-- BOTTOM STATEMENT -->
 <div class="mt-20 py-12 text-center"
@@ -815,8 +973,44 @@ if (dataLines.length > 0) {
 
 <!-- FOOTER -->
 <footer class="bg-black text-white py-8">
-  <div class="max-w-7xl mx-auto text-center text-sm">
-    © 2026 Syntavix. All rights reserved.
+  <div class="max-w-7xl mx-auto text-center text-sm space-y-2">
+    
+    <p class="footer-tagline">
+  Intelligence in Action
+</p>
+
+<style>
+.footer-tagline {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-tagline::before,
+.footer-tagline::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right,#6a1b7e,#8b1e3f);
+}
+
+.footer-tagline::before {
+  right: 110%;
+}
+.footer-tagline::after {
+  left: 110%;
+}
+</style>
+
+    <p>
+      © 2026 Syntavix. All rights reserved.
+    </p>
+
   </div>
 </footer>
 

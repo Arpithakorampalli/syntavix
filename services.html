@@ -600,8 +600,44 @@ body.menu-open {
 
 <!-- FOOTER -->
 <footer class="bg-black text-white py-8">
-  <div class="max-w-7xl mx-auto text-center text-sm">
-    © 2026 Syntavix. All rights reserved.
+  <div class="max-w-7xl mx-auto text-center text-sm space-y-2">
+    
+    <p class="footer-tagline">
+  Intelligence in Action
+</p>
+
+<style>
+.footer-tagline {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-tagline::before,
+.footer-tagline::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right,#6a1b7e,#8b1e3f);
+}
+
+.footer-tagline::before {
+  right: 110%;
+}
+.footer-tagline::after {
+  left: 110%;
+}
+</style>
+
+    <p>
+      © 2026 Syntavix. All rights reserved.
+    </p>
+
   </div>
 </footer>
 
